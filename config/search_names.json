@@ -1,0 +1,6 @@
+{
+  "_readme": "Places whose in-game search spelling differs from their real name. Left side is the name our map and voice commands use; right side is exactly what gets typed into Star Citizen's search box. Add a line whenever a search comes up empty in game but the name is right here. Everything not listed is pasted unchanged.",
+  "names": {
+    "Area 18": "Area18"
+  }
+}

@@ -1,0 +1,763 @@
+{
+  "_readme": "Each command matches spoken phrases (fuzzy-matched) to keyboard actions sent to Star Citizen. Entries marked 'verified': false use my best-known DEFAULT Star Citizen keybinds and are NOT guaranteed current for your patch/HOTAS setup. Test each one in a safe spot (Arena Commander or docked at a station) and fix the 'keys' field in this file if it doesn't match what's in your Options > Keybindings screen. Key names follow the pydirectinput/win32 naming: single letters, 'f1'-'f12', 'space', 'enter', 'down', 'esc', etc.  Each command also carries display_name / category / key_label, which are what the printable Voice Command Reference is generated from -- run tools/make_reference.py after editing so the poster cannot drift.",
+  "settings": {
+    "target_window_title": "Star Citizen",
+    "require_focused_window": true,
+    "default_step_wait_ms": 350,
+    "ptt_key": "right ctrl",
+    "whisper_model": "tiny.en",
+    "whisper_device": "cpu",
+    "whisper_compute_type": "int8",
+    "whisper_cpu_threads": 4,
+    "match_threshold": 72,
+    "sample_rate": 16000,
+    "ptt_joystick_device": 0,
+    "ptt_joystick_button": 4,
+    "ptt_gamepad_button": "X",
+    "ptt_joystick_name": "X56 H.O.T.A.S. Throttle",
+    "voice_pack": "",
+    "_voice_pack_note": "Name of a subfolder inside voice_acks/ to use for spoken acknowledgements. Empty = the built-in voice. A pack is just a folder of <command_id>.wav files -- drop one in and name it here.",
+    "fallback_tts": true,
+    "_fallback_tts_note": "true = commands with no recorded clip are read out by the built-in robot voice. false = they stay silent until a real clip exists. Set a single command to never speak with \"silent\": true on that command.",
+    "_category_order": [
+      "Comms & Systems",
+      "Flight & Navigation",
+      "Power Management",
+      "Doors, Ports & Access",
+      "Emergency",
+      "Radar & Operator Modes"
+    ],
+    "control_scheme": "keyboard_default",
+    "_control_scheme_note": "Which file in config/schemes/ decides what each command actually presses. Copy keyboard_default.json, edit the keys to match YOUR layout, and name it here -- your spoken phrases never change.",
+    "listen_mode": "ptt"
+  },
+  "commands": [
+    {
+      "id": "open_mobiglas",
+      "phrases": [
+        "open mobiglas",
+        "bring up mobiglas",
+        "computer open mobiglas"
+      ],
+      "ack": "mobiGlas online.",
+      "notes": "F1 has been the mobiGlas toggle across many patches. Still double check.",
+      "display_name": "Open MobiGlas",
+      "category": "Comms & Systems"
+    },
+    {
+      "id": "close_mobiglas",
+      "phrases": [
+        "close mobiglas",
+        "put away mobiglas"
+      ],
+      "ack": "mobiGlas closed.",
+      "notes": "Same toggle key as open.",
+      "display_name": "Close MobiGlas",
+      "category": "Comms & Systems"
+    },
+    {
+      "id": "confirm_route",
+      "phrases": [
+        "route",
+        "set route",
+        "confirm route",
+        "lock it in",
+        "set gps",
+        "gps",
+        "set course",
+        "set location",
+        "set destination",
+        "mark location",
+        "confirm gps",
+        "lock in route",
+        "engage route",
+        "go there",
+        "set it"
+      ],
+      "ack": "Route set.",
+      "notes": "User-confirmed key: R alone. Used with a destination already searched/highlighted on the map (e.g. via GameGlass or manual click) -- this just confirms the route. The auto-type-destination version (set_route) was removed by request; this is the only route command now.",
+      "display_name": "Route (Confirm)",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "open_map",
+      "phrases": [
+        "open map",
+        "open world map",
+        "bring up the map",
+        "star map",
+        "close map",
+        "close world map",
+        "put away the map",
+        "exit map"
+      ],
+      "ack": "Map online.",
+      "notes": "F2 toggles the starmap, so one command carries both wordings. Do NOT add a separate close command: it duplicates these phrases and the two score identically, so the wrong one can win.",
+      "display_name": "Open / Close Map",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "engage_quantum_drive",
+      "phrases": [
+        "engage quantum drive",
+        "engage quantum travel",
+        "engage",
+        "make the jump",
+        "punch it",
+        "jump drive",
+        "jump drive request",
+        "activate quantum drive",
+        "spool quantum drive",
+        "spool the drive",
+        "spool up",
+        "let's go",
+        "hit it",
+        "engage when ready",
+        "make it so",
+        "let's fly",
+        "energize",
+        "go to warp",
+        "hold on to your butts",
+        "rip it",
+        "hold on to your shit",
+        "we about to be out of here"
+      ],
+      "ack": "Quantum drive engaged.",
+      "notes": "Hold Mouse Button 1. Confirmed against Star Citizen's own defaultProfile.xml: v_toggle_qdrive_engagement has keyboard='mouse1'. hold_ms raised 1500 -> 3000 by Obly on 2026-08-21; the original 1500 was an untested guess flagged in the README, this is his tuned value. Needs a target already selected. Deliberately does NOT touch NAV mode -- see the nav_mode command -- because that key is a toggle and could flip the wrong way if already in NAV. DESIGN DECISION: the hold blocks the command loop for its full duration; accepted, same as boost / autoland / spacebrake.",
+      "display_name": "Engage Quantum Drive",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "nav_mode",
+      "phrases": [
+        "nav mode",
+        "switch to nav mode",
+        "cruise mode",
+        "toggle nav mode",
+        "scm mode",
+        "switch to scm",
+        "quantum mode",
+        "enable quantum mode",
+        "switch to quantum mode",
+        "master mode",
+        "switch master mode"
+      ],
+      "ack": "Mode Changed.",
+      "notes": "User-confirmed key: hold B, described as 'a long hold'. hold_ms=2000 is a guess at how long -- watch in-game whether it actually triggers the switch and tune. This is a TOGGLE (SCM<->NAV), not a direct select, so saying it twice in a row flips back. Hold time normalised into Obly's 3-5 second band on 2026-08-21.",
+      "display_name": "Nav Mode / Master Mode",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "landing_gear",
+      "phrases": [
+        "landing gear",
+        "toggle landing gear",
+        "gear down",
+        "gear up",
+        "landing gear up",
+        "landing gear down",
+        "drop the gear",
+        "wheels up",
+        "wheels down"
+      ],
+      "ack": "Landing gear toggled.",
+      "notes": "User-confirmed key: N. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15).",
+      "display_name": "Landing Gear",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "autoland",
+      "phrases": [
+        "autoland",
+        "auto land",
+        "engage autoland",
+        "takeover",
+        "take over",
+        "land ship",
+        "land the ship",
+        "land"
+      ],
+      "ack": "Autoland engaged.",
+      "notes": "Holds N (as in Nancy) for 6000 ms -- set by Obly on 2026-08-21, up from 2500 ms, because autoland needs the key held longer than five seconds to take. Confirmed against Star Citizen's own defaultProfile.xml: v_autoland defaults to 'n' with activationMode 'delayed_press', i.e. the game deliberately requires a long hold, which is what separates it from landing_gear (same key, tap). DESIGN DECISION (Obly, 2026-08-21): the hold blocks the command loop for its full duration, so no other voice command can fire while it runs. Accepted deliberately -- the in-game action takes that long anyway, so there is nothing useful to say mid-action. Do not 'fix' this by moving holds to a background thread without asking; it was raised and declined.",
+      "display_name": "Autoland",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "toggle_vtol",
+      "phrases": [
+        "toggle vtol",
+        "vtol"
+      ],
+      "ack": "VTOL toggled.",
+      "notes": "User-confirmed key: K. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15).",
+      "display_name": "Toggle VTOL",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "cycle_flight_configuration",
+      "phrases": [
+        "cycle configuration",
+        "cycle flight configuration"
+      ],
+      "ack": "Flight configuration cycled.",
+      "notes": "User-confirmed: Left Alt + K.",
+      "display_name": "Cycle Flight Configuration",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "request_landing",
+      "phrases": [
+        "request landing",
+        "contact tower",
+        "contact atc",
+        "request landing clearance",
+        "atc",
+        "request departure",
+        "depart",
+        "request takeoff",
+        "request permission to disembark",
+        "permission to leave",
+        "contact station",
+        "contact space station"
+      ],
+      "ack": "Requesting landing clearance.",
+      "notes": "User-confirmed: Left Alt + N. User normally does this via a GameGlass panel button, so give this one extra scrutiny on the first live test.",
+      "display_name": "Request Landing / Departure",
+      "category": "Comms & Systems"
+    },
+    {
+      "id": "toggle_power_thrusters",
+      "phrases": [
+        "[toggle;] power to [thrusters;engines]; toggle [thruster;engine] power; [thrusters;engines] power [on;off]"
+      ],
+      "ack": "Thruster power toggled.",
+      "notes": "User-confirmed key: I. Master on/off for thrusters/engines (user uses both words interchangeably). Distinct from the engine power pip (F6). Phrases require the word 'toggle' or 'on'/'off' so this doesn't collide with raise_power_engines / lower_power_engines / full_power_engines. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15).",
+      "_grammar": true,
+      "display_name": "Toggle Power — Thrusters/Engines",
+      "category": "Power Management"
+    },
+    {
+      "id": "toggle_power_shields",
+      "phrases": [
+        "[toggle;] power to shields; toggle shield power; shields power [on;off]"
+      ],
+      "ack": "Shield power toggled.",
+      "notes": "User-confirmed key: O. Master on/off for shields, distinct from the shield power pip (F7). Phrases require 'toggle' or 'on'/'off' to avoid colliding with raise/lower/full power commands. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15).",
+      "_grammar": true,
+      "display_name": "Toggle Power — Shields",
+      "category": "Power Management"
+    },
+    {
+      "id": "toggle_power_weapons",
+      "phrases": [
+        "[toggle;] power to [weapons;guns]; toggle [weapon;weapons] power; [weapons;guns] power [on;off]"
+      ],
+      "ack": "Weapon power toggled.",
+      "notes": "User-confirmed key: P. Master on/off for weapons, distinct from the weapon power pip (F5). Phrases require 'toggle' or 'on'/'off' to avoid colliding with raise/lower/full power commands. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15).",
+      "_grammar": true,
+      "display_name": "Toggle Power — Weapons",
+      "category": "Power Management"
+    },
+    {
+      "id": "full_power_weapons",
+      "phrases": [
+        "[full;max;maximum;all] power [to;] [weapons;guns]"
+      ],
+      "ack": "Full power to weapons.",
+      "notes": "Rebuilt (2026-08-15) from a community keybind reference (nomans.space) confirming F5 has a dedicated 'hold = set to max' behavior -- replaces the old tap-6-times hack. hold_ms=1500 is still a GUESS at how long the hold needs to be; watch the power triangle UI in-game and tune. Hold time normalised into Obly's 3-5 second band on 2026-08-21.",
+      "_grammar": true,
+      "display_name": "Full Power — Weapons",
+      "category": "Power Management"
+    },
+    {
+      "id": "full_power_engines",
+      "phrases": [
+        "[full;max;maximum;all] power [to;] [engines;thrusters]"
+      ],
+      "ack": "Full power to engines.",
+      "notes": "Same fix as full_power_weapons, using F6's hold-to-max behavior per the same reference. hold_ms=1500 still a GUESS -- verify against the in-game power triangle. 'thrusters' and 'engines' phrasing both work, per user. Hold time normalised into Obly's 3-5 second band on 2026-08-21.",
+      "_grammar": true,
+      "display_name": "Full Power — Engines",
+      "category": "Power Management"
+    },
+    {
+      "id": "full_power_shields",
+      "phrases": [
+        "[full;max;maximum;all] power [to;] shields"
+      ],
+      "ack": "Full power to shields.",
+      "notes": "Same fix as full_power_weapons, using F7's hold-to-max behavior per the same reference. hold_ms=1500 still a GUESS -- verify against the in-game power triangle. Hold time normalised into Obly's 3-5 second band on 2026-08-21.",
+      "_grammar": true,
+      "display_name": "Full Power — Shields",
+      "category": "Power Management"
+    },
+    {
+      "id": "raise_power_weapons",
+      "phrases": [
+        "[raise;increase;up;more;boost] power to [weapons;guns]; [raise;increase;up] [weapon;weapons;gun] power; power up [weapons;guns]"
+      ],
+      "ack": "Raising power to weapons.",
+      "notes": "User-confirmed: tap F5 to nudge weapon power pip up one step. See KNOWN ISSUE on lower_power_shields -- same multi-pip-per-tap suspicion likely applies here too, not yet confirmed either way for weapons specifically. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15), which also confirms F5 held (not tapped) = set to max -- see full_power_weapons.",
+      "_grammar": true,
+      "display_name": "Raise Power — Weapons",
+      "category": "Power Management"
+    },
+    {
+      "id": "lower_power_weapons",
+      "phrases": [
+        "[lower;decrease;reduce;drop;less] power to [weapons;guns]; [lower;decrease;reduce] [weapon;weapons;gun] power; power down [weapons;guns]"
+      ],
+      "ack": "Lowering power to weapons.",
+      "notes": "User-confirmed: F5 + Left Alt to nudge weapon power pip down one step. See KNOWN ISSUE on lower_power_shields -- same multi-pip-per-tap suspicion likely applies here too, not yet confirmed either way for weapons specifically. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15).",
+      "_grammar": true,
+      "display_name": "Lower Power — Weapons",
+      "category": "Power Management"
+    },
+    {
+      "id": "raise_power_engines",
+      "phrases": [
+        "[raise;increase;up;more;boost] power to [engines;thrusters]; [raise;increase;up] [engine;engines;thruster;thrusters] power; power up [engines;thrusters]"
+      ],
+      "ack": "Raising power to engines.",
+      "notes": "User-confirmed: tap F6 to nudge engine/thruster power pip up one step. 'thrusters' and 'engines' phrasing both work, per user. See KNOWN ISSUE on lower_power_shields -- same multi-pip-per-tap suspicion likely applies here too, not yet confirmed either way for engines specifically. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15), which also confirms F6 held (not tapped) = set to max -- see full_power_engines.",
+      "_grammar": true,
+      "display_name": "Raise Power — Engines",
+      "category": "Power Management"
+    },
+    {
+      "id": "lower_power_engines",
+      "phrases": [
+        "[lower;decrease;reduce;drop;less] power to [engines;thrusters]; [lower;decrease;reduce] [engine;engines;thruster;thrusters] power; power down [engines;thrusters]"
+      ],
+      "ack": "Lowering power to engines.",
+      "notes": "User-confirmed: F6 + Left Alt to nudge engine/thruster power pip down one step. See KNOWN ISSUE on lower_power_shields -- same multi-pip-per-tap suspicion likely applies here too, not yet confirmed either way for engines specifically. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15).",
+      "_grammar": true,
+      "display_name": "Lower Power — Engines",
+      "category": "Power Management"
+    },
+    {
+      "id": "raise_power_shields",
+      "phrases": [
+        "[raise;increase;up;more;boost] power to shields; [raise;increase;up] [shield;shields] power; power up shields"
+      ],
+      "ack": "Raising power to shields.",
+      "notes": "User-confirmed: tap F7 to nudge shield power pip up one step. KNOWN ISSUE (2026-08-15): user reported no visible movement in-game. Likely related to the same hold-duration issue as lower_power_shields -- untouched until user wants to chase it. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15), which also confirms F7 held (not tapped) = set to max -- see full_power_shields.",
+      "_grammar": true,
+      "display_name": "Raise Power — Shields",
+      "category": "Power Management"
+    },
+    {
+      "id": "lower_power_shields",
+      "phrases": [
+        "[lower;decrease;reduce;drop;less] power to shields; [lower;decrease;reduce] [shield;shields] power; power down shields"
+      ],
+      "ack": "Lowering power to shields.",
+      "notes": "User-confirmed: F7 + Left Alt to nudge shield power pip down one step. KNOWN ISSUE (2026-08-15): user reported it drops several pips instead of one. Suspected cause: Star Citizen's power pips may shift continuously while the key is held (not a single discrete step per tap), and this script's default ~50ms hold may be long enough to register multiple ticks. Candidate fix, not yet applied: shorten the hold duration (near-instant tap) via a lower hold_ms on the keypress. User said this is fine to leave for now. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15).",
+      "_grammar": true,
+      "display_name": "Lower Power — Shields",
+      "category": "Power Management"
+    },
+    {
+      "id": "headlights",
+      "phrases": [
+        "headlights",
+        "toggle headlights",
+        "lights",
+        "headlights on",
+        "headlights off",
+        "turn on the lights",
+        "turn off the lights",
+        "activate lights",
+        "activate the light",
+        "activate the lights",
+        "lights on",
+        "lights off"
+      ],
+      "ack": "Headlights toggled.",
+      "notes": "User-confirmed key: L. This is a single toggle key, not separate on/off binds -- every phrase here just flips current state. If Star Citizen has a distinct 'lights on' vs 'lights off' bind, tell me and this can be split into two real commands instead. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15).",
+      "display_name": "Headlights",
+      "category": "Comms & Systems"
+    },
+    {
+      "id": "toggle_flight_ready",
+      "phrases": [
+        "toggle flight ready",
+        "flight ready",
+        "power up the ship",
+        "power up ship",
+        "power on the ship",
+        "power on ship",
+        "power on",
+        "start ship",
+        "start the ship",
+        "bring it online",
+        "systems online"
+      ],
+      "ack": "All systems online. Flight ready.",
+      "notes": "User-confirmed: Right Alt + R. This is the standalone 'turn everything on' phrasing -- see park_ship for the 'turn everything off' macro sharing this same key. Matches the current default per a community keybind reference (nomans.space, checked 2026-08-15).",
+      "display_name": "Toggle Flight Ready",
+      "category": "Comms & Systems"
+    },
+    {
+      "id": "park_ship",
+      "phrases": [
+        "park ship",
+        "we're parked"
+      ],
+      "ack": "Ship powered down. We're parked.",
+      "notes": "Two-step macro per user description: cut thruster power, then toggle Flight Ready off. Uses the same Right Alt+R key as toggle_flight_ready, so this only makes sense to say while flight-ready is currently ON.",
+      "display_name": "Park Ship",
+      "category": "Comms & Systems"
+    },
+    {
+      "id": "open_close_doors",
+      "phrases": [
+        "open all doors",
+        "close all doors",
+        "open doors",
+        "close doors",
+        "toggle doors",
+        "toggle all doors"
+      ],
+      "ack": "Doors toggled.",
+      "notes": "Bound to '/' (main-row slash, pydirectinput scancode 0x35) at Obly's direction, 2026-08-21. IMPORTANT: Star Citizen ships NO default keybind for any door action -- confirmed from the game's own defaultProfile.xml, where v_toggle_all_doors / v_open_all_doors / v_close_all_doors all have keyboard=''. So sending '/' only does something once the player has ALSO bound '/' to 'Toggle All Doors' inside Star Citizen's own keybindings. This is a suggested default, not a game default. If the player binds the action to a different key, sc_keybinds.py reads their actionmaps.xml and sends their key instead.",
+      "display_name": "Open / Close Doors",
+      "category": "Doors, Ports & Access"
+    },
+    {
+      "id": "lock_unlock_doors",
+      "phrases": [
+        "lock all doors",
+        "unlock all doors",
+        "lock doors",
+        "unlock doors",
+        "toggle door lock",
+        "toggle door locks"
+      ],
+      "ack": "Doors locked.",
+      "notes": "Right Alt + '/' at Obly's direction, 2026-08-21. Star Citizen ships NO default for v_toggle_all_doorlocks (keyboard='' in defaultProfile.xml), so this only does something once the player has also bound Right Alt + / to 'Toggle All Door Locks' in game. Distinct from toggle_port_locks (ralt+K), which IS a game default.",
+      "display_name": "Lock / Unlock Doors",
+      "category": "Doors, Ports & Access"
+    },
+    {
+      "id": "cut_all_power",
+      "phrases": [
+        "power off",
+        "go black",
+        "go dark",
+        "code black",
+        "power down",
+        "cut all power",
+        "turn off",
+        "cut power",
+        "power down the ship",
+        "shut down the ship"
+      ],
+      "ack": "Powering down. Going dark.",
+      "notes": "Standalone 'cut everything' command, distinct from park_ship. Uses U (Toggle Power - All) per a community keybind reference (nomans.space, 2026-08-15) -- NOT personally confirmed by the user in-game yet. U is a TOGGLE, so saying this again while already powered down will turn things back ON, not keep them off. Bare 'power down' moved here from park_ship (2026-08-16) to avoid a duplicate-phrase collision. 'power down the ship' / 'shut down the ship' also moved here from park_ship (2026-08-16, user request) -- park_ship now only handles 'park ship' / 'we're parked'. The headlights (L) step that used to run alongside U was removed by user request (2026-08-16) -- this command now sends U alone; if Power-All doesn't cover exterior lights, headlights will need a separate 'lights off' command.",
+      "display_name": "Cut All Power",
+      "category": "Emergency"
+    },
+    {
+      "id": "toggle_helmet",
+      "phrases": [
+        "remove helmet",
+        "helmet off",
+        "put on helmet",
+        "put on my helmet",
+        "helmet on",
+        "toggle helmet",
+        "toggle my helmet"
+      ],
+      "ack": "",
+      "notes": "CORRECTED (2026-08-16, user instruction): key changed from Right Alt+H to Left Alt+H -- user confirmed Left Alt+H is the real toggle-helmet bind in-game. Right Alt+H is now reserved for the new 'present' macro command below (helmet + stand). Single TOGGLE key, not separate on/off binds (same pattern as headlights) -- every phrase here just flips current state, so saying 'remove helmet' while it's already off puts it back on. VOICE ACK REMOVED (2026-08-19, user request -- personal preference, silent by default): ack left empty on purpose, voice_acks/toggle_helmet.wav deleted.",
+      "display_name": "Toggle Helmet",
+      "category": "Doors, Ports & Access"
+    },
+    {
+      "id": "present",
+      "phrases": [
+        "present"
+      ],
+      "ack": "Aye aye.",
+      "notes": "ADDED 2026-08-16 per user instruction: 'present' holds the helmet (Right Alt+H) and stands up (hold Y ~6s, same hold-to-exit-seat behavior as the exit_seat command) in one voice command.",
+      "display_name": "Present",
+      "category": "Doors, Ports & Access"
+    },
+    {
+      "id": "self_destruct",
+      "phrases": [
+        "self destruct",
+        "scuttle the ship",
+        "blow yourself up",
+        "activate self destruct",
+        "initiate self destruct",
+        "destroy the ship",
+        "detonate the ship"
+      ],
+      "ack": "Self destruct sequence initiated.",
+      "notes": "HIGH-STAKES COMMAND -- destroys the ship if it works as intended. Sourced from a community keybind reference (nomans.space, 2026-08-16): 'Self Destruct' = Backspace, Vehicles-Cockpit category. NOT personally confirmed by the user in-game. hold_ms=3000 is a GUESS -- the source didn't document whether this needs a tap or a hold, but self-destruct actions in most games require a multi-second hold specifically to prevent accidental activation, so a hold was the safer assumption. Phrase list deliberately kept more conservative than other commands per user request (2026-08-16): explicitly rejected 'abandon ship'; did not include 'blow it up' (too generic) or 'boom'/'kaboom' (too short/casual, high false-trigger risk for a command with this consequence) since the user didn't confirm them. Test this one with extreme caution -- confirm the actual key and hold duration in a context where losing the ship doesn't matter (e.g. freshly spawned, no cargo/insurance concerns) before trusting it. DESIGN DECISION (Obly, 2026-08-21): deliberately NOT marked strict. Raised twice -- single-word trigger, expensive if misheard -- and declined both times. He wants it to fire on one word. Do not add strict/match_threshold to this command without asking.",
+      "display_name": "Self Destruct",
+      "category": "Emergency",
+      "danger": true
+    },
+    {
+      "id": "exit_seat",
+      "phrases": [
+        "exit seat",
+        "exit the seat",
+        "get out of the seat",
+        "leave the seat",
+        "get up",
+        "stand up"
+      ],
+      "ack": "",
+      "notes": "CORRECTED (2026-08-16, user report): this is a HOLD, not a tap -- user specified longer than 3-5 seconds, so hold_ms=6000 to clearly clear that bar. Originally built as a tap based on the community keybind reference (nomans.space) not specifying hold vs press; that reference's key itself (Y, with the source's own table showing Z due to a British/QWERTZ-layout documentation quirk) is still unconfirmed, only the tap-vs-hold behavior has now been corrected. A separate 'Emergency Exit Seat' action exists (U + Left Shift, a faster/forced eject variant) but was not added -- ask the user if they want that as its own command too. VOICE ACK REMOVED (2026-08-19, user request): no spoken response for this command anymore -- ack left empty on purpose (main.py's speak() is skipped entirely when ack is empty), and voice_acks/exit_seat.wav was deleted. Hold time normalised into Obly's 3-5 second band on 2026-08-21.",
+      "display_name": "Exit Seat",
+      "category": "Emergency"
+    },
+    {
+      "id": "hail_target",
+      "phrases": [
+        "hail target",
+        "hail them",
+        "hail the target",
+        "hail ship"
+      ],
+      "ack": "Hailing target.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-16): 'Hail Target' = 9, Flight - Target Hailing category. NOT personally confirmed by the user in-game. Deliberately kept 'contact'-style phrasing (e.g. 'contact target') OUT of this list -- request_landing already owns 'contact tower' / 'contact atc' / 'contact station', and 'contact' alone is ambiguous between the two; stuck to 'hail' wording to keep them distinct.",
+      "display_name": "Hail Target",
+      "category": "Comms & Systems"
+    },
+    {
+      "id": "ping",
+      "phrases": [
+        "ping",
+        "ping planet",
+        "ping radar",
+        "radar ping"
+      ],
+      "ack": "Pinging.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-19): 'Activate Ping' = Tab, Flight - Radar category, listed as a Hold & Release action (not a tap) -- charge strength/range scales with hold duration in-game. hold_ms=1500 is a starting guess at a solid mid-strength ping; tune once tested. NOT personally confirmed by the user in-game. Hold time normalised into Obly's 3-5 second band on 2026-08-21.",
+      "display_name": "Ping",
+      "category": "Radar & Operator Modes"
+    },
+    {
+      "id": "emergency_exit_seat",
+      "phrases": [
+        "emergency exit seat",
+        "emergency eject seat",
+        "force exit seat"
+      ],
+      "ack": "Emergency exit.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-19): 'Emergency Exit Seat' = U + Left Shift, Vehicles - Seats and Operator Modes category. The fast/forced variant of exit_seat -- that one is a 6-second hold on Y, this is a quick tap on a completely different key combo. NOT personally confirmed by the user in-game.",
+      "display_name": "Emergency Exit Seat",
+      "category": "Emergency",
+      "danger": true
+    },
+    {
+      "id": "eject",
+      "phrases": [
+        "eject",
+        "eject me",
+        "eject now"
+      ],
+      "ack": "Ejecting.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-19): 'Eject' = Right Alt + Y, Vehicles - Seats and Operator Modes category. Distinct from both exit_seat and emergency_exit_seat -- this ejects you from the ship entirely rather than just leaving your seat. NOT personally confirmed by the user in-game. HIGH-STAKES-ish like self_destruct in spirit (you leave the ship mid-flight) -- test somewhere it doesn't matter first. DESIGN DECISION (Obly, 2026-08-21): deliberately NOT marked strict. Raised twice -- single-word trigger, expensive if misheard -- and declined both times. He wants it to fire on one word. Do not add strict/match_threshold to this command without asking.",
+      "display_name": "Eject",
+      "category": "Emergency",
+      "danger": true
+    },
+    {
+      "id": "boost",
+      "phrases": [
+        "boost",
+        "engage boost",
+        "hit the boost"
+      ],
+      "ack": "Boosting.",
+      "notes": "Left Shift, hold-to-boost (not a toggle). hold_ms=5000 set by Obly on 2026-08-21, replacing the 1500 ms guess. Confirmed against Star Citizen's own defaultProfile.xml: v_afterburner defaults to lshift with activationMode 'all', i.e. it boosts for as long as the key is held, so a longer hold simply means a longer burn. DESIGN DECISION (Obly, 2026-08-21): the hold blocks the command loop for its full duration, so no other voice command can fire while it runs. Accepted deliberately -- the in-game action takes that long anyway, so there is nothing useful to say mid-action. Do not 'fix' this by moving holds to a background thread without asking; it was raised and declined.",
+      "display_name": "Boost",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "decoupled_mode",
+      "phrases": [
+        "decoupled mode",
+        "toggle decoupled",
+        "decouple"
+      ],
+      "ack": "Decoupled mode toggled.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-19): 'Decoupled Mode' = C (Toggle, Hold), Flight - Movement category. Listed as both toggle-capable and hold-capable in-game; implemented here as a simple tap/toggle. NOT personally confirmed by the user in-game.",
+      "display_name": "Decoupled Mode",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "spacebrake",
+      "phrases": [
+        "spacebrake",
+        "space brake",
+        "brake"
+      ],
+      "ack": "Braking.",
+      "notes": "X = space brake, Flight-Movement. Changed from a tap to a 5000 ms HOLD by Obly on 2026-08-21. Star Citizen's own defaultProfile.xml has v_space_brake on 'x' with no tap activationMode, i.e. it brakes for as long as the key is held, so a hold is the correct shape for this action and a tap barely did anything. DESIGN DECISION: the hold blocks the command loop for its full duration -- accepted, same as boost and autoland, because the in-game action takes that long anyway.",
+      "display_name": "Spacebrake",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "toggle_scanning_mode",
+      "phrases": [
+        "[toggle;enter;activate;exit;] scanning mode; scan mode"
+      ],
+      "ack": "Scanning mode.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-19): 'Toggle Scanning Operator Mode' = V, Vehicles - Seats and Operator Modes category. Pairs naturally with the ping command above. NOT personally confirmed by the user in-game.",
+      "_grammar": true,
+      "display_name": "Toggle Scanning Mode",
+      "category": "Radar & Operator Modes"
+    },
+    {
+      "id": "toggle_mining_mode",
+      "phrases": [
+        "[toggle;enter;activate;exit;] mining mode"
+      ],
+      "ack": "Mining mode.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-19): 'Toggle Mining Operator Mode' = M, Vehicles - Seats and Operator Modes category. Same physical key as toggle_salvage_mode below -- the game resolves which mode actually applies based on what your current ship supports, same pattern as other shared-key commands across this whole project series. Only useful in a mining-capable ship. NOT personally confirmed by the user in-game.",
+      "_grammar": true,
+      "display_name": "Toggle Mining Mode",
+      "category": "Radar & Operator Modes"
+    },
+    {
+      "id": "toggle_salvage_mode",
+      "phrases": [
+        "[toggle;enter;activate;exit;] salvage mode"
+      ],
+      "ack": "Salvage mode.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-19): 'Toggle Salvage Operator Mode' = M, Vehicles - Seats and Operator Modes category. Same physical key as toggle_mining_mode above -- context-resolved by the game based on ship type. Only useful in a salvage-capable ship. NOT personally confirmed by the user in-game.",
+      "_grammar": true,
+      "display_name": "Toggle Salvage Mode",
+      "category": "Radar & Operator Modes"
+    },
+    {
+      "id": "next_operator_mode",
+      "phrases": [
+        "next operator mode",
+        "cycle operator mode",
+        "switch operator mode"
+      ],
+      "ack": "Cycling mode.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-19): 'Next Operator Mode' = Mouse Button 3 (middle click), Vehicles - Seats and Operator Modes category. Sent as a short mousehold to act like a click. Cycles between whatever operator modes your current ship actually supports. NOT personally confirmed by the user in-game.",
+      "display_name": "Next Operator Mode",
+      "category": "Radar & Operator Modes"
+    },
+    {
+      "id": "request_cargo_loading",
+      "phrases": [
+        "request cargo loading",
+        "request cargo",
+        "load cargo"
+      ],
+      "ack": "Requesting cargo loading.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-19): 'Request Cargo Loading' = Right Alt + N, Flight - Movement category. Same family as request_landing (Left Alt + N) but a distinct action. NOT personally confirmed by the user in-game.",
+      "display_name": "Request Cargo Loading",
+      "category": "Comms & Systems"
+    },
+    {
+      "id": "cycle_camera_view",
+      "phrases": [
+        "camera view",
+        "adjust camera",
+        "cycle camera"
+      ],
+      "ack": "Camera view changed.",
+      "notes": "Sourced from a community keybind reference (nomans.space, 2026-08-19): 'Cycle camera view' = F4, Vehicles - View category. Cycles First Person -> Third Person -> Director Mode. Replaces the originally-suggested 'Look Behind' (Comma) per user request (2026-08-19) -- that one was dropped, this is what shipped instead. Deliberately did not add a bare 'view' phrase -- too generic, real risk of false-triggering on unrelated speech containing that common word. NOT personally confirmed by the user in-game.",
+      "display_name": "Cycle Camera View",
+      "category": "Radar & Operator Modes"
+    },
+    {
+      "id": "interact",
+      "phrases": [
+        "touch",
+        "interact"
+      ],
+      "ack": "Interacting.",
+      "notes": "User-confirmed key: F -- Star Citizen's standard universal interact/use key (also matches the general on-foot keybind reference checked early this session). NOT yet live-tested with this specific command.",
+      "display_name": "Interact",
+      "category": "Doors, Ports & Access"
+    },
+    {
+      "id": "toggle_port_locks",
+      "phrases": [
+        "[toggle;] port [lock;locks]; toggle ports"
+      ],
+      "ack": "Port locks toggled.",
+      "notes": "Right Alt + K. This one is a REAL Star Citizen default, not a suggestion: the game's own defaultProfile.xml has v_toggle_all_portlocks with keyboard='ralt+K' in both spaceship_general and vehicle_general. Separate action from the door locks (v_toggle_all_doorlocks), which has no default. Phrases are deliberately port-first: 'lock all ports' was removed because it differs from the door command's 'lock all doors' by a single word and invited a misfire. No Raina voice clip exists for this command yet, so the ack falls back to the Windows TTS voice until one is generated.",
+      "_grammar": true,
+      "display_name": "Toggle Port Locks",
+      "category": "Doors, Ports & Access"
+    },
+    {
+      "id": "visor_wipe",
+      "phrases": [
+        "[wipe;clean] [my;the;] visor; visor wipe; wipe"
+      ],
+      "ack": "Visor wiped.",
+      "notes": "Left Alt + X. A REAL Star Citizen default, confirmed from the game's own defaultProfile.xml: action 'visor_wipe' with keyboard='lalt+x', UILabel @ui_CIHelmetVisorWipe, present in spaceship_hud, vehicle_general and player actionmaps. Note it is LEFT alt, not right. Works without the player binding anything. No Raina voice clip yet, so the ack falls back to Windows TTS.",
+      "_grammar": true,
+      "display_name": "Wipe Visor",
+      "category": "Doors, Ports & Access"
+    },
+    {
+      "id": "activate_jump_point",
+      "phrases": [
+        "activate jump point",
+        "activate the jump point"
+      ],
+      "ack": "Jump point engaged.",
+      "notes": "Right mouse button held 5000 ms, per Obly 2026-08-21. FLAG -- this does NOT match Star Citizen's default. The game's own defaultProfile.xml has v_toggle_jump_request (@ui_CIJumpDriveJumpRequest) on mouse='mouse1' with activationMode='tap' -- LEFT click, tapped. And mouse2 (right click) defaults to v_ads_toggle, so on a stock install this command would toggle aim-down-sights instead of jumping. Obly's own actionmaps.xml has v_toggle_jump_request on js1_button2 (stick), so neither mouse button is his live binding either. Confirm before shipping to testers. Phrase list deliberately kept to the full 'activate jump point' at Obly's direction 2026-08-21. Bare 'jump point' was removed because this sends a 5-second right-click hold, and right-click on foot maps to throw_underhand -- saying it accidentally while holding a grenade throws it. Three deliberate words is not something Whisper produces by accident; two words is.",
+      "strict": true,
+      "display_name": "Activate Jump Point",
+      "category": "Flight & Navigation",
+      "danger": true
+    },
+    {
+      "id": "plot_route_to",
+      "phrases": [
+        "plot route to *",
+        "set route to *",
+        "route to *",
+        "navigate to *",
+        "take me to *",
+        "set gps to *",
+        "gps to *",
+        "plot a course to *"
+      ],
+      "ack": "Plotting route.",
+      "notes": "Pastes the destination into the map's search box and presses Enter -- that is all. Say 'open map' first and 'set route' after; each command does one thing, so a mis-heard word never toggles the map shut. The spoken name is corrected against config/places.json before it is pasted, so 'laura ville' becomes 'Lorville'. UNVERIFIED in-game: walk it through docked once and correct the keys.",
+      "display_name": "Plot Route To…",
+      "category": "Flight & Navigation"
+    },
+    {
+      "id": "look_up",
+      "phrases": [
+        "look up *",
+        "look-up *",
+        "lookup *",
+        "what is *",
+        "price of *",
+        "price for *",
+        "how much is *",
+        "how much for *",
+        "where can i buy *",
+        "where do i buy *",
+        "where can i sell *",
+        "find *",
+        "search for *",
+        "tell me about *"
+      ],
+      "ack": "",
+      "notes": "Searches everything the program knows -- places, ships, commodities and shops -- and reads back what it finds. Sends no keys to the game, so it is safe to use any time, focused or not.",
+      "display_name": "Look Up…",
+      "category": "Comms & Systems"
+    }
+  ]
+}

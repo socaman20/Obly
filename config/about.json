@@ -1,0 +1,16 @@
+{
+  "_readme": "Who made it and how to say thanks. Read at startup, so anything changed here shows up in the app's About page the next time it opens -- no rebuild needed. Leave a field empty and it is simply not shown; nothing here is ever invented for you.",
+
+  "author": "Obly",
+  "tagline": "Free to use, free to pass on.",
+
+  "contact": "",
+  "_contact_note": "Where a bug report should go. A Discord invite, an email, a Telegram handle -- whatever you actually want to read. Empty means the app shows no contact at all, which is better than pointing people somewhere nobody is listening.",
+
+  "donate_label": "Cash App",
+  "donate_value": "$Obly",
+  "donate_url": "https://cash.app/$Obly",
+  "_donate_note": "Optional and genuinely optional -- the app says the program is free either way, and never nags. Both label and value must be filled in before anything appears; a donation prompt with a wrong handle sends money to a stranger, so a half-filled entry shows nothing.",
+
+  "thanks": "This is free and always will be. If it saved you some hassle and you want to throw something in the hat, that's the hat."
+}

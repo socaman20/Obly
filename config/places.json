@@ -1,0 +1,6339 @@
+{
+  "_readme": "Every destination the game knows, so a spoken name can be corrected to the exact string its search box expects. Whisper hears 'Laura Ville'; this turns it into 'Lorville' before it is pasted. Regenerate from the starmap data; 'live' means it is in the current game build. Entries marked src=uex were added from UEX's live terminal list, which knows reachable stations the RSI starmap does not name -- the inter-system Gateways above all came from there.",
+  "game_version": "4.10.0",
+  "places": [
+    {
+      "n": "ARC-L1 Wide Forest Station",
+      "k": "station",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "ARC-L2 Lively Pathway Station",
+      "k": "station",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "ARC-L3 Modern Express Station",
+      "k": "station",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "ARC-L4 Faint Glen Station",
+      "k": "station",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "ARC-L5 Yellow Core Station",
+      "k": "station",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "Aberdeen",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Adir",
+      "k": "moon",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "ArcCorp",
+      "k": "planet",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "ArcCorp Mining Area 045",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "ArcCorp Mining Area 048",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "ArcCorp Mining Area 056",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "ArcCorp Mining Area 061",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "ArcCorp Mining Area 141",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "ArcCorp Mining Area 157",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Area 18",
+      "k": "city",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "Arial",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Arid Reach",
+      "k": "outpost",
+      "in": "Monox",
+      "live": true
+    },
+    {
+      "n": "Ashland",
+      "k": "outpost",
+      "in": "Pyro V",
+      "live": true
+    },
+    {
+      "n": "Astor's Clearing",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Baijini Point",
+      "k": "station",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "Benson Mining Outpost",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Blackrock Exchange",
+      "k": "outpost",
+      "in": "Terminus",
+      "live": true
+    },
+    {
+      "n": "Bloodshot Ridge",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Bloom",
+      "k": "planet",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Bountiful Harvest Hydroponics",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Brio's Breaker Yard",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Bud's Growery",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Bueno Ravine",
+      "k": "outpost",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Bullock's Reach",
+      "k": "outpost",
+      "in": "Terminus",
+      "live": true
+    },
+    {
+      "n": "CRU-L1 Ambitious Dream Station",
+      "k": "station",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "CRU-L4 Shallow Fields Station",
+      "k": "station",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "CRU-L5 Beautiful Glen Station",
+      "k": "station",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Calliope",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Canard View",
+      "k": "outpost",
+      "in": "Terminus",
+      "live": true
+    },
+    {
+      "n": "Carver's Ridge",
+      "k": "outpost",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Cellin",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Chawla's Beach",
+      "k": "outpost",
+      "in": "Pyro IV",
+      "live": true
+    },
+    {
+      "n": "Checkmate Station",
+      "k": "station",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Clio",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Crusader",
+      "k": "planet",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Cutter's Rig",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Daymar",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Deakins Research",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Delamar",
+      "k": "planet",
+      "in": "Nyx",
+      "live": true
+    },
+    {
+      "n": "Devlin Scrap & Salvage",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Dudley & Daughters",
+      "k": "station",
+      "in": "Terminus",
+      "live": true
+    },
+    {
+      "n": "Dunboro",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Endgame",
+      "k": "station",
+      "in": "Pyro IV",
+      "live": true
+    },
+    {
+      "n": "Euterpe",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Everus Harbor",
+      "k": "station",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Fairo",
+      "k": "moon",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Fallow Field",
+      "k": "outpost",
+      "in": "Pyro IV",
+      "live": true
+    },
+    {
+      "n": "Feo Canyon Depot",
+      "k": "outpost",
+      "in": "Pyro V",
+      "live": true
+    },
+    {
+      "n": "Finn's Folly",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Frigid Knot",
+      "k": "outpost",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Frostbite",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Fuego",
+      "k": "moon",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Gallete Family Farms",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Gaslight",
+      "k": "station",
+      "in": "Pyro V",
+      "live": true
+    },
+    {
+      "n": "Ghost Hollow",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Goner's Deal",
+      "k": "outpost",
+      "in": "Pyro IV",
+      "live": true
+    },
+    {
+      "n": "Gray Gardens Depot",
+      "k": "outpost",
+      "in": "Pyro I",
+      "live": true
+    },
+    {
+      "n": "Green Imperial Housing Exchange",
+      "k": "station",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "HDMS-Anderson",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Bezdek",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Edmond",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Hadley",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Hahn",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Lathan",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Norgaard",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Oparei",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Perlman",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Pinewood",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Ryder",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Stanhope",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Thedus",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HDMS-Woodruff",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HUR-L1 Green Glade Station",
+      "k": "station",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HUR-L2 Faithful Dream Station",
+      "k": "station",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HUR-L3 Thundering Express Station",
+      "k": "station",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HUR-L4 Melodic Fields Station",
+      "k": "station",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "HUR-L5 High Course Station",
+      "k": "station",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Harper's Point",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Hickes Research",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Humboldt Mines",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "Hurston",
+      "k": "planet",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "INS Jericho",
+      "k": "station",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Ignis",
+      "k": "moon",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Ita",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Jackson's Swap",
+      "k": "outpost",
+      "in": "Monox",
+      "live": true
+    },
+    {
+      "n": "Jumptown",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Kabir's Post",
+      "k": "outpost",
+      "in": "Pyro V",
+      "live": true
+    },
+    {
+      "n": "Kinder Plots",
+      "k": "outpost",
+      "in": "Terminus",
+      "live": true
+    },
+    {
+      "n": "Kudre Ore",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Last Ditch",
+      "k": "outpost",
+      "in": "Monox",
+      "live": true
+    },
+    {
+      "n": "Last Landings",
+      "k": "outpost",
+      "in": "Terminus",
+      "live": true
+    },
+    {
+      "n": "Levski",
+      "k": "city",
+      "in": "Nyx",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Lorville",
+      "k": "city",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Loveridge Mineral Reserve",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "Ludlow",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Lyria",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "MIC-L1 Shallow Frontier Station",
+      "k": "station",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "MIC-L2 Long Forest Station",
+      "k": "station",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "MIC-L3 Endless Odyssey Station",
+      "k": "station",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "MIC-L4 Red Crossroads Station",
+      "k": "station",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "MIC-L5 Modern Icarus Station",
+      "k": "station",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Magda",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Maker's Point",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Megumi Refueling",
+      "k": "station",
+      "in": "Terminus",
+      "live": true
+    },
+    {
+      "n": "Monox",
+      "k": "planet",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Moreland Hills",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "NT-999-XX",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "NT-999-XXII",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Narena's Rest",
+      "k": "outpost",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "New Babbage",
+      "k": "city",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Nuen Waste Management",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Nyx",
+      "k": "system",
+      "in": "",
+      "live": true
+    },
+    {
+      "n": "Nyx - Bremen",
+      "k": "jump point",
+      "in": "Nyx",
+      "live": true
+    },
+    {
+      "n": "Nyx - Castra",
+      "k": "jump point",
+      "in": "Nyx",
+      "live": true
+    },
+    {
+      "n": "Nyx - Odin",
+      "k": "jump point",
+      "in": "Nyx",
+      "live": true
+    },
+    {
+      "n": "Nyx - Pyro",
+      "k": "jump point",
+      "in": "Nyx",
+      "live": true
+    },
+    {
+      "n": "Nyx - Stanton",
+      "k": "jump point",
+      "in": "Nyx",
+      "live": true
+    },
+    {
+      "n": "Nyx - Tohil",
+      "k": "jump point",
+      "in": "Nyx",
+      "live": true
+    },
+    {
+      "n": "Nyx - Virgil",
+      "k": "jump point",
+      "in": "Nyx",
+      "live": true
+    },
+    {
+      "n": "Nyx Gateway (Pyro)",
+      "k": "station",
+      "in": "Pyro",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Nyx Gateway (Stanton)",
+      "k": "station",
+      "in": "Stanton",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Orbituary",
+      "k": "station",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Orison",
+      "k": "city",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Ostler's Claim",
+      "k": "outpost",
+      "in": "Monox",
+      "live": true
+    },
+    {
+      "n": "Outpost 54",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "PYAM-FARSTAT-1-2",
+      "k": "station",
+      "in": "Pyro I",
+      "live": true
+    },
+    {
+      "n": "PYAM-FARSTAT-1-3",
+      "k": "station",
+      "in": "Pyro I",
+      "live": true
+    },
+    {
+      "n": "PYAM-FARSTAT-1-5",
+      "k": "station",
+      "in": "Pyro I",
+      "live": true
+    },
+    {
+      "n": "PYAM-FARSTAT-2-3",
+      "k": "station",
+      "in": "Monox",
+      "live": true
+    },
+    {
+      "n": "PYAM-FARSTAT-3-5",
+      "k": "station",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "PYAM-FARSTAT-5-1",
+      "k": "station",
+      "in": "Pyro V",
+      "live": true
+    },
+    {
+      "n": "PYAM-FARSTAT-5-3",
+      "k": "station",
+      "in": "Pyro V",
+      "live": true
+    },
+    {
+      "n": "PYAM-FARSTAT-6-2",
+      "k": "station",
+      "in": "Pyro IV",
+      "live": true
+    },
+    {
+      "n": "PYAM-SUPVISR-3-4",
+      "k": "station",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "PYAM-SUPVISR-3-5",
+      "k": "station",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Paradise Cove",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "Patch City",
+      "k": "station",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "People's Service Station Alpha",
+      "k": "station",
+      "in": "Nyx",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "People's Service Station Delta",
+      "k": "station",
+      "in": "Nyx",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "People's Service Station Lambda",
+      "k": "station",
+      "in": "Nyx",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "People's Service Station Theta",
+      "k": "station",
+      "in": "Nyx",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Picker's Field",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Port Tressler",
+      "k": "station",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Private Property",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Prophet's Peak",
+      "k": "outpost",
+      "in": "Pyro V",
+      "live": true
+    },
+    {
+      "n": "Prospect Depot",
+      "k": "outpost",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Pyro",
+      "k": "system",
+      "in": "",
+      "live": true
+    },
+    {
+      "n": "Pyro - Cano",
+      "k": "jump point",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Pyro - Castra",
+      "k": "jump point",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Pyro - Hadrian",
+      "k": "jump point",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Pyro - Nyx",
+      "k": "jump point",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Pyro - Oso",
+      "k": "jump point",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Pyro - Stanton",
+      "k": "jump point",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Pyro - Terra",
+      "k": "jump point",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Pyro Gateway (Nyx)",
+      "k": "station",
+      "in": "Nyx",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Pyro Gateway (Stanton)",
+      "k": "station",
+      "in": "Stanton",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Pyro I",
+      "k": "planet",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Pyro IV",
+      "k": "planet",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Pyro V",
+      "k": "planet",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Rappel",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Rat's Nest",
+      "k": "station",
+      "in": "Pyro V",
+      "live": true
+    },
+    {
+      "n": "Raven's Roost",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Rayari Anvik Research Outpost",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Rayari Cantwell Research Outpost",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Rayari Deltana Research Outpost",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Rayari Kaltag Research Outpost",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Rayari McGrath Research Outpost",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Razor's Edge",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Reclamation & Disposal Orinth",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Rod's Fuel 'N Supplies",
+      "k": "station",
+      "in": "Pyro V",
+      "live": true
+    },
+    {
+      "n": "Rough Landing",
+      "k": "outpost",
+      "in": "Terminus",
+      "live": true
+    },
+    {
+      "n": "Ruin Station",
+      "k": "station",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Rustville",
+      "k": "outpost",
+      "in": "Pyro I",
+      "live": true
+    },
+    {
+      "n": "Sacren's Plot",
+      "k": "outpost",
+      "in": "Pyro IV",
+      "live": true
+    },
+    {
+      "n": "Sakura Sun Goldenrod Workcenter",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Sakura Sun Magnolia Workcenter",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Samson & Son's Salvage Center",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "Scarper's Turn",
+      "k": "outpost",
+      "in": "Terminus",
+      "live": true
+    },
+    {
+      "n": "Seer's Canyon",
+      "k": "outpost",
+      "in": "Pyro V",
+      "live": true
+    },
+    {
+      "n": "Seraphim Station",
+      "k": "station",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Shadowfall",
+      "k": "outpost",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Shady Glen",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "Shepherd's Rest",
+      "k": "outpost",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Shubin Mining Facility SAL-2",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "Shubin Mining Facility SAL-5",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "Shubin Mining Facility SCD-1",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Shubin Mining Facility SM0-10",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Shubin Mining Facility SM0-13",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Shubin Mining Facility SM0-18",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Shubin Mining Facility SM0-22",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Shubin Mining Facility SMCa-6",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Shubin Mining Facility SMCa-8",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "Slowburn Depot",
+      "k": "outpost",
+      "in": "Monox",
+      "live": true
+    },
+    {
+      "n": "Stag's Rut",
+      "k": "outpost",
+      "in": "Pyro I",
+      "live": true
+    },
+    {
+      "n": "Stanton",
+      "k": "system",
+      "in": "",
+      "live": true
+    },
+    {
+      "n": "Stanton - Magnus",
+      "k": "jump point",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Stanton - Nyx",
+      "k": "jump point",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Stanton - Pyro",
+      "k": "jump point",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Stanton - Terra",
+      "k": "jump point",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Stanton Gateway (Nyx)",
+      "k": "station",
+      "in": "Nyx",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Stanton Gateway (Pyro)",
+      "k": "station",
+      "in": "Pyro",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Starlight Service Station",
+      "k": "station",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Stonetree",
+      "k": "outpost",
+      "in": "Terminus",
+      "live": true
+    },
+    {
+      "n": "Sunset Mesa",
+      "k": "outpost",
+      "in": "Monox",
+      "live": true
+    },
+    {
+      "n": "Terminus",
+      "k": "planet",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Terra Gateway (Stanton)",
+      "k": "station",
+      "in": "Stanton",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Terra Mills HydroFarm",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "The Golden Riviera",
+      "k": "outpost",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "The Necropolis",
+      "k": "outpost",
+      "in": "microTech",
+      "live": true
+    },
+    {
+      "n": "The Orphanage",
+      "k": "outpost",
+      "in": "ArcCorp",
+      "live": true
+    },
+    {
+      "n": "The Yard",
+      "k": "outpost",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Tram & Myers Mining",
+      "k": "outpost",
+      "in": "Crusader",
+      "live": true
+    },
+    {
+      "n": "Vatra",
+      "k": "moon",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Vuur",
+      "k": "moon",
+      "in": "Pyro",
+      "live": true
+    },
+    {
+      "n": "Wala",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Weeping Cove",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "Wikelo Emporium Dasi Station",
+      "k": "station",
+      "in": "Stanton",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Wikelo Emporium Kinga Station",
+      "k": "station",
+      "in": "Stanton",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Wikelo Emporium Selo Station",
+      "k": "station",
+      "in": "Stanton",
+      "live": true,
+      "src": "uex"
+    },
+    {
+      "n": "Windfall",
+      "k": "outpost",
+      "in": "Bloom",
+      "live": true
+    },
+    {
+      "n": "Yang's Place",
+      "k": "outpost",
+      "in": "Monox",
+      "live": true
+    },
+    {
+      "n": "Yela",
+      "k": "moon",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Zephyr",
+      "k": "outpost",
+      "in": "Hurston",
+      "live": true
+    },
+    {
+      "n": "microTech",
+      "k": "planet",
+      "in": "Stanton",
+      "live": true
+    },
+    {
+      "n": "Aaron Halo",
+      "k": "place",
+      "in": "Stanton",
+      "live": false
+    },
+    {
+      "n": "Abyss",
+      "k": "planet",
+      "in": "Orion",
+      "live": false
+    },
+    {
+      "n": "Aemilia",
+      "k": "moon",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Aero",
+      "k": "planet",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Ail'ka",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Ail'ka - Kyuk'ya (Indra)",
+      "k": "jump point",
+      "in": "Ail'ka",
+      "live": false
+    },
+    {
+      "n": "Ail'ka - T.āl",
+      "k": "jump point",
+      "in": "Ail'ka",
+      "live": false
+    },
+    {
+      "n": "Ail'ka - Yā'mon (Hadur)",
+      "k": "jump point",
+      "in": "Ail'ka",
+      "live": false
+    },
+    {
+      "n": "Akiro Cluster",
+      "k": "place",
+      "in": "Pyro",
+      "live": false
+    },
+    {
+      "n": "Angeli",
+      "k": "planet",
+      "in": "Croshaw",
+      "live": false
+    },
+    {
+      "n": "Archangel Station",
+      "k": "station",
+      "in": "Chronos",
+      "live": false
+    },
+    {
+      "n": "Aremis",
+      "k": "planet",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Ariel",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Armitage",
+      "k": "planet",
+      "in": "Orion",
+      "live": false
+    },
+    {
+      "n": "Ashana",
+      "k": "planet",
+      "in": "Nul",
+      "live": false
+    },
+    {
+      "n": "Asura",
+      "k": "planet",
+      "in": "Ferron",
+      "live": false
+    },
+    {
+      "n": "Bacchus",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Bacchus - Davien",
+      "k": "jump point",
+      "in": "Bacchus",
+      "live": false
+    },
+    {
+      "n": "Bacchus - Garron",
+      "k": "jump point",
+      "in": "Bacchus",
+      "live": false
+    },
+    {
+      "n": "Bacchus - Geddon",
+      "k": "jump point",
+      "in": "Bacchus",
+      "live": false
+    },
+    {
+      "n": "Bacchus A",
+      "k": "star",
+      "in": "Bacchus",
+      "live": false
+    },
+    {
+      "n": "Bacchus B",
+      "k": "star",
+      "in": "Bacchus",
+      "live": false
+    },
+    {
+      "n": "Bacchus Belt Alpha",
+      "k": "place",
+      "in": "Bacchus",
+      "live": false
+    },
+    {
+      "n": "Bacchus Flotilla",
+      "k": "station",
+      "in": "Bacchus",
+      "live": false
+    },
+    {
+      "n": "Bacchus I",
+      "k": "planet",
+      "in": "Bacchus",
+      "live": false
+    },
+    {
+      "n": "Bacchus II",
+      "k": "planet",
+      "in": "Bacchus",
+      "live": false
+    },
+    {
+      "n": "Bacchus III",
+      "k": "planet",
+      "in": "Bacchus",
+      "live": false
+    },
+    {
+      "n": "Baker",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Baker - Kiel",
+      "k": "jump point",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Baker - Osiris",
+      "k": "jump point",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Baker - Tayac",
+      "k": "jump point",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Baker - Th.us'ūng (Pallas)",
+      "k": "jump point",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Baker - Yā'mon (Hadur)",
+      "k": "jump point",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Baker A",
+      "k": "star",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Baker B",
+      "k": "star",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Baker I",
+      "k": "planet",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Baker II",
+      "k": "planet",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Baker III",
+      "k": "planet",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Baker IV",
+      "k": "planet",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Banshee",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Banshee - Fora",
+      "k": "jump point",
+      "in": "Banshee",
+      "live": false
+    },
+    {
+      "n": "Banshee - Garron",
+      "k": "jump point",
+      "in": "Banshee",
+      "live": false
+    },
+    {
+      "n": "Banshee - Leir",
+      "k": "jump point",
+      "in": "Banshee",
+      "live": false
+    },
+    {
+      "n": "Banshee - Tamsa",
+      "k": "jump point",
+      "in": "Banshee",
+      "live": false
+    },
+    {
+      "n": "Banshee - Yulin",
+      "k": "jump point",
+      "in": "Banshee",
+      "live": false
+    },
+    {
+      "n": "Banshee I",
+      "k": "planet",
+      "in": "Banshee",
+      "live": false
+    },
+    {
+      "n": "Banshee II",
+      "k": "planet",
+      "in": "Banshee",
+      "live": false
+    },
+    {
+      "n": "Banshee IV",
+      "k": "planet",
+      "in": "Banshee",
+      "live": false
+    },
+    {
+      "n": "Bombora",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Borea",
+      "k": "planet",
+      "in": "Magnus",
+      "live": false
+    },
+    {
+      "n": "Branaugh",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Branaugh - Chronos",
+      "k": "jump point",
+      "in": "Branaugh",
+      "live": false
+    },
+    {
+      "n": "Branaugh Belt Alpha",
+      "k": "place",
+      "in": "Branaugh",
+      "live": false
+    },
+    {
+      "n": "Branaugh I",
+      "k": "planet",
+      "in": "Branaugh",
+      "live": false
+    },
+    {
+      "n": "Branaugh II",
+      "k": "planet",
+      "in": "Branaugh",
+      "live": false
+    },
+    {
+      "n": "Branaugh III",
+      "k": "planet",
+      "in": "Branaugh",
+      "live": false
+    },
+    {
+      "n": "Bremen",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Bremen - Kallis",
+      "k": "jump point",
+      "in": "Bremen",
+      "live": false
+    },
+    {
+      "n": "Bremen - Nyx",
+      "k": "jump point",
+      "in": "Bremen",
+      "live": false
+    },
+    {
+      "n": "Bremen - Tanga",
+      "k": "jump point",
+      "in": "Bremen",
+      "live": false
+    },
+    {
+      "n": "Bremen - Vega",
+      "k": "jump point",
+      "in": "Bremen",
+      "live": false
+    },
+    {
+      "n": "Bremen I",
+      "k": "planet",
+      "in": "Bremen",
+      "live": false
+    },
+    {
+      "n": "Bremen III",
+      "k": "planet",
+      "in": "Bremen",
+      "live": false
+    },
+    {
+      "n": "Bremen IV",
+      "k": "planet",
+      "in": "Bremen",
+      "live": false
+    },
+    {
+      "n": "Broken Moon",
+      "k": "moon",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Bruder",
+      "k": "planet",
+      "in": "Chronos",
+      "live": false
+    },
+    {
+      "n": "Buloi Sataball Arena",
+      "k": "station",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Caliban",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Caliban - Nul",
+      "k": "jump point",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban - Oberon",
+      "k": "jump point",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban - Orion",
+      "k": "jump point",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban - Viking",
+      "k": "jump point",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban 2a",
+      "k": "moon",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban 3a",
+      "k": "moon",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban 3b",
+      "k": "moon",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban 4a",
+      "k": "moon",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban 4b",
+      "k": "moon",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban 4c",
+      "k": "moon",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban 4d",
+      "k": "moon",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban 4e",
+      "k": "moon",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban 4f",
+      "k": "moon",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban Belt Alpha",
+      "k": "place",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban I",
+      "k": "planet",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban III",
+      "k": "planet",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban IV",
+      "k": "planet",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Caliban V",
+      "k": "planet",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Callisto",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Cano",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Cano - Davien",
+      "k": "jump point",
+      "in": "Cano",
+      "live": false
+    },
+    {
+      "n": "Cano - Pyro",
+      "k": "jump point",
+      "in": "Cano",
+      "live": false
+    },
+    {
+      "n": "Cano Belt Alpha",
+      "k": "place",
+      "in": "Cano",
+      "live": false
+    },
+    {
+      "n": "Cano I",
+      "k": "planet",
+      "in": "Cano",
+      "live": false
+    },
+    {
+      "n": "Cano III",
+      "k": "planet",
+      "in": "Cano",
+      "live": false
+    },
+    {
+      "n": "Carteyna",
+      "k": "planet",
+      "in": "Cano",
+      "live": false
+    },
+    {
+      "n": "Cascom",
+      "k": "planet",
+      "in": "Castra",
+      "live": false
+    },
+    {
+      "n": "Cassel",
+      "k": "planet",
+      "in": "Goss",
+      "live": false
+    },
+    {
+      "n": "Castor",
+      "k": "planet",
+      "in": "Corel",
+      "live": false
+    },
+    {
+      "n": "Castra",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Castra - Hadrian",
+      "k": "jump point",
+      "in": "Castra",
+      "live": false
+    },
+    {
+      "n": "Castra - Nyx",
+      "k": "jump point",
+      "in": "Castra",
+      "live": false
+    },
+    {
+      "n": "Castra - Oso",
+      "k": "jump point",
+      "in": "Castra",
+      "live": false
+    },
+    {
+      "n": "Castra - Oya",
+      "k": "jump point",
+      "in": "Castra",
+      "live": false
+    },
+    {
+      "n": "Castra - Pyro",
+      "k": "jump point",
+      "in": "Castra",
+      "live": false
+    },
+    {
+      "n": "Castra I",
+      "k": "planet",
+      "in": "Castra",
+      "live": false
+    },
+    {
+      "n": "Cathcart",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Cathcart - Davien",
+      "k": "jump point",
+      "in": "Cathcart",
+      "live": false
+    },
+    {
+      "n": "Cathcart - Hades",
+      "k": "jump point",
+      "in": "Cathcart",
+      "live": false
+    },
+    {
+      "n": "Cathcart - Kilian",
+      "k": "jump point",
+      "in": "Cathcart",
+      "live": false
+    },
+    {
+      "n": "Cathcart - Nexus",
+      "k": "jump point",
+      "in": "Cathcart",
+      "live": false
+    },
+    {
+      "n": "Cathcart Belt Alpha",
+      "k": "place",
+      "in": "Cathcart",
+      "live": false
+    },
+    {
+      "n": "Centauri",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Centauri - Elysium",
+      "k": "jump point",
+      "in": "Centauri",
+      "live": false
+    },
+    {
+      "n": "Centauri - Nul",
+      "k": "jump point",
+      "in": "Centauri",
+      "live": false
+    },
+    {
+      "n": "Centauri Belt Alpha",
+      "k": "place",
+      "in": "Centauri",
+      "live": false
+    },
+    {
+      "n": "Centauri I",
+      "k": "planet",
+      "in": "Centauri",
+      "live": false
+    },
+    {
+      "n": "Centauri IV",
+      "k": "planet",
+      "in": "Centauri",
+      "live": false
+    },
+    {
+      "n": "Centauri V",
+      "k": "planet",
+      "in": "Centauri",
+      "live": false
+    },
+    {
+      "n": "Cestulus",
+      "k": "planet",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Charon",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Charon - Genesis",
+      "k": "jump point",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Charon - Helios",
+      "k": "jump point",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Charon - Kins",
+      "k": "jump point",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Charon - Tyrol",
+      "k": "jump point",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Charon 2a",
+      "k": "moon",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Charon 2b",
+      "k": "moon",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Charon I",
+      "k": "planet",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Charon II",
+      "k": "planet",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Charon III",
+      "k": "planet",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Charon IV",
+      "k": "planet",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Charon V",
+      "k": "planet",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Chronos",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Chronos - Branaugh",
+      "k": "jump point",
+      "in": "Chronos",
+      "live": false
+    },
+    {
+      "n": "Chronos - Kellog",
+      "k": "jump point",
+      "in": "Chronos",
+      "live": false
+    },
+    {
+      "n": "Chuai'chuai ",
+      "k": "planet",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "Chuaiton",
+      "k": "planet",
+      "in": "T.āl",
+      "live": false
+    },
+    {
+      "n": "Cole",
+      "k": "planet",
+      "in": "Nul",
+      "live": false
+    },
+    {
+      "n": "CommArray SCC",
+      "k": "station",
+      "in": "Stanton",
+      "live": false
+    },
+    {
+      "n": "Corel",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Corel - Geddon",
+      "k": "jump point",
+      "in": "Corel",
+      "live": false
+    },
+    {
+      "n": "Corel - Genesis",
+      "k": "jump point",
+      "in": "Corel",
+      "live": false
+    },
+    {
+      "n": "Corel - Nemo",
+      "k": "jump point",
+      "in": "Corel",
+      "live": false
+    },
+    {
+      "n": "Corel I",
+      "k": "planet",
+      "in": "Corel",
+      "live": false
+    },
+    {
+      "n": "Corel II",
+      "k": "planet",
+      "in": "Corel",
+      "live": false
+    },
+    {
+      "n": "Corel V",
+      "k": "planet",
+      "in": "Corel",
+      "live": false
+    },
+    {
+      "n": "Corel VI",
+      "k": "planet",
+      "in": "Corel",
+      "live": false
+    },
+    {
+      "n": "Corin",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Corsito",
+      "k": "moon",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Covalex Hub Gundo",
+      "k": "station",
+      "in": "Stanton",
+      "live": false
+    },
+    {
+      "n": "Covalex Shipping Hub Xenia",
+      "k": "station",
+      "in": "Baker",
+      "live": false
+    },
+    {
+      "n": "Crion",
+      "k": "planet",
+      "in": "Caliban",
+      "live": false
+    },
+    {
+      "n": "Croshaw",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Croshaw - Ferron",
+      "k": "jump point",
+      "in": "Croshaw",
+      "live": false
+    },
+    {
+      "n": "Croshaw - Nul",
+      "k": "jump point",
+      "in": "Croshaw",
+      "live": false
+    },
+    {
+      "n": "Croshaw - Rhetor",
+      "k": "jump point",
+      "in": "Croshaw",
+      "live": false
+    },
+    {
+      "n": "Croshaw - Sol",
+      "k": "jump point",
+      "in": "Croshaw",
+      "live": false
+    },
+    {
+      "n": "Croshaw I",
+      "k": "planet",
+      "in": "Croshaw",
+      "live": false
+    },
+    {
+      "n": "Croshaw IV",
+      "k": "planet",
+      "in": "Croshaw",
+      "live": false
+    },
+    {
+      "n": "Cry-Astro Service",
+      "k": "station",
+      "in": "Stanton",
+      "live": false
+    },
+    {
+      "n": "Cyrene",
+      "k": "planet",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Daedalus Cluster",
+      "k": "place",
+      "in": "Croshaw",
+      "live": false
+    },
+    {
+      "n": "Davien",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Davien - Bacchus",
+      "k": "jump point",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Davien - Cano",
+      "k": "jump point",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Davien - Cathcart",
+      "k": "jump point",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Davien - Ferron",
+      "k": "jump point",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Davien - Kilian",
+      "k": "jump point",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Davien - Sol",
+      "k": "jump point",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Davien I",
+      "k": "planet",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Davien III",
+      "k": "planet",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Davien IV",
+      "k": "planet",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Deimos",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Dione",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Earth",
+      "k": "planet",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Eda",
+      "k": "moon",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "El'sin",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Elcibre Belt",
+      "k": "place",
+      "in": "Nexus",
+      "live": false
+    },
+    {
+      "n": "Ellis",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Ellis - Kilian",
+      "k": "jump point",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis - Magnus",
+      "k": "jump point",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis - Min",
+      "k": "jump point",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis - Nexus",
+      "k": "jump point",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis - Taranis",
+      "k": "jump point",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis 5a",
+      "k": "moon",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis 5b",
+      "k": "moon",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis Belt Alpha",
+      "k": "place",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis I",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis II",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis VI",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis VII",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis VIII",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ellis XI",
+      "k": "place",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Elysium",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Elysium - Centauri",
+      "k": "jump point",
+      "in": "Elysium",
+      "live": false
+    },
+    {
+      "n": "Elysium - Idris",
+      "k": "jump point",
+      "in": "Elysium",
+      "live": false
+    },
+    {
+      "n": "Elysium - Leir",
+      "k": "jump point",
+      "in": "Elysium",
+      "live": false
+    },
+    {
+      "n": "Elysium - Vanguard",
+      "k": "jump point",
+      "in": "Elysium",
+      "live": false
+    },
+    {
+      "n": "Elysium I",
+      "k": "planet",
+      "in": "Elysium",
+      "live": false
+    },
+    {
+      "n": "Elysium II",
+      "k": "planet",
+      "in": "Elysium",
+      "live": false
+    },
+    {
+      "n": "Elysium V",
+      "k": "planet",
+      "in": "Elysium",
+      "live": false
+    },
+    {
+      "n": "Encole Station",
+      "k": "station",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Epheet",
+      "k": "moon",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Ergo",
+      "k": "planet",
+      "in": "Nemo",
+      "live": false
+    },
+    {
+      "n": "Erna",
+      "k": "moon",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Etos",
+      "k": "planet",
+      "in": "Osiris",
+      "live": false
+    },
+    {
+      "n": "Europa",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Ferron",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Ferron - Croshaw",
+      "k": "jump point",
+      "in": "Ferron",
+      "live": false
+    },
+    {
+      "n": "Ferron - Davien",
+      "k": "jump point",
+      "in": "Ferron",
+      "live": false
+    },
+    {
+      "n": "Ferron - Idris",
+      "k": "jump point",
+      "in": "Ferron",
+      "live": false
+    },
+    {
+      "n": "Ferron I",
+      "k": "planet",
+      "in": "Ferron",
+      "live": false
+    },
+    {
+      "n": "Ferron II",
+      "k": "planet",
+      "in": "Ferron",
+      "live": false
+    },
+    {
+      "n": "Ferron IV",
+      "k": "planet",
+      "in": "Ferron",
+      "live": false
+    },
+    {
+      "n": "First Sister",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Fora",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Fora - Banshee",
+      "k": "jump point",
+      "in": "Fora",
+      "live": false
+    },
+    {
+      "n": "Fora - Nemo",
+      "k": "jump point",
+      "in": "Fora",
+      "live": false
+    },
+    {
+      "n": "Fora - Rhetor",
+      "k": "jump point",
+      "in": "Fora",
+      "live": false
+    },
+    {
+      "n": "Fora Belt Alpha",
+      "k": "place",
+      "in": "Fora",
+      "live": false
+    },
+    {
+      "n": "Fora I",
+      "k": "planet",
+      "in": "Fora",
+      "live": false
+    },
+    {
+      "n": "Fora II",
+      "k": "planet",
+      "in": "Fora",
+      "live": false
+    },
+    {
+      "n": "Fora IV",
+      "k": "planet",
+      "in": "Fora",
+      "live": false
+    },
+    {
+      "n": "Fora V",
+      "k": "planet",
+      "in": "Fora",
+      "live": false
+    },
+    {
+      "n": "Gainey",
+      "k": "moon",
+      "in": "Odin",
+      "live": false
+    },
+    {
+      "n": "Ganymede",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Garron",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Garron - Bacchus",
+      "k": "jump point",
+      "in": "Garron",
+      "live": false
+    },
+    {
+      "n": "Garron - Banshee",
+      "k": "jump point",
+      "in": "Garron",
+      "live": false
+    },
+    {
+      "n": "Garron - Idris",
+      "k": "jump point",
+      "in": "Garron",
+      "live": false
+    },
+    {
+      "n": "Garron - Leir",
+      "k": "jump point",
+      "in": "Garron",
+      "live": false
+    },
+    {
+      "n": "Garron I",
+      "k": "planet",
+      "in": "Garron",
+      "live": false
+    },
+    {
+      "n": "Garron II",
+      "k": "planet",
+      "in": "Garron",
+      "live": false
+    },
+    {
+      "n": "Garron III",
+      "k": "planet",
+      "in": "Garron",
+      "live": false
+    },
+    {
+      "n": "Garron IV",
+      "k": "planet",
+      "in": "Garron",
+      "live": false
+    },
+    {
+      "n": "Geddon",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Geddon - Bacchus",
+      "k": "jump point",
+      "in": "Geddon",
+      "live": false
+    },
+    {
+      "n": "Geddon - Corel",
+      "k": "jump point",
+      "in": "Geddon",
+      "live": false
+    },
+    {
+      "n": "Geddon - Gliese",
+      "k": "jump point",
+      "in": "Geddon",
+      "live": false
+    },
+    {
+      "n": "Gedinasho Belt",
+      "k": "place",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Gen",
+      "k": "planet",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Genesis",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Genesis - Charon",
+      "k": "jump point",
+      "in": "Genesis",
+      "live": false
+    },
+    {
+      "n": "Genesis - Corel",
+      "k": "jump point",
+      "in": "Genesis",
+      "live": false
+    },
+    {
+      "n": "Genesis - Taranis",
+      "k": "jump point",
+      "in": "Genesis",
+      "live": false
+    },
+    {
+      "n": "Genesis Belt Alpha",
+      "k": "place",
+      "in": "Genesis",
+      "live": false
+    },
+    {
+      "n": "Genesis I",
+      "k": "planet",
+      "in": "Genesis",
+      "live": false
+    },
+    {
+      "n": "Genesis II",
+      "k": "planet",
+      "in": "Genesis",
+      "live": false
+    },
+    {
+      "n": "Genesis III",
+      "k": "planet",
+      "in": "Genesis",
+      "live": false
+    },
+    {
+      "n": "Gideon's Belt",
+      "k": "place",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Glaciem Ring",
+      "k": "place",
+      "in": "Nyx",
+      "live": false
+    },
+    {
+      "n": "Gliese",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Gliese - Geddon",
+      "k": "jump point",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Gliese Belt Alpha",
+      "k": "place",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Gliese Belt Beta",
+      "k": "place",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Gliese Cluster Gamma",
+      "k": "place",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Gliese I",
+      "k": "planet",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Gliese II",
+      "k": "planet",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Gliese III",
+      "k": "planet",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Gliese V",
+      "k": "planet",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Gliese VI",
+      "k": "planet",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Gonn",
+      "k": "planet",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Goss",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Goss - Helios",
+      "k": "jump point",
+      "in": "Goss",
+      "live": false
+    },
+    {
+      "n": "Goss - Osiris",
+      "k": "jump point",
+      "in": "Goss",
+      "live": false
+    },
+    {
+      "n": "Goss - Tayac",
+      "k": "jump point",
+      "in": "Goss",
+      "live": false
+    },
+    {
+      "n": "Goss - Terra",
+      "k": "jump point",
+      "in": "Goss",
+      "live": false
+    },
+    {
+      "n": "Goss - Tyrol",
+      "k": "jump point",
+      "in": "Goss",
+      "live": false
+    },
+    {
+      "n": "Goss A",
+      "k": "star",
+      "in": "Goss",
+      "live": false
+    },
+    {
+      "n": "Goss B",
+      "k": "star",
+      "in": "Goss",
+      "live": false
+    },
+    {
+      "n": "Goss I",
+      "k": "planet",
+      "in": "Goss",
+      "live": false
+    },
+    {
+      "n": "Goss III",
+      "k": "planet",
+      "in": "Goss",
+      "live": false
+    },
+    {
+      "n": "Green",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Gurzil",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Gurzil - Hadrian",
+      "k": "jump point",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Gurzil - Horus",
+      "k": "jump point",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Gurzil - Oya",
+      "k": "jump point",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Gurzil - R.il'a (Rihlah)",
+      "k": "jump point",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Gurzil Belt Alpha",
+      "k": "place",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "H.ua'u",
+      "k": "planet",
+      "in": "Th.us'ūng (Pallas)",
+      "live": false
+    },
+    {
+      "n": "Hades",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Hades - Cathcart",
+      "k": "jump point",
+      "in": "Hades",
+      "live": false
+    },
+    {
+      "n": "Hades - Nemo",
+      "k": "jump point",
+      "in": "Hades",
+      "live": false
+    },
+    {
+      "n": "Hades - Nexus",
+      "k": "jump point",
+      "in": "Hades",
+      "live": false
+    },
+    {
+      "n": "Hades I",
+      "k": "planet",
+      "in": "Hades",
+      "live": false
+    },
+    {
+      "n": "Hades II",
+      "k": "planet",
+      "in": "Hades",
+      "live": false
+    },
+    {
+      "n": "Hades III",
+      "k": "planet",
+      "in": "Hades",
+      "live": false
+    },
+    {
+      "n": "Hades IV",
+      "k": "planet",
+      "in": "Hades",
+      "live": false
+    },
+    {
+      "n": "Hades IV split",
+      "k": "place",
+      "in": "Hades",
+      "live": false
+    },
+    {
+      "n": "Hadrian",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Hadrian - Castra",
+      "k": "jump point",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Hadrian - Gurzil",
+      "k": "jump point",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Hadrian - Kiel",
+      "k": "jump point",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Hadrian - Oya",
+      "k": "jump point",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Hadrian - Pyro",
+      "k": "jump point",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Hadrian - Terra",
+      "k": "jump point",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Hadrian Belt Alpha",
+      "k": "place",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Hadrian Flotilla",
+      "k": "station",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Hadrian I",
+      "k": "planet",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Hadrian II",
+      "k": "planet",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Hadrian III",
+      "k": "planet",
+      "in": "Hadrian",
+      "live": false
+    },
+    {
+      "n": "Helios",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Helios - Charon",
+      "k": "jump point",
+      "in": "Helios",
+      "live": false
+    },
+    {
+      "n": "Helios - Goss",
+      "k": "jump point",
+      "in": "Helios",
+      "live": false
+    },
+    {
+      "n": "Helios - Taranis",
+      "k": "jump point",
+      "in": "Helios",
+      "live": false
+    },
+    {
+      "n": "Helios - Tyrol",
+      "k": "jump point",
+      "in": "Helios",
+      "live": false
+    },
+    {
+      "n": "Helios 2a",
+      "k": "moon",
+      "in": "Helios",
+      "live": false
+    },
+    {
+      "n": "Helios I",
+      "k": "planet",
+      "in": "Helios",
+      "live": false
+    },
+    {
+      "n": "Helios III",
+      "k": "planet",
+      "in": "Helios",
+      "live": false
+    },
+    {
+      "n": "Helios IV",
+      "k": "planet",
+      "in": "Helios",
+      "live": false
+    },
+    {
+      "n": "Henge Cluster",
+      "k": "place",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Hephaestus Station",
+      "k": "station",
+      "in": "Helios",
+      "live": false
+    },
+    {
+      "n": "Herschel Belt",
+      "k": "place",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Horus",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Horus - Gurzil",
+      "k": "jump point",
+      "in": "Horus",
+      "live": false
+    },
+    {
+      "n": "Horus - Kai'pua (Kayfa)",
+      "k": "jump point",
+      "in": "Horus",
+      "live": false
+    },
+    {
+      "n": "Horus - Kiel",
+      "k": "jump point",
+      "in": "Horus",
+      "live": false
+    },
+    {
+      "n": "Horus - R.il'a (Rihlah)",
+      "k": "jump point",
+      "in": "Horus",
+      "live": false
+    },
+    {
+      "n": "Horus Belt Alpha",
+      "k": "place",
+      "in": "Horus",
+      "live": false
+    },
+    {
+      "n": "Horus Belt Beta",
+      "k": "place",
+      "in": "Horus",
+      "live": false
+    },
+    {
+      "n": "Horus II",
+      "k": "planet",
+      "in": "Horus",
+      "live": false
+    },
+    {
+      "n": "Horus III",
+      "k": "planet",
+      "in": "Horus",
+      "live": false
+    },
+    {
+      "n": "Hua'nam",
+      "k": "planet",
+      "in": "Th.us'ūng (Pallas)",
+      "live": false
+    },
+    {
+      "n": "Huichuaihyao sy.en'o se Ail'ka",
+      "k": "place",
+      "in": "Ail'ka",
+      "live": false
+    },
+    {
+      "n": "Huichuaihyao sy.en'o se La'uo",
+      "k": "place",
+      "in": "La'uo (Virtus)",
+      "live": false
+    },
+    {
+      "n": "Huichuaihyao y.ath'o se Ail'ka",
+      "k": "place",
+      "in": "Ail'ka",
+      "live": false
+    },
+    {
+      "n": "Huichuaihyao y.ath'o se Kyuk'ya",
+      "k": "place",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Huichuaihyao y.ath'o se La'uo ",
+      "k": "place",
+      "in": "La'uo (Virtus)",
+      "live": false
+    },
+    {
+      "n": "Huichuaihyao y.ath'o se Th.usūng",
+      "k": "place",
+      "in": "Th.us'ūng (Pallas)",
+      "live": false
+    },
+    {
+      "n": "Huichuaihyao y.ath'o se Yā'mon",
+      "k": "place",
+      "in": "Yā'mon (Hadur)",
+      "live": false
+    },
+    {
+      "n": "Hyperion",
+      "k": "planet",
+      "in": "Fora",
+      "live": false
+    },
+    {
+      "n": "IAS Hammett",
+      "k": "station",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "ICC ScanHub Stanton",
+      "k": "station",
+      "in": "Stanton",
+      "live": false
+    },
+    {
+      "n": "ICS Evolen",
+      "k": "station",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "IMS Bolliver",
+      "k": "station",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "INS Dunleavy",
+      "k": "station",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "INS Reilly",
+      "k": "station",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Iapetus",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Icarus Cluster",
+      "k": "place",
+      "in": "Croshaw",
+      "live": false
+    },
+    {
+      "n": "Idris",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Idris - Elysium",
+      "k": "jump point",
+      "in": "Idris",
+      "live": false
+    },
+    {
+      "n": "Idris - Ferron",
+      "k": "jump point",
+      "in": "Idris",
+      "live": false
+    },
+    {
+      "n": "Idris - Garron",
+      "k": "jump point",
+      "in": "Idris",
+      "live": false
+    },
+    {
+      "n": "Idris - Rhetor",
+      "k": "jump point",
+      "in": "Idris",
+      "live": false
+    },
+    {
+      "n": "Idris I",
+      "k": "planet",
+      "in": "Idris",
+      "live": false
+    },
+    {
+      "n": "Idris II",
+      "k": "planet",
+      "in": "Idris",
+      "live": false
+    },
+    {
+      "n": "Idris III",
+      "k": "planet",
+      "in": "Idris",
+      "live": false
+    },
+    {
+      "n": "Idris V",
+      "k": "planet",
+      "in": "Idris",
+      "live": false
+    },
+    {
+      "n": "Io",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Jai",
+      "k": "moon",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Jalan",
+      "k": "planet",
+      "in": "Elysium",
+      "live": false
+    },
+    {
+      "n": "Jarl",
+      "k": "moon",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Jovian Rings",
+      "k": "place",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Judecca",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Jupiter",
+      "k": "planet",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "JusticeStar Satellite",
+      "k": "station",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "K'ya.k'uing",
+      "k": "planet",
+      "in": "Ail'ka",
+      "live": false
+    },
+    {
+      "n": "K.ap'a'ri (Khabari)",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "K.yuk'o",
+      "k": "planet",
+      "in": "Kai'pua (Kayfa)",
+      "live": false
+    },
+    {
+      "n": "K.yuy'a'than",
+      "k": "planet",
+      "in": "Th.us'ūng (Pallas)",
+      "live": false
+    },
+    {
+      "n": "Kabal",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Kabal - Leir",
+      "k": "jump point",
+      "in": "Kabal",
+      "live": false
+    },
+    {
+      "n": "Kabal Cluster Alpha",
+      "k": "place",
+      "in": "Kabal",
+      "live": false
+    },
+    {
+      "n": "Kabal I",
+      "k": "planet",
+      "in": "Kabal",
+      "live": false
+    },
+    {
+      "n": "Kabal II",
+      "k": "planet",
+      "in": "Kabal",
+      "live": false
+    },
+    {
+      "n": "Kabal III",
+      "k": "planet",
+      "in": "Kabal",
+      "live": false
+    },
+    {
+      "n": "Kai'pua (Kayfa)",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Kai'pua (Kayfa) - Horus",
+      "k": "jump point",
+      "in": "Kai'pua (Kayfa)",
+      "live": false
+    },
+    {
+      "n": "Kai'pua (Kayfa) - R.il'a (Rihlah)",
+      "k": "jump point",
+      "in": "Kai'pua (Kayfa)",
+      "live": false
+    },
+    {
+      "n": "Kallis",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Kallis - Bremen",
+      "k": "jump point",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis - Oso",
+      "k": "jump point",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis Belt Alpha",
+      "k": "place",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis Belt Beta",
+      "k": "place",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis I",
+      "k": "planet",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis II",
+      "k": "planet",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis III",
+      "k": "planet",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis IV",
+      "k": "planet",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis IX",
+      "k": "planet",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis V",
+      "k": "planet",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis V Accretion Disk",
+      "k": "place",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis VI",
+      "k": "planet",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis VII",
+      "k": "planet",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kallis VIII",
+      "k": "planet",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "Kampos",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Keeger Belt",
+      "k": "place",
+      "in": "Nyx",
+      "live": false
+    },
+    {
+      "n": "Keene",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Kellog",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Kellog - Chronos",
+      "k": "jump point",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "Kellog - Odin",
+      "k": "jump point",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "Kellog - Vector",
+      "k": "jump point",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "Kellog - Virgil",
+      "k": "jump point",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "Kellog I",
+      "k": "planet",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "Kellog III",
+      "k": "planet",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "Kellog IV",
+      "k": "planet",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "Kellog V",
+      "k": "planet",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "Kiel",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Kiel - Baker",
+      "k": "jump point",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Kiel - Hadrian",
+      "k": "jump point",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Kiel - Horus",
+      "k": "jump point",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Kiel Belt Alpha",
+      "k": "place",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Kiel I",
+      "k": "planet",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Kiel II",
+      "k": "planet",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Kiel IV",
+      "k": "planet",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Kiel V",
+      "k": "planet",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Kiel VI ",
+      "k": "planet",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Kilian",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Kilian - Cathcart",
+      "k": "jump point",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Kilian - Davien",
+      "k": "jump point",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Kilian - Ellis",
+      "k": "jump point",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Kilian VIII",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Kilian X",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Kilian XI",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Kilian XII",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Kilian XIII",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Kilian XIV",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Kins",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Kins - Charon",
+      "k": "jump point",
+      "in": "Kins",
+      "live": false
+    },
+    {
+      "n": "Kins - Kyuk'ya (Indra)",
+      "k": "jump point",
+      "in": "Kins",
+      "live": false
+    },
+    {
+      "n": "Kins Belt Alpha",
+      "k": "place",
+      "in": "Kins",
+      "live": false
+    },
+    {
+      "n": "Kins Belt Beta",
+      "k": "place",
+      "in": "Kins",
+      "live": false
+    },
+    {
+      "n": "Kins I",
+      "k": "planet",
+      "in": "Kins",
+      "live": false
+    },
+    {
+      "n": "Kins II",
+      "k": "planet",
+      "in": "Kins",
+      "live": false
+    },
+    {
+      "n": "Kins III",
+      "k": "planet",
+      "in": "Kins",
+      "live": false
+    },
+    {
+      "n": "Kins IV",
+      "k": "planet",
+      "in": "Kins",
+      "live": false
+    },
+    {
+      "n": "Kins V",
+      "k": "planet",
+      "in": "Kins",
+      "live": false
+    },
+    {
+      "n": "Ko'li",
+      "k": "planet",
+      "in": "Ē'aluth (Eealus)",
+      "live": false
+    },
+    {
+      "n": "Kuiper Belt",
+      "k": "place",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Kuā'li",
+      "k": "planet",
+      "in": "Yā'mon (Hadur)",
+      "live": false
+    },
+    {
+      "n": "Kyu'kyu",
+      "k": "planet",
+      "in": "Kai'pua (Kayfa)",
+      "live": false
+    },
+    {
+      "n": "Kyu'nao",
+      "k": "planet",
+      "in": "T.āl",
+      "live": false
+    },
+    {
+      "n": "Kyu'ām",
+      "k": "planet",
+      "in": "La'uo (Virtus)",
+      "live": false
+    },
+    {
+      "n": "Kyuk'ya (Indra)",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Kyuk'ya (Indra) - Ail'ka",
+      "k": "jump point",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Kyuk'ya (Indra) - Kins",
+      "k": "jump point",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Kyuk'ya (Indra) - Osiris",
+      "k": "jump point",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Kyuk'ya (Indra) - Yā'mon (Hadur)",
+      "k": "jump point",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Kyuk'ya (Indra) A",
+      "k": "star",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Kyuk'ya (Indra) B",
+      "k": "star",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Kyuk'ya (Indra) I",
+      "k": "planet",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Kyuk'ya (Indra) II",
+      "k": "planet",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Kyupuāng",
+      "k": "planet",
+      "in": "Ē'aluth (Eealus)",
+      "live": false
+    },
+    {
+      "n": "La'uo (Virtus)",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "La'uo (Virtus) - Tohil",
+      "k": "jump point",
+      "in": "La'uo (Virtus)",
+      "live": false
+    },
+    {
+      "n": "La'uo (Virtus) - Trise",
+      "k": "jump point",
+      "in": "La'uo (Virtus)",
+      "live": false
+    },
+    {
+      "n": "La'uo (Virtus) - Ē'aluth (Eealus)",
+      "k": "jump point",
+      "in": "La'uo (Virtus)",
+      "live": false
+    },
+    {
+      "n": "Lago",
+      "k": "planet",
+      "in": "Nexus",
+      "live": false
+    },
+    {
+      "n": "Lanisto",
+      "k": "moon",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Leir",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Leir - Banshee",
+      "k": "jump point",
+      "in": "Leir",
+      "live": false
+    },
+    {
+      "n": "Leir - Elysium",
+      "k": "jump point",
+      "in": "Leir",
+      "live": false
+    },
+    {
+      "n": "Leir - Garron",
+      "k": "jump point",
+      "in": "Leir",
+      "live": false
+    },
+    {
+      "n": "Leir - Kabal",
+      "k": "jump point",
+      "in": "Leir",
+      "live": false
+    },
+    {
+      "n": "Leir - Vanguard",
+      "k": "jump point",
+      "in": "Leir",
+      "live": false
+    },
+    {
+      "n": "Leir - Yulin",
+      "k": "jump point",
+      "in": "Leir",
+      "live": false
+    },
+    {
+      "n": "Leir I",
+      "k": "planet",
+      "in": "Leir",
+      "live": false
+    },
+    {
+      "n": "Leir III",
+      "k": "planet",
+      "in": "Leir",
+      "live": false
+    },
+    {
+      "n": "Lixāuu",
+      "k": "planet",
+      "in": "T.āl",
+      "live": false
+    },
+    {
+      "n": "Lo",
+      "k": "planet",
+      "in": "Corel",
+      "live": false
+    },
+    {
+      "n": "Locke",
+      "k": "planet",
+      "in": "Idris",
+      "live": false
+    },
+    {
+      "n": "Lorona",
+      "k": "planet",
+      "in": "Banshee",
+      "live": false
+    },
+    {
+      "n": "Luna",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Lyris",
+      "k": "station",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Lūng'xyi",
+      "k": "planet",
+      "in": "T.āl",
+      "live": false
+    },
+    {
+      "n": "M.iiy'ong",
+      "k": "planet",
+      "in": "Ail'ka",
+      "live": false
+    },
+    {
+      "n": "MacArthur",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Magma",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Magnus",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Magnus - Ellis",
+      "k": "jump point",
+      "in": "Magnus",
+      "live": false
+    },
+    {
+      "n": "Magnus - Stanton",
+      "k": "jump point",
+      "in": "Magnus",
+      "live": false
+    },
+    {
+      "n": "Magnus - Terra",
+      "k": "jump point",
+      "in": "Magnus",
+      "live": false
+    },
+    {
+      "n": "Magnus I",
+      "k": "planet",
+      "in": "Magnus",
+      "live": false
+    },
+    {
+      "n": "Magnus III",
+      "k": "planet",
+      "in": "Magnus",
+      "live": false
+    },
+    {
+      "n": "Malkail (Markahil)",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Marisol Belt",
+      "k": "place",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Mars",
+      "k": "planet",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Mentor",
+      "k": "planet",
+      "in": "Rhetor",
+      "live": false
+    },
+    {
+      "n": "Mercury",
+      "k": "planet",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Min",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Min - Ellis",
+      "k": "jump point",
+      "in": "Min",
+      "live": false
+    },
+    {
+      "n": "Min - Nexus",
+      "k": "jump point",
+      "in": "Min",
+      "live": false
+    },
+    {
+      "n": "Min 1a",
+      "k": "moon",
+      "in": "Min",
+      "live": false
+    },
+    {
+      "n": "Min 1b",
+      "k": "moon",
+      "in": "Min",
+      "live": false
+    },
+    {
+      "n": "Min 1c",
+      "k": "moon",
+      "in": "Min",
+      "live": false
+    },
+    {
+      "n": "Min 1d",
+      "k": "moon",
+      "in": "Min",
+      "live": false
+    },
+    {
+      "n": "Min I",
+      "k": "planet",
+      "in": "Min",
+      "live": false
+    },
+    {
+      "n": "Miranda",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Mya",
+      "k": "planet",
+      "in": "Leir",
+      "live": false
+    },
+    {
+      "n": "Nemo",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Nemo - Corel",
+      "k": "jump point",
+      "in": "Nemo",
+      "live": false
+    },
+    {
+      "n": "Nemo - Fora",
+      "k": "jump point",
+      "in": "Nemo",
+      "live": false
+    },
+    {
+      "n": "Nemo - Hades",
+      "k": "jump point",
+      "in": "Nemo",
+      "live": false
+    },
+    {
+      "n": "Nemo I",
+      "k": "planet",
+      "in": "Nemo",
+      "live": false
+    },
+    {
+      "n": "Nemo II",
+      "k": "planet",
+      "in": "Nemo",
+      "live": false
+    },
+    {
+      "n": "Neptune",
+      "k": "planet",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Nexus",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Nexus - Cathcart",
+      "k": "jump point",
+      "in": "Nexus",
+      "live": false
+    },
+    {
+      "n": "Nexus - Ellis",
+      "k": "jump point",
+      "in": "Nexus",
+      "live": false
+    },
+    {
+      "n": "Nexus - Hades",
+      "k": "jump point",
+      "in": "Nexus",
+      "live": false
+    },
+    {
+      "n": "Nexus - Min",
+      "k": "jump point",
+      "in": "Nexus",
+      "live": false
+    },
+    {
+      "n": "Nexus I",
+      "k": "planet",
+      "in": "Nexus",
+      "live": false
+    },
+    {
+      "n": "Nexus II",
+      "k": "planet",
+      "in": "Nexus",
+      "live": false
+    },
+    {
+      "n": "Nexus III",
+      "k": "planet",
+      "in": "Nexus",
+      "live": false
+    },
+    {
+      "n": "Noble",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Nogo",
+      "k": "planet",
+      "in": "Gliese",
+      "live": false
+    },
+    {
+      "n": "Nul",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Nul - Caliban",
+      "k": "jump point",
+      "in": "Nul",
+      "live": false
+    },
+    {
+      "n": "Nul - Centauri",
+      "k": "jump point",
+      "in": "Nul",
+      "live": false
+    },
+    {
+      "n": "Nul - Croshaw",
+      "k": "jump point",
+      "in": "Nul",
+      "live": false
+    },
+    {
+      "n": "Nul - Oberon",
+      "k": "jump point",
+      "in": "Nul",
+      "live": false
+    },
+    {
+      "n": "Nul - Vega",
+      "k": "jump point",
+      "in": "Nul",
+      "live": false
+    },
+    {
+      "n": "Nul I",
+      "k": "planet",
+      "in": "Nul",
+      "live": false
+    },
+    {
+      "n": "Nul II",
+      "k": "planet",
+      "in": "Nul",
+      "live": false
+    },
+    {
+      "n": "Nul IV",
+      "k": "planet",
+      "in": "Nul",
+      "live": false
+    },
+    {
+      "n": "Nyx I",
+      "k": "planet",
+      "in": "Nyx",
+      "live": false
+    },
+    {
+      "n": "Nyx II",
+      "k": "planet",
+      "in": "Nyx",
+      "live": false
+    },
+    {
+      "n": "Nyx III",
+      "k": "planet",
+      "in": "Nyx",
+      "live": false
+    },
+    {
+      "n": "OB Heller",
+      "k": "station",
+      "in": "Garron",
+      "live": false
+    },
+    {
+      "n": "OB Kobold",
+      "k": "station",
+      "in": "Osiris",
+      "live": false
+    },
+    {
+      "n": "OB Station Gryphon",
+      "k": "station",
+      "in": "Kallis",
+      "live": false
+    },
+    {
+      "n": "OB Station Pegasus",
+      "k": "station",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "Oberon",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Oberon - Caliban",
+      "k": "jump point",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Oberon - Nul",
+      "k": "jump point",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Oberon - Tiber",
+      "k": "jump point",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Oberon - Vega",
+      "k": "jump point",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Oberon - Virgil",
+      "k": "jump point",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Oberon III",
+      "k": "planet",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Oberon IV",
+      "k": "planet",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Oberon V",
+      "k": "planet",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Oberon VI",
+      "k": "planet",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Oberon VII",
+      "k": "planet",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "Odin",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Odin - Kellog",
+      "k": "jump point",
+      "in": "Odin",
+      "live": false
+    },
+    {
+      "n": "Odin - Nyx",
+      "k": "jump point",
+      "in": "Odin",
+      "live": false
+    },
+    {
+      "n": "Odin - Tanga",
+      "k": "jump point",
+      "in": "Odin",
+      "live": false
+    },
+    {
+      "n": "Odin II",
+      "k": "planet",
+      "in": "Odin",
+      "live": false
+    },
+    {
+      "n": "Odin III",
+      "k": "planet",
+      "in": "Odin",
+      "live": false
+    },
+    {
+      "n": "Odin IV",
+      "k": "planet",
+      "in": "Odin",
+      "live": false
+    },
+    {
+      "n": "Oli'xa",
+      "k": "planet",
+      "in": "T.āl",
+      "live": false
+    },
+    {
+      "n": "Oretani",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Orion",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Orion - Caliban",
+      "k": "jump point",
+      "in": "Orion",
+      "live": false
+    },
+    {
+      "n": "Orion - Tiber",
+      "k": "jump point",
+      "in": "Orion",
+      "live": false
+    },
+    {
+      "n": "Orion - VS-9 \"Vulture\"",
+      "k": "jump point",
+      "in": "Orion",
+      "live": false
+    },
+    {
+      "n": "Orion - Viking",
+      "k": "jump point",
+      "in": "Orion",
+      "live": false
+    },
+    {
+      "n": "Orion Belt Alpha",
+      "k": "place",
+      "in": "Orion",
+      "live": false
+    },
+    {
+      "n": "Orion I",
+      "k": "planet",
+      "in": "Orion",
+      "live": false
+    },
+    {
+      "n": "Orion II",
+      "k": "planet",
+      "in": "Orion",
+      "live": false
+    },
+    {
+      "n": "Osha",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Osiris",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Osiris - Baker",
+      "k": "jump point",
+      "in": "Osiris",
+      "live": false
+    },
+    {
+      "n": "Osiris - Goss",
+      "k": "jump point",
+      "in": "Osiris",
+      "live": false
+    },
+    {
+      "n": "Osiris - Kyuk'ya (Indra)",
+      "k": "jump point",
+      "in": "Osiris",
+      "live": false
+    },
+    {
+      "n": "Osiris Belt Alpha",
+      "k": "place",
+      "in": "Osiris",
+      "live": false
+    },
+    {
+      "n": "Osiris II",
+      "k": "planet",
+      "in": "Osiris",
+      "live": false
+    },
+    {
+      "n": "Oso",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Oso - Castra",
+      "k": "jump point",
+      "in": "Oso",
+      "live": false
+    },
+    {
+      "n": "Oso - Kallis",
+      "k": "jump point",
+      "in": "Oso",
+      "live": false
+    },
+    {
+      "n": "Oso - Pyro",
+      "k": "jump point",
+      "in": "Oso",
+      "live": false
+    },
+    {
+      "n": "Oso I",
+      "k": "planet",
+      "in": "Oso",
+      "live": false
+    },
+    {
+      "n": "Oso II",
+      "k": "planet",
+      "in": "Oso",
+      "live": false
+    },
+    {
+      "n": "Oso III",
+      "k": "planet",
+      "in": "Oso",
+      "live": false
+    },
+    {
+      "n": "Oso IV",
+      "k": "planet",
+      "in": "Oso",
+      "live": false
+    },
+    {
+      "n": "Oso V",
+      "k": "planet",
+      "in": "Oso",
+      "live": false
+    },
+    {
+      "n": "Oso VI",
+      "k": "planet",
+      "in": "Oso",
+      "live": false
+    },
+    {
+      "n": "Oya",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Oya - Castra",
+      "k": "jump point",
+      "in": "Oya",
+      "live": false
+    },
+    {
+      "n": "Oya - Gurzil",
+      "k": "jump point",
+      "in": "Oya",
+      "live": false
+    },
+    {
+      "n": "Oya - Hadrian",
+      "k": "jump point",
+      "in": "Oya",
+      "live": false
+    },
+    {
+      "n": "Oya - Tohil",
+      "k": "jump point",
+      "in": "Oya",
+      "live": false
+    },
+    {
+      "n": "Oya - Ē'aluth (Eealus)",
+      "k": "jump point",
+      "in": "Oya",
+      "live": false
+    },
+    {
+      "n": "Oya I",
+      "k": "planet",
+      "in": "Oya",
+      "live": false
+    },
+    {
+      "n": "Oya II",
+      "k": "planet",
+      "in": "Oya",
+      "live": false
+    },
+    {
+      "n": "Oya III",
+      "k": "planet",
+      "in": "Oya",
+      "live": false
+    },
+    {
+      "n": "Oya IV",
+      "k": "planet",
+      "in": "Oya",
+      "live": false
+    },
+    {
+      "n": "P.uay'aha ",
+      "k": "planet",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "Penselin",
+      "k": "moon",
+      "in": "Davien",
+      "live": false
+    },
+    {
+      "n": "Persei",
+      "k": "planet",
+      "in": "Rhetor",
+      "live": false
+    },
+    {
+      "n": "Petram",
+      "k": "moon",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Petrus",
+      "k": "moon",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Phobos",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Pi'pa",
+      "k": "planet",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "Pi'tua",
+      "k": "planet",
+      "in": "La'uo (Virtus)",
+      "live": false
+    },
+    {
+      "n": "Pike",
+      "k": "planet",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Pinecone",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Ping'leth",
+      "k": "planet",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "Pluto",
+      "k": "planet",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Port Olisar",
+      "k": "station",
+      "in": "Stanton",
+      "live": false
+    },
+    {
+      "n": "Pox",
+      "k": "planet",
+      "in": "Cano",
+      "live": false
+    },
+    {
+      "n": "Protoplanetary Disk",
+      "k": "place",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Protoplanetary Disk 2",
+      "k": "place",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Protoplanetary Disk 3",
+      "k": "place",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Protoplanetary Disk 6",
+      "k": "place",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Protoplanetary Disk 7",
+      "k": "place",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Protoplanetary Disk 8",
+      "k": "place",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Protoplanetary Disk 9",
+      "k": "place",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Protoplentary Disk 4",
+      "k": "place",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Protoplentary Disk 5",
+      "k": "place",
+      "in": "Gurzil",
+      "live": false
+    },
+    {
+      "n": "Pue'nu",
+      "k": "moon",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Puāngkiil",
+      "k": "planet",
+      "in": "Ē'aluth (Eealus)",
+      "live": false
+    },
+    {
+      "n": "Quarterdeck",
+      "k": "planet",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "R.aip'uāng",
+      "k": "planet",
+      "in": "Kai'pua (Kayfa)",
+      "live": false
+    },
+    {
+      "n": "R.il'a (Rihlah)",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "R.il'a (Rihlah) ",
+      "k": "star",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "R.il'a (Rihlah) - Gurzil",
+      "k": "jump point",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "R.il'a (Rihlah) - Horus",
+      "k": "jump point",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "R.il'a (Rihlah) - Kai'pua (Kayfa)",
+      "k": "jump point",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "R.il'a (Rihlah) - Ē'aluth (Eealus)",
+      "k": "jump point",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "Reisse",
+      "k": "planet",
+      "in": "Rhetor",
+      "live": false
+    },
+    {
+      "n": "Rhea",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Rhetor",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Rhetor - Croshaw",
+      "k": "jump point",
+      "in": "Rhetor",
+      "live": false
+    },
+    {
+      "n": "Rhetor - Fora",
+      "k": "jump point",
+      "in": "Rhetor",
+      "live": false
+    },
+    {
+      "n": "Rhetor - Idris",
+      "k": "jump point",
+      "in": "Rhetor",
+      "live": false
+    },
+    {
+      "n": "Rhetor I",
+      "k": "planet",
+      "in": "Rhetor",
+      "live": false
+    },
+    {
+      "n": "Rhetor V",
+      "k": "planet",
+      "in": "Rhetor",
+      "live": false
+    },
+    {
+      "n": "Ring of Yela",
+      "k": "place",
+      "in": "Stanton",
+      "live": false
+    },
+    {
+      "n": "Rings of Aremis",
+      "k": "place",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Rings of Branaugh II",
+      "k": "place",
+      "in": "Branaugh",
+      "live": false
+    },
+    {
+      "n": "Rings of Ellis VII",
+      "k": "place",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Rings of Kiel V",
+      "k": "place",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Rings of Kyuk'ya I",
+      "k": "place",
+      "in": "Kyuk'ya (Indra)",
+      "live": false
+    },
+    {
+      "n": "Rings of Neptune",
+      "k": "place",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Rings of Saturn",
+      "k": "place",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Rings of Tayac II",
+      "k": "place",
+      "in": "Tayac",
+      "live": false
+    },
+    {
+      "n": "Rings of Uranus",
+      "k": "place",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Rytif",
+      "k": "planet",
+      "in": "Bremen",
+      "live": false
+    },
+    {
+      "n": "Ryōl",
+      "k": "planet",
+      "in": "T.āl",
+      "live": false
+    },
+    {
+      "n": "S.ap'uāng",
+      "k": "planet",
+      "in": "La'uo (Virtus)",
+      "live": false
+    },
+    {
+      "n": "Saisei",
+      "k": "planet",
+      "in": "Centauri",
+      "live": false
+    },
+    {
+      "n": "Saturn",
+      "k": "planet",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Schwester",
+      "k": "planet",
+      "in": "Chronos",
+      "live": false
+    },
+    {
+      "n": "Se'kith",
+      "k": "planet",
+      "in": "Th.us'ūng (Pallas)",
+      "live": false
+    },
+    {
+      "n": "Second Sister",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Security Post Kareah",
+      "k": "station",
+      "in": "Stanton",
+      "live": false
+    },
+    {
+      "n": "Selene",
+      "k": "planet",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Serling",
+      "k": "planet",
+      "in": "Horus",
+      "live": false
+    },
+    {
+      "n": "Severus",
+      "k": "planet",
+      "in": "Kiel",
+      "live": false
+    },
+    {
+      "n": "Shepherd",
+      "k": "planet",
+      "in": "Tayac",
+      "live": false
+    },
+    {
+      "n": "Sino",
+      "k": "planet",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Sol",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Sol - Croshaw",
+      "k": "jump point",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Sol - Davien",
+      "k": "jump point",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Spider",
+      "k": "station",
+      "in": "Cathcart",
+      "live": false
+    },
+    {
+      "n": "Synthworld",
+      "k": "planet",
+      "in": "Chronos",
+      "live": false
+    },
+    {
+      "n": "T.āl",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "T.āl - Ail'ka",
+      "k": "jump point",
+      "in": "T.āl",
+      "live": false
+    },
+    {
+      "n": "T.āl - Th.us'ūng (Pallas)",
+      "k": "jump point",
+      "in": "T.āl",
+      "live": false
+    },
+    {
+      "n": "TDD Kesner",
+      "k": "station",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Takto",
+      "k": "planet",
+      "in": "Geddon",
+      "live": false
+    },
+    {
+      "n": "Tal",
+      "k": "star",
+      "in": "T.āl",
+      "live": false
+    },
+    {
+      "n": "Tamsa",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Tamsa - Banshee",
+      "k": "jump point",
+      "in": "Tamsa",
+      "live": false
+    },
+    {
+      "n": "Tamsa I",
+      "k": "planet",
+      "in": "Tamsa",
+      "live": false
+    },
+    {
+      "n": "Tamsa II",
+      "k": "planet",
+      "in": "Tamsa",
+      "live": false
+    },
+    {
+      "n": "Tanga",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Tanga - Bremen",
+      "k": "jump point",
+      "in": "Tanga",
+      "live": false
+    },
+    {
+      "n": "Tanga - Odin",
+      "k": "jump point",
+      "in": "Tanga",
+      "live": false
+    },
+    {
+      "n": "Tanga Belt Alpha",
+      "k": "place",
+      "in": "Tanga",
+      "live": false
+    },
+    {
+      "n": "Tanga I",
+      "k": "planet",
+      "in": "Tanga",
+      "live": false
+    },
+    {
+      "n": "Tanga II",
+      "k": "planet",
+      "in": "Tanga",
+      "live": false
+    },
+    {
+      "n": "Tangaroa",
+      "k": "planet",
+      "in": "Helios",
+      "live": false
+    },
+    {
+      "n": "Taranis",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Taranis - Ellis",
+      "k": "jump point",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Taranis - Genesis",
+      "k": "jump point",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Taranis - Helios",
+      "k": "jump point",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Taranis - Terra",
+      "k": "jump point",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Taranis 2a Debris",
+      "k": "place",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Taranis Belt Alpha",
+      "k": "place",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Taranis Belt Beta",
+      "k": "place",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Taranis I",
+      "k": "planet",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Taranis II",
+      "k": "planet",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Taranis III",
+      "k": "planet",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Taranis IV",
+      "k": "planet",
+      "in": "Taranis",
+      "live": false
+    },
+    {
+      "n": "Tayac",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Tayac - Baker",
+      "k": "jump point",
+      "in": "Tayac",
+      "live": false
+    },
+    {
+      "n": "Tayac - Goss",
+      "k": "jump point",
+      "in": "Tayac",
+      "live": false
+    },
+    {
+      "n": "Tayac - Terra",
+      "k": "jump point",
+      "in": "Tayac",
+      "live": false
+    },
+    {
+      "n": "Tayac Belt Alpha",
+      "k": "place",
+      "in": "Tayac",
+      "live": false
+    },
+    {
+      "n": "Tayac I",
+      "k": "planet",
+      "in": "Tayac",
+      "live": false
+    },
+    {
+      "n": "Tayac II",
+      "k": "planet",
+      "in": "Tayac",
+      "live": false
+    },
+    {
+      "n": "Terra",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Terra - Goss",
+      "k": "jump point",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Terra - Hadrian",
+      "k": "jump point",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Terra - Magnus",
+      "k": "jump point",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Terra - Pyro",
+      "k": "jump point",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Terra - Stanton",
+      "k": "jump point",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Terra - Taranis",
+      "k": "jump point",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Terra - Tayac",
+      "k": "jump point",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Terra Nova",
+      "k": "star",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Tethys",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Th.us'ūng (Pallas)",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Th.us'ūng (Pallas) - Baker",
+      "k": "jump point",
+      "in": "Th.us'ūng (Pallas)",
+      "live": false
+    },
+    {
+      "n": "Th.us'ūng (Pallas) - Hadur",
+      "k": "jump point",
+      "in": "Th.us'ūng (Pallas)",
+      "live": false
+    },
+    {
+      "n": "Th.us'ūng (Pallas) - T.āl",
+      "k": "jump point",
+      "in": "Th.us'ūng (Pallas)",
+      "live": false
+    },
+    {
+      "n": "Th.us'ūng (Pallas) I",
+      "k": "planet",
+      "in": "Th.us'ūng (Pallas)",
+      "live": false
+    },
+    {
+      "n": "The ARK",
+      "k": "station",
+      "in": "Tayac",
+      "live": false
+    },
+    {
+      "n": "The Coil",
+      "k": "place",
+      "in": "Odin",
+      "live": false
+    },
+    {
+      "n": "The Red God",
+      "k": "planet",
+      "in": "Nexus",
+      "live": false
+    },
+    {
+      "n": "Third Sister",
+      "k": "planet",
+      "in": "Kilian",
+      "live": false
+    },
+    {
+      "n": "Tiber",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Tiber - Oberon",
+      "k": "jump point",
+      "in": "Tiber",
+      "live": false
+    },
+    {
+      "n": "Tiber - Orion",
+      "k": "jump point",
+      "in": "Tiber",
+      "live": false
+    },
+    {
+      "n": "Tiber - Vector",
+      "k": "jump point",
+      "in": "Tiber",
+      "live": false
+    },
+    {
+      "n": "Tiber - Virgil",
+      "k": "jump point",
+      "in": "Tiber",
+      "live": false
+    },
+    {
+      "n": "Tiber Belt Alpha",
+      "k": "place",
+      "in": "Tiber",
+      "live": false
+    },
+    {
+      "n": "Tiber I",
+      "k": "planet",
+      "in": "Tiber",
+      "live": false
+    },
+    {
+      "n": "Tiber II",
+      "k": "planet",
+      "in": "Tiber",
+      "live": false
+    },
+    {
+      "n": "Titan",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Titania",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Tohil",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Tohil - La'uo (Virtus)",
+      "k": "jump point",
+      "in": "Tohil",
+      "live": false
+    },
+    {
+      "n": "Tohil - Nyx",
+      "k": "jump point",
+      "in": "Tohil",
+      "live": false
+    },
+    {
+      "n": "Tohil - Oya",
+      "k": "jump point",
+      "in": "Tohil",
+      "live": false
+    },
+    {
+      "n": "Tohil Belt Alpha",
+      "k": "place",
+      "in": "Tohil",
+      "live": false
+    },
+    {
+      "n": "Tohil I",
+      "k": "planet",
+      "in": "Tohil",
+      "live": false
+    },
+    {
+      "n": "Tohil II",
+      "k": "planet",
+      "in": "Tohil",
+      "live": false
+    },
+    {
+      "n": "Tohil III",
+      "k": "planet",
+      "in": "Tohil",
+      "live": false
+    },
+    {
+      "n": "Tohil IV",
+      "k": "planet",
+      "in": "Tohil",
+      "live": false
+    },
+    {
+      "n": "Toja",
+      "k": "moon",
+      "in": "Terra",
+      "live": false
+    },
+    {
+      "n": "Touvoni/Aiya",
+      "k": "moon",
+      "in": "Charon",
+      "live": false
+    },
+    {
+      "n": "Trise",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Trise - La'uo (Virtus)",
+      "k": "jump point",
+      "in": "Trise",
+      "live": false
+    },
+    {
+      "n": "Trise - Ē'aluth (Eealus)",
+      "k": "jump point",
+      "in": "Trise",
+      "live": false
+    },
+    {
+      "n": "Trise Flotilla",
+      "k": "station",
+      "in": "Trise",
+      "live": false
+    },
+    {
+      "n": "Trise I",
+      "k": "planet",
+      "in": "Trise",
+      "live": false
+    },
+    {
+      "n": "Triton",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Tua.lu\"",
+      "k": "planet",
+      "in": "Ē'aluth (Eealus)",
+      "live": false
+    },
+    {
+      "n": "Tyrol",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Tyrol - Charon",
+      "k": "jump point",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol - Goss",
+      "k": "jump point",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol - Helios",
+      "k": "jump point",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol A",
+      "k": "star",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol B",
+      "k": "star",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol Belt Alpha",
+      "k": "place",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol I",
+      "k": "planet",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol II",
+      "k": "planet",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol III",
+      "k": "planet",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol IV",
+      "k": "planet",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol V",
+      "k": "planet",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol VI",
+      "k": "planet",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Tyrol VII",
+      "k": "planet",
+      "in": "Tyrol",
+      "live": false
+    },
+    {
+      "n": "Ui'r.a'ang",
+      "k": "planet",
+      "in": "Kai'pua (Kayfa)",
+      "live": false
+    },
+    {
+      "n": "Umbriel",
+      "k": "moon",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Uranus",
+      "k": "planet",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Uriel",
+      "k": "planet",
+      "in": "Oberon",
+      "live": false
+    },
+    {
+      "n": "VS-9 \"Vulture\" - Orion",
+      "k": "jump point",
+      "in": "Vulture",
+      "live": false
+    },
+    {
+      "n": "Vagabond",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Vanduul Attack",
+      "k": "place",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Vanguard",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Vanguard - Elysium",
+      "k": "jump point",
+      "in": "Vanguard",
+      "live": false
+    },
+    {
+      "n": "Vanguard - Leir",
+      "k": "jump point",
+      "in": "Vanguard",
+      "live": false
+    },
+    {
+      "n": "Vann",
+      "k": "planet",
+      "in": "Croshaw",
+      "live": false
+    },
+    {
+      "n": "Vector",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Vector - Kellog",
+      "k": "jump point",
+      "in": "Vector",
+      "live": false
+    },
+    {
+      "n": "Vector - Tiber",
+      "k": "jump point",
+      "in": "Vector",
+      "live": false
+    },
+    {
+      "n": "Vega",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Vega - Bremen",
+      "k": "jump point",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Vega - Nul",
+      "k": "jump point",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Vega - Oberon",
+      "k": "jump point",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Vega - Virgil",
+      "k": "jump point",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Vega 2a",
+      "k": "moon",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Vega 2b",
+      "k": "moon",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Vega Belt Alpha",
+      "k": "place",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Vega I",
+      "k": "planet",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Vega IV",
+      "k": "planet",
+      "in": "Vega",
+      "live": false
+    },
+    {
+      "n": "Vendetta",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Venus",
+      "k": "planet",
+      "in": "Sol",
+      "live": false
+    },
+    {
+      "n": "Veritas",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Vermilion",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Vesper",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Viking",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Viking - Caliban",
+      "k": "jump point",
+      "in": "Viking",
+      "live": false
+    },
+    {
+      "n": "Viking - Orion",
+      "k": "jump point",
+      "in": "Viking",
+      "live": false
+    },
+    {
+      "n": "Vili",
+      "k": "moon",
+      "in": "Odin",
+      "live": false
+    },
+    {
+      "n": "Virgil",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Virgil - Kellog",
+      "k": "jump point",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Virgil - Nyx",
+      "k": "jump point",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Virgil - Oberon",
+      "k": "jump point",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Virgil - Tiber",
+      "k": "jump point",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Virgil - Vega",
+      "k": "jump point",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Virgil III",
+      "k": "planet",
+      "in": "Virgil",
+      "live": false
+    },
+    {
+      "n": "Virgo",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Volt",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Voodoo",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Vosca",
+      "k": "planet",
+      "in": "Elysium",
+      "live": false
+    },
+    {
+      "n": "Vulture",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Walleye",
+      "k": "planet",
+      "in": "Ellis",
+      "live": false
+    },
+    {
+      "n": "Xi",
+      "k": "planet",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "Xis",
+      "k": "planet",
+      "in": "Kellog",
+      "live": false
+    },
+    {
+      "n": "Xyekyu",
+      "k": "planet",
+      "in": "Ē'aluth (Eealus)",
+      "live": false
+    },
+    {
+      "n": "Xyeping",
+      "k": "planet",
+      "in": "Ail'ka",
+      "live": false
+    },
+    {
+      "n": "Xōl'uu",
+      "k": "planet",
+      "in": "R.il'a (Rihlah)",
+      "live": false
+    },
+    {
+      "n": "Y.ōm'e",
+      "k": "planet",
+      "in": "T.āl",
+      "live": false
+    },
+    {
+      "n": "Yar",
+      "k": "planet",
+      "in": "Centauri",
+      "live": false
+    },
+    {
+      "n": "Ye'ten",
+      "k": "planet",
+      "in": "Ail'ka",
+      "live": false
+    },
+    {
+      "n": "Ye'ton",
+      "k": "planet",
+      "in": "Ail'ka",
+      "live": false
+    },
+    {
+      "n": "Yengchuai ",
+      "k": "planet",
+      "in": "La'uo (Virtus)",
+      "live": false
+    },
+    {
+      "n": "Yethlūl s.yen'o",
+      "k": "planet",
+      "in": "Yā'mon (Hadur)",
+      "live": false
+    },
+    {
+      "n": "Yethlūl y.ath'o",
+      "k": "planet",
+      "in": "Yā'mon (Hadur)",
+      "live": false
+    },
+    {
+      "n": "Yogi Station",
+      "k": "station",
+      "in": "Oso",
+      "live": false
+    },
+    {
+      "n": "Yulin",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Yulin - Banshee",
+      "k": "jump point",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Yulin - Leir",
+      "k": "jump point",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Yulin Cluster Alpha",
+      "k": "place",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Yulin Flotilla",
+      "k": "station",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Yulin I",
+      "k": "planet",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Yulin II",
+      "k": "planet",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Yulin III",
+      "k": "planet",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Yulin IV",
+      "k": "planet",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Yulin V",
+      "k": "planet",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Yulin VI",
+      "k": "planet",
+      "in": "Yulin",
+      "live": false
+    },
+    {
+      "n": "Yā'mon (Hadur)",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Yā'mon (Hadur) - Ail'ka",
+      "k": "jump point",
+      "in": "Yā'mon (Hadur)",
+      "live": false
+    },
+    {
+      "n": "Yā'mon (Hadur) - Baker",
+      "k": "jump point",
+      "in": "Yā'mon (Hadur)",
+      "live": false
+    },
+    {
+      "n": "Yā'mon (Hadur) - Kyuk'ya (Indra)",
+      "k": "jump point",
+      "in": "Yā'mon (Hadur)",
+      "live": false
+    },
+    {
+      "n": "Yā'mon (Hadur) - Th.us'ūng (Pallas)",
+      "k": "jump point",
+      "in": "Yā'mon (Hadur)",
+      "live": false
+    },
+    {
+      "n": "Yām'ping",
+      "k": "planet",
+      "in": "Yā'mon (Hadur)",
+      "live": false
+    },
+    {
+      "n": "Ē'aluth (Eealus)",
+      "k": "system",
+      "in": "",
+      "live": false
+    },
+    {
+      "n": "Ē'aluth (Eealus) - La'uo (Virtus)",
+      "k": "jump point",
+      "in": "Ē'aluth (Eealus)",
+      "live": false
+    },
+    {
+      "n": "Ē'aluth (Eealus) - Oya",
+      "k": "jump point",
+      "in": "Ē'aluth (Eealus)",
+      "live": false
+    },
+    {
+      "n": "Ē'aluth (Eealus) - R.il'a (Rihlah)",
+      "k": "jump point",
+      "in": "Ē'aluth (Eealus)",
+      "live": false
+    },
+    {
+      "n": "Ē'aluth (Eealus) - Trise",
+      "k": "jump point",
+      "in": "Ē'aluth (Eealus)",
+      "live": false
+    },
+    {
+      "n": "Ē'aluth (Eealus) Belt Alpha",
+      "k": "place",
+      "in": "Ē'aluth (Eealus)",
+      "live": false
+    }
+  ],
+  "verified": {
+    "against": "UEX terminals (is_available_live)",
+    "when": "2026-09-04",
+    "added": 15,
+    "wrongly_blocked_before": 0
+  }
+}

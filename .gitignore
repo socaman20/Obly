@@ -1,0 +1,40 @@
+# Build output
+venv/
+build/
+dist/
+build_free/
+dist_free/
+__pycache__/
+*.pyc
+*.spec.bak
+
+# The speech model. ~75 MB of third-party weights that ship in the release
+# rather than in git, so cloning stays quick.
+whisper_model/
+
+# Cached price data. Rebuilds itself from the live services on first run.
+config/datacache/
+
+# YOURS, not the program's. my_commands.json holds commands you wrote and
+# switches you flicked; current_route.json is everywhere you have flown. They
+# stay on your machine.
+config/my_commands.json
+config/current_route.json
+config/webview/
+
+# Generated at runtime -- the page the window actually loads, built from
+# app.html plus your live data every time it starts.
+webui/_live.html
+
+# Machine-specific: where Star Citizen is installed on this PC.
+sc_keybind_path.cache
+.firstrun_done
+
+# Left over from when this was a paid product. Nothing in the free build
+# reads them, and a licence key is not something to publish.
+license.key
+activation-*.dat
+integrity.sig
+
+# Logs
+*.log

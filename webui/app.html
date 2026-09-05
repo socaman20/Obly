@@ -1,0 +1,1003 @@
+<meta charset="utf-8">
+<title>Voice Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700&family=Saira+Condensed:wght@500;600;700&display=swap">
+
+<style>
+:root{
+  --bg:#070b10; --panel:#0e151d; --panel2:#161f2a; --panel3:#1f2b39;
+  --line:#24384a; --lineSoft:#182432;
+  --text:#dbe9f5; --dim:#8fa8bd; --mute:#5b7186;
+  --action:#4fb3e8; --actionHi:#7fcdf5; --ink:#04121c;
+  --good:#4fc38a; --goodBg:#0c2a1e;
+  --warn:#f0a63c; --warnBg:#2e1f0a;
+  --crit:#e05545; --critBg:#2f120e;
+  --glow:79,179,232;
+  --display:'Cormorant Garamond',Georgia,serif; --dw:600; --dls:0em; --dtt:none;
+  --ui:'Manrope',system-ui,sans-serif; --mono:'JetBrains Mono',Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--ui);
+  font-size:13.5px;overflow:hidden;-webkit-font-smoothing:antialiased;
+  transition:background .4s ease,color .4s ease;user-select:none}
+button,input,select,textarea{font-family:inherit}
+
+/* ---------------- ambient ---------------- */
+#amb{position:fixed;inset:0;z-index:0;pointer-events:none}
+.shell{position:relative;z-index:1;display:grid;grid-template-columns:214px 1fr;
+  grid-template-rows:1fr 34px;height:100%}
+
+/* ---------------- rail ---------------- */
+.rail{grid-row:1/3;background:color-mix(in srgb,var(--panel) 88%,transparent);
+  border-right:1px solid var(--lineSoft);display:flex;flex-direction:column;
+  padding:20px 0;backdrop-filter:blur(10px)}
+.mark{width:38px;height:2px;background:var(--action);margin:0 16px 12px;
+  box-shadow:0 0 12px -1px var(--action)}
+/* The logo replaces the accent dash for any title that has one drawn. The
+   dash stays for the ones that do not, rather than stretching this game's
+   badge over another game's page. */
+.logo{display:block;width:74px;height:auto;margin:0 16px 10px;
+  filter:drop-shadow(0 0 14px rgba(var(--glow),.45))}
+.brand{font-family:var(--display);font-weight:var(--dw);font-size:21px;
+  line-height:1.08;padding:0 16px;letter-spacing:var(--dls);text-transform:var(--dtt)}
+.sub{font-family:var(--mono);font-size:9px;letter-spacing:.32em;color:var(--action);
+  padding:3px 16px 0;white-space:nowrap;overflow:hidden}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--panel3);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--action)}
+.tag{font-size:10.5px;color:var(--mute);padding:8px 16px 0;line-height:1.4}
+.hr{height:1px;background:var(--lineSoft);margin:16px 16px 8px}
+nav{display:flex;flex-direction:column;gap:2px;padding:0 8px;flex:1;overflow-y:auto}
+.nav{text-align:left;background:none;border:0;color:var(--dim);cursor:pointer;
+  font-size:12.5px;padding:9px 12px;border-radius:5px;transition:.15s;display:flex;
+  justify-content:space-between;align-items:center}
+.nav:hover{background:var(--panel2);color:var(--text)}
+.nav[aria-selected="true"]{background:var(--panel2);color:var(--action);font-weight:600;
+  box-shadow:inset 2px 0 0 var(--action)}
+.nav small{font-family:var(--mono);font-size:9px;color:var(--mute)}
+.foot{padding:12px 16px 0;font-family:var(--mono);font-size:9px;color:var(--mute);line-height:1.5}
+
+/* ---------------- main ---------------- */
+main{overflow-y:auto;padding:24px 28px 28px}
+h1{font-family:var(--display);font-weight:var(--dw);font-size:30px;margin:0;
+  letter-spacing:var(--dls);text-transform:var(--dtt)}
+.lede{color:var(--dim);margin:4px 0 18px;font-size:13px}
+.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.grow{flex:1}
+
+.btn{background:var(--panel2);border:1px solid var(--line);color:var(--text);
+  border-radius:5px;padding:8px 14px;cursor:pointer;font-size:12.5px;transition:.15s}
+.btn:hover{border-color:var(--action)}
+.btn.primary{background:var(--action);border-color:var(--action);color:var(--ink);font-weight:700}
+.btn.primary:hover{background:var(--actionHi)}
+.btn.small{padding:5px 10px;font-size:11.5px}
+.btn[aria-pressed="true"]{border-color:var(--action);color:var(--action)}
+input[type=search],input[type=text],select,textarea{
+  background:var(--panel2);border:1px solid var(--line);color:var(--text);
+  border-radius:5px;padding:9px 12px;font-size:13px;user-select:text}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--action);
+  box-shadow:0 0 0 1px var(--action),0 0 16px -6px var(--action)}
+::placeholder{color:var(--mute)}
+
+.card{background:var(--panel);border:1px solid var(--action);border-radius:8px;
+  padding:14px 16px;box-shadow:0 0 22px -16px var(--action)}
+.card h3{margin:0 0 4px;font-size:14px;font-weight:700}
+.card p{margin:0;color:var(--dim);font-size:12px}
+
+.list{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+.cmd{background:var(--panel);border:1px solid var(--action);border-radius:6px;
+  padding:10px 13px;box-shadow:0 0 16px -12px var(--action)}
+.cmd.off{background:var(--bg);border-color:var(--lineSoft);opacity:.62}
+.cmd .top{display:flex;align-items:center;gap:10px}
+.cmd .nm{font-weight:600;font-size:13px;flex:1}
+.cmd.off .nm{color:var(--mute);text-decoration:line-through}
+.cmd .ph{font-size:11.5px;color:var(--mute);padding-left:46px;margin-top:3px}
+.cat{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--action);margin:14px 0 2px}
+.cat:first-child{margin-top:2px}
+
+.sw{position:relative;width:36px;height:19px;flex:none;border-radius:999px;
+  background:var(--panel3);border:0;cursor:pointer;transition:.2s}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;
+  border-radius:50%;background:var(--mute);transition:.2s}
+.sw[aria-pressed="true"]{background:var(--action);box-shadow:0 0 12px -2px var(--action)}
+.sw[aria-pressed="true"]::after{left:19px;background:var(--ink)}
+
+.cap{font-family:var(--mono);font-size:11px;font-weight:700;background:var(--panel3);
+  border-radius:4px;padding:3px 8px;white-space:nowrap;cursor:pointer}
+.cap:hover{outline:1px solid var(--action)}
+.cap.wide{font-weight:400;color:var(--dim)}
+.pill{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.pill.warn{background:var(--warnBg);color:var(--warn)}
+.pill.good{background:var(--goodBg);color:var(--good)}
+.pill.mute{background:var(--panel2);color:var(--mute)}
+
+/* ---------------- status bar ---------------- */
+.status{grid-column:2;background:color-mix(in srgb,var(--panel) 90%,transparent);
+  border-top:1px solid var(--lineSoft);display:flex;align-items:center;gap:12px;
+  padding:0 16px;font-size:11.5px;color:var(--dim);backdrop-filter:blur(8px)}
+.status .meta{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--mute)}
+
+/* ---------------- theme switcher ---------------- */
+.themes{display:flex;gap:6px;padding:10px 12px 0}
+.tsw{flex:1;height:26px;border-radius:5px;border:1px solid var(--line);cursor:pointer;
+  background:var(--panel2);display:flex;align-items:center;justify-content:center;transition:.18s}
+.tsw i{width:11px;height:11px;border-radius:50%;box-shadow:0 0 8px -1px currentColor}
+.tsw[aria-pressed="true"]{border-color:var(--action);box-shadow:0 0 12px -5px var(--action)}
+.hidden{display:none!important}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
+.empty{padding:34px 0;text-align:center;color:var(--mute);font-size:12.5px}
+</style>
+
+<canvas id="amb"></canvas>
+
+<div class="shell">
+  <aside class="rail">
+    <div id="markslot"><div class="mark"></div></div>
+    <div class="brand" id="brand">Star Citizen</div>
+    <div class="sub">V O I C E&nbsp; C O N T R O L</div>
+    <div class="tag" id="tag">Offline voice control for the 'verse</div>
+
+    <div class="themes" id="themes"></div>
+    <div class="hr"></div>
+
+    <nav id="nav"></nav>
+
+    <div class="foot" id="foot"></div>
+  </aside>
+
+  <main id="main"></main>
+
+  <div class="status">
+    <span class="pill mute" id="state">IDLE</span>
+    <span id="msg">Ready.</span>
+    <span class="meta" id="meta"></span>
+  </div>
+</div>
+
+<script>
+const DATA = /*__DATA__*/{"product":"Star Citizen Voice Control","game":"sc","version":"4.4.0","build":"DEV","commands":[],"settings":{},"disabled":[],"places":0,"market":{}};
+
+/* ------------------------------------------------------------ themes
+   The same four worlds as the map: gold is not the constant, the GAME is.
+   Each title wears its own palette, and switching repaints everything. */
+const THEMES = {
+  sc:{name:"Star Citizen", tag:"Offline voice control for the 'verse", dot:"#4fb3e8",
+    logo:"logo-sc.png",
+    v:{bg:"#070b10",panel:"#0e151d",panel2:"#161f2a",panel3:"#1f2b39",line:"#24384a",
+       lineSoft:"#182432",text:"#dbe9f5",dim:"#8fa8bd",mute:"#5b7186",action:"#4fb3e8",
+       actionHi:"#7fcdf5",ink:"#04121c",good:"#4fc38a",goodBg:"#0c2a1e",warn:"#f0a63c",
+       warnBg:"#2e1f0a",crit:"#e05545",critBg:"#2f120e",glow:"79,179,232"},
+    display:"'Cormorant Garamond',Georgia,serif", dw:600, dls:"0em", dtt:"none"},
+  /* Helldivers 2, Elite Dangerous and Bridge Crew were here. They were
+     palettes with nothing behind them -- no commands, no map, no data -- so
+     they are out of the shipped build rather than shown as empty rooms. The
+     whole theming machine below still works on a table of games; adding one
+     back is adding its entry here again, next to its data. */
+};
+
+/* Every one of these games has a map, and none of them is the same map.
+   Star Citizen's is built -- it is the one the voice commands plot against.
+   The other three are named here so the page can say what belongs on this
+   screen instead of showing the wrong game's chart, which would be worse
+   than showing nothing. */
+const MAPS = {
+  sc:{label:"Starmap", title:"Starmap", file:"map.html?embed=1",
+      lede:"The same map the voice commands plot against. Scroll to zoom, drag to turn, click a place to plot to it."},
+  hd2:{label:"Galactic War", title:"Galactic War",
+      lede:"Super Earth's war table: every sector, which planets are under attack, who holds them and how far liberation has got.",
+      needs:"Live campaign state from the Helldivers 2 war API, refreshed while you play — the front moves hourly, so a snapshot is no use.",
+      says:"“show me the war map”, “what's happening on Malevelon Creek”, “take me to the Terminid front”"},
+  ed:{label:"Galaxy Map", title:"Galaxy Map",
+      lede:"The bubble and beyond: 20,000 systems, stations, and the jump range your ship actually has.",
+      needs:"EDSM / Spansh system data and your ship's jump range, so a route is one you can really fly rather than a straight line.",
+      says:"“plot a course to Sol”, “nearest station selling a fuel scoop”, “how many jumps to Colonia”"},
+  stbc:{label:"Star Chart", title:"Star Chart",
+      lede:"The sector chart from the bridge — systems, anomalies, and where the away mission is.",
+      needs:"The game's own mission sectors. This one is small enough to author by hand rather than fetch.",
+      says:"“set course for Regulus”, “put the chart on screen”, “helm, warp seven”"}
+};
+
+let theme = DATA.game in THEMES ? DATA.game : "sc";
+let off = new Set(DATA.disabled || []);
+let page = "listen";
+
+function applyTheme(k){
+  theme = k;
+  const t = THEMES[k], r = document.documentElement.style;
+  for(const [n,v] of Object.entries(t.v)) r.setProperty("--"+n, v);
+  r.setProperty("--display", t.display);
+  r.setProperty("--dw", t.dw);
+  r.setProperty("--dls", t.dls);
+  r.setProperty("--dtt", t.dtt);
+  brand.textContent = t.name;
+  tag.textContent = t.tag;
+  const slot = document.getElementById("markslot");
+  if(slot) slot.innerHTML = t.logo
+    ? `<img class="logo" src="${t.logo}" alt="${t.name}">`
+    : `<div class="mark"></div>`;
+  document.querySelectorAll(".tsw").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.t === k)));
+  seedAmbient();
+}
+
+/* ------------------------------------------------------------ ambient
+   A quiet drifting field with a soft glow, in the current accent. It is
+   background, not decoration -- it never competes with the text. */
+const cv = document.getElementById("amb"), cx = cv.getContext("2d");
+let motes = [], W = 0, H = 0;
+function seedAmbient(){
+  W = cv.width = innerWidth; H = cv.height = innerHeight;
+  motes = [];
+  for(let i=0;i<70;i++) motes.push({
+    x:Math.random()*W, y:Math.random()*H,
+    r:Math.random()*1.5+.3, a:Math.random()*.35+.05,
+    vy:-(Math.random()*.16+.03), tw:Math.random()*6.28});
+}
+function drawAmbient(t){
+  const g = getComputedStyle(document.documentElement);
+  const glow = g.getPropertyValue("--glow").trim();
+  const bg = g.getPropertyValue("--bg").trim();
+  cx.clearRect(0,0,W,H);
+  cx.fillStyle = bg; cx.fillRect(0,0,W,H);
+  const rg = cx.createRadialGradient(W*.72,H*.30,0,W*.72,H*.30,Math.max(W,H)*.8);
+  rg.addColorStop(0,`rgba(${glow},.055)`); rg.addColorStop(1,`rgba(${glow},0)`);
+  cx.fillStyle = rg; cx.fillRect(0,0,W,H);
+  for(const m of motes){
+    m.y += m.vy; if(m.y < -6){ m.y = H+6; m.x = Math.random()*W; }
+    cx.globalAlpha = m.a * (.75+.25*Math.sin(t*.0012+m.tw));
+    cx.fillStyle = `rgb(${glow})`;
+    cx.beginPath(); cx.arc(m.x,m.y,m.r,0,7); cx.fill();
+  }
+  cx.globalAlpha = 1;
+  requestAnimationFrame(drawAmbient);
+}
+addEventListener("resize", seedAmbient);
+
+/* ------------------------------------------------------------ pages */
+const PAGES = [
+  {id:"listen",  label:"Listen"},
+  {id:"cmds",    label:"Commands"},
+  {id:"mine",    label:"My Commands"},
+  {id:"map",     label:"Starmap"},   // relabelled per game in buildNav
+  {id:"routes",  label:"Routes"},
+  {id:"market",  label:"Market"},
+  {id:"settings",label:"Settings"},
+  {id:"howto",   label:"How To"},
+  {id:"about",   label:"About"}
+];
+
+function counts(id){
+  if(id==="cmds") return DATA.commands.length;
+  if(id==="mine") return DATA.commands.filter(c=>c.custom).length || "";
+  if(id==="map") return theme==="sc" ? ((DATA.places&&DATA.places.live)||"") : "";
+  if(id==="routes") return ((DATA.route&&DATA.route.legs)||[]).length || "";
+  return "";
+}
+
+function buildNav(){
+  nav.innerHTML = PAGES.map(p =>
+    `<button class="nav" data-p="${p.id}" aria-selected="${p.id===page}">
+       <span>${p.id==="map" ? MAPS[theme].label : p.label}</span>
+       <small>${counts(p.id)}</small></button>`).join("");
+  nav.querySelectorAll(".nav").forEach(b => b.onclick = () => { page = b.dataset.p; render(); });
+}
+
+const caps = c => (c.keys && c.keys.length)
+  ? c.keys.map(k=>`<span class="cap">${k.toUpperCase()}</span>`).join("")
+  : `<span class="cap wide">${c.key_label || "unbound"}</span>`;
+
+function pageCommands(){
+  const q = (window.__q||"").toLowerCase();
+  const rows = DATA.commands.filter(c => !q ||
+    (c.display_name+" "+c.category+" "+(c.phrases||[]).join(" ")+" "+(c.key_label||"")
+     +" "+(c.keys||[]).join(" ")).toLowerCase().includes(q));
+  const nOff = DATA.commands.filter(c=>off.has(c.id)).length;
+  let html = `<h1>Commands</h1><p class="lede">Everything you can say, and the key each one sends. Click a key to change it.</p>
+    <div class="row"><input type="search" id="q" class="grow" placeholder="Search commands, phrases, keys…" value="${window.__q||""}">
+    <button class="btn primary" id="add">+ Add command</button></div>
+    <div class="lede" style="margin:10px 0 0;font-family:var(--mono);font-size:11.5px">
+      ${DATA.commands.length} commands${nOff?` · <b style="color:var(--warn)">${nOff} switched off and cannot fire</b>`:""}</div>
+    <div class="list">`;
+  let cat = null;
+  for(const c of rows){
+    if(c.category !== cat){ cat = c.category; html += `<div class="cat">${cat}</div>`; }
+    const on = !off.has(c.id);
+    html += `<div class="cmd${on?"":" off"}">
+      <div class="top">
+        <button class="sw" aria-pressed="${on}" data-tog="${c.id}"></button>
+        <span class="nm">${c.display_name}</span>
+        ${on?"":'<span class="pill mute">off</span>'}
+        ${on&&c.verified===false?'<span class="pill warn">unverified</span>':""}
+        <span data-key="${c.id}">${caps(c)}</span>
+      </div>
+      <div class="ph">${(c.phrases||[]).slice(0,4).map(p=>`“${p}”`).join("&nbsp; ")}${(c.phrases||[]).length>4?` +${c.phrases.length-4} more`:""}</div>
+    </div>`;
+  }
+  if(!rows.length) html += `<div class="empty">Nothing matches “${window.__q}”.</div>`;
+  return html + "</div>";
+}
+
+/* Two ways to listen, and every trigger we already support stays working:
+   the keyboard key, a HOTAS button, a gamepad button -- and now no button at
+   all. Nothing was traded away to add open mic. */
+const ENG = {running:false, mode:(DATA.listen_mode||"ptt"), status:"stopped",
+             log:[], last:null, rms:0, triggers:""};
+
+function triggerLine(){
+  const p = DATA.ptt || {};
+  const bits = [`<span class="cap">${(p.key||"right ctrl").toUpperCase()}</span>`];
+  if(p.joystick_button !== null && p.joystick_button !== undefined)
+    bits.push(`<span class="cap wide">${p.joystick_name||"stick"} · button ${p.joystick_button}</span>`);
+  if(p.gamepad_button)
+    bits.push(`<span class="cap wide">gamepad ${p.gamepad_button}</span>`);
+  return bits.join("&nbsp;");
+}
+
+function pageListen(){
+  const open = ENG.mode === "open";
+  const hasStick = DATA.ptt && DATA.ptt.joystick_button !== null
+                            && DATA.ptt.joystick_button !== undefined;
+  const online = ENG.running;
+  const busy = ENG.status === "listening" || ENG.status === "thinking";
+  return `<h1>Voice Control</h1>
+  <p class="lede">${open ? "Open mic — just talk. Nothing fires unless the game is in front."
+                         : "Hold any of your push-to-talk buttons and speak."}</p>
+
+  <div class="card" style="border-color:${online?"var(--good)":"var(--line)"};
+    box-shadow:0 0 26px -18px ${online?"var(--good)":"transparent"};margin-bottom:12px">
+    <div class="row">
+      <span id="dot" style="width:13px;height:13px;border-radius:50%;flex:none;
+        background:${online?"var(--good)":"var(--mute)"};
+        box-shadow:${online?"0 0 12px -1px var(--good)":"none"};
+        animation:${busy?"pulse 1s ease-in-out infinite":"none"}"></span>
+      <span style="flex:1">
+        <b id="onoff" style="display:block;font-size:15px;letter-spacing:.04em;
+          color:${online?"var(--good)":"var(--dim)"}">${online?"ONLINE":"OFFLINE"}</b>
+        <span id="statusline" style="font-size:12px;color:var(--mute)">${
+          !window.pywebview ? "No link to the engine — this page is not in the app window."
+          : online ? (ENG.statusMsg || "Ready.") : "Not listening. Press Start."}</span>
+      </span>
+      <span style="font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+        text-transform:uppercase;color:var(--mute)">${open?"open mic":"push to talk"}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <button class="btn ${ENG.running?"":"primary"}" id="run">${ENG.running?"Stop":"Start Listening"}</button>
+    <div style="display:flex;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden">
+      <button class="btn small" style="border:0;border-radius:0" id="mPtt" aria-pressed="${!open}">Push&nbsp;to&nbsp;talk</button>
+      <button class="btn small" style="border:0;border-radius:0;border-left:1px solid var(--line)" id="mOpen" aria-pressed="${open}">Open&nbsp;mic</button>
+    </div>
+    <div style="flex:1;height:8px;border-radius:99px;background:var(--panel2);overflow:hidden;min-width:120px">
+      <div id="meter" style="height:100%;width:0%;background:var(--action);
+        box-shadow:0 0 10px -1px var(--action);transition:width .08s linear"></div>
+    </div>
+  </div>
+
+  ${open ? `<div class="card" style="margin-top:12px"><div class="row">
+      <span style="flex:1"><b style="display:block;font-size:12.5px">Wake word</b>
+      <span style="font-size:11px;color:var(--mute)">Leave it empty and every sentence in the room is a candidate.
+      Set one and only speech that starts with it is acted on.</span></span>
+      <input type="text" id="wake" value="${DATA.wake_word||""}" placeholder="e.g. computer" style="width:200px">
+      <button class="btn small" id="saveWake">Save</button></div></div>`
+    : `<div class="card" style="margin-top:12px"><div class="row">
+      <span style="flex:1"><b style="display:block;font-size:12.5px">Hold any of these</b>
+      <span style="font-size:11px;color:var(--mute)">Keyboard, stick and pad all work at once — whichever is under your hand.</span>
+      <div style="margin-top:8px">${triggerLine()}</div></span>
+      <button class="btn small" id="setStick">${hasStick?"Change":"Set"} HOTAS button</button>
+      ${hasStick?'<button class="btn small" id="clrStick">Clear</button>':""}</div></div>`}
+
+  <div style="display:grid;grid-template-columns:3fr 2fr;gap:12px;margin-top:12px">
+    <div class="card"><h3>Transcript</h3><p>Everything the recogniser returned — matched or not</p>
+      <div id="log" style="height:250px;margin-top:10px;background:var(--bg);border-radius:5px;
+        overflow-y:auto;padding:10px 12px;font-size:12.5px;line-height:1.6"></div></div>
+    <div class="card"><h3>Last Command</h3><p>What was actually sent to the game</p>
+      <div id="lastc" style="margin-top:14px"></div></div>
+  </div>`;
+}
+
+/* The page asks; python does not push. Pushing from the engine's worker
+   thread into the browser silently did not arrive, and a UI that goes quiet
+   with no error is the worst failure there is -- you cannot tell a dead
+   engine from a dead microphone. Polling is duller and it works. */
+let PULSE = null;
+function startPolling(){
+  if(PULSE) return;
+  PULSE = setInterval(async () => {
+    const api = window.pywebview && pywebview.api;
+    if(!api) return;
+    let d;
+    try{ d = await api.drain(); }catch(e){ return; }
+
+    ENG.running = d.running;
+    ENG.status = d.status;
+    ENG.statusMsg = d.message;
+    ENG.rms = d.level;
+
+    // The meter is square-rooted: speech sits around 0.01-0.05 on this mic
+    // while the scale runs to 1, so a linear bar would never leave the floor.
+    const m = document.getElementById("meter");
+    if(m) m.style.width = Math.min(100, Math.sqrt(d.level / 0.15) * 100) + "%";
+
+    const onoff = document.getElementById("onoff");
+    if(onoff){
+      const busy = d.status === "listening" || d.status === "thinking";
+      onoff.textContent = d.running ? "ONLINE" : "OFFLINE";
+      onoff.style.color = d.running ? "var(--good)" : "var(--dim)";
+      const dot = document.getElementById("dot");
+      if(dot){
+        dot.style.background = d.running ? "var(--good)" : "var(--mute)";
+        dot.style.boxShadow = d.running ? "0 0 12px -1px var(--good)" : "none";
+        dot.style.animation = busy ? "pulse 1s ease-in-out infinite" : "none";
+      }
+      const sl = document.getElementById("statusline");
+      if(sl) sl.textContent = d.running ? (d.message || d.status)
+                                        : "Not listening. Press Start.";
+    }
+    state.textContent = (d.status || "idle").toUpperCase();
+    const b = document.getElementById("run");
+    if(b && !b.disabled){
+      b.textContent = d.running ? "Stop" : "Start Listening";
+      b.className = "btn" + (d.running ? "" : " primary");
+    }
+    if(d.message) setStatus(d.message, d.tone === "crit" ? "warn" : d.tone);
+
+    for(const e of (d.events || [])) onEngine(e.kind, e);
+  }, 120);
+
+  // The game's own state changes far slower than the microphone does, so it
+  // gets its own slower timer rather than riding the 120ms one.
+  setInterval(async () => {
+    const a = window.pywebview && pywebview.api;
+    if(!a) return;
+    let g;
+    try{ g = await a.game_state(); }catch(e){ return; }
+    GAME = g;
+    const f = document.querySelector("main iframe");
+    if(f && f.contentWindow && (g.here_place || g.destination_place)){
+      f.contentWindow.postMessage({
+        type: "sc-state",
+        here: g.here_place && g.here_place.name,
+        destination: g.destination_place && g.destination_place.name,
+      }, "*");
+    }
+    const el = document.getElementById("gamestate");
+    if(el) el.innerHTML = gameStateHtml();
+  }, 3000);
+}
+
+let GAME = {};
+function gameStateHtml(){
+  const g = GAME || {};
+  if(!g.found) return `<span style="color:var(--mute)">Star Citizen's log not found — start the game and this fills in.</span>`;
+  const here = g.here_place, dest = g.destination_place;
+  return `<div class="row">
+    <span style="flex:1"><b style="display:block;font-size:12.5px">You are at</b>
+      <span style="font-size:13px;color:var(--action)">${here?here.name:"—"}</span>
+      <span style="font-size:11px;color:var(--mute)">${here?here.note:""}</span></span>
+    <span style="flex:1"><b style="display:block;font-size:12.5px">Game is routing to</b>
+      <span style="font-size:13px;color:var(--action)">${dest?dest.name:"—"}</span>
+      <span style="font-size:11px;color:var(--mute)">${dest?dest.note:""}</span></span>
+    <span class="pill ${g.age_s<120?"good":"mute"}">log ${Math.round(g.age_s||0)}s old</span>
+  </div>`;
+}
+
+function onEngine(kind, d){
+  if(kind === "state") return;                 // already applied above
+  if(kind === "error"){ setStatus(d.message, "warn"); return; }
+
+  // One utterance is one line. "heard" arrives first and the verdict follows,
+  // so the verdict replaces it rather than printing the same words twice.
+  const last = ENG.log[ENG.log.length - 1];
+  if(last && last.kind === "heard" && !last.ignored && last.text === d.text
+     && kind !== "heard") ENG.log.pop();
+  ENG.log.push({...d, kind, at:new Date().toLocaleTimeString()});   // kind last: it wins
+  if(ENG.log.length > 60) ENG.log.shift();
+  if(kind === "fired") ENG.last = d;
+  paintLog();
+}
+window.onEngine = onEngine;      // still callable by hand, for testing
+
+function paintLog(){
+  const el = document.getElementById("log");
+  if(el){
+    el.innerHTML = ENG.log.slice().reverse().map(e => {
+      const t = `<span style="color:var(--mute);font-family:var(--mono);font-size:10px">${e.at}</span>`;
+      if(e.kind === "fired")   return `${t} <span style="color:var(--good)">▸</span> “${e.text}” → <b>${e.name}</b>`;
+      if(e.kind === "nomatch") return `${t} <span style="color:var(--mute)">·</span> “${e.text}” <span style="color:var(--mute)">— nothing matched</span>`;
+      if(e.kind === "blocked") return `${t} <span style="color:var(--warn)">■</span> “${e.text}” <span style="color:var(--warn)">— held back, ${e.window} was in front</span>`;
+      if(e.kind === "lookup"){
+        const hits = e.hits || [];
+        if(!hits.length) return `${t} <span style="color:var(--mute)">?</span> “${e.term}” <span style="color:var(--mute)">— nothing in the game by that name</span>`;
+        return `${t} <span style="color:var(--action)">?</span> “${e.term}” → `
+          + hits.map((h,i)=>`<b${i?' style="opacity:.6"':''}>${h.n}</b> <span style="color:var(--mute)">${h.detail}</span>`).join(" · ");
+      }
+      if(e.ignored)            return `${t} <span style="color:var(--mute)">·</span> “${e.text}” <span style="color:var(--mute)">— no wake word</span>`;
+      return `${t} “${e.text || ""}”`;
+    }).join("<br>") || `<span style="color:var(--mute)">Nothing yet.</span>`;
+  }
+  const lc = document.getElementById("lastc");
+  if(lc){
+    lc.innerHTML = ENG.last
+      ? `<div style="font-size:16px;font-weight:700">${ENG.last.name}</div>
+         <div style="margin-top:6px">${(ENG.last.keys||[]).length
+            ? (ENG.last.keys||[]).map(k=>`<span class="cap">${k.toUpperCase()}</span>`).join("")
+            : `<span class="cap wide">${ENG.last.key_label||ENG.last.action}</span>`}</div>
+         <div style="color:var(--mute);font-size:12px;margin-top:8px">heard “${ENG.last.text}”${
+            ENG.last.destination?` → ${ENG.last.destination}`:""}</div>`
+      : `<div style="font-size:16px;font-weight:700">—</div>
+         <div style="color:var(--mute);font-size:12px;margin-top:4px">Nothing yet.</div>`;
+  }
+}
+
+/* The map is the one already built and already checked -- every system, every
+   moon, every landing zone, to the same scale. It lives in its own file
+   because it is a whole program; the app hosts it rather than reimplementing
+   it, so a fix there is a fix here. */
+function pageMap(){
+  const m = MAPS[theme], p = DATA.places || {};
+  const head = `<div style="display:flex;align-items:baseline;gap:14px"><h1>${m.title}</h1>
+    ${m.file?`<span style="color:var(--mute);font-family:var(--mono);font-size:11px">
+      ${p.live||0} destinations in the live build · ${p.total||0} known</span>`:""}</div>
+    <p class="lede">${m.lede}</p>`;
+
+  if(m.file) return head + `<div style="height:calc(100vh - 196px);min-height:420px;
+    border:1px solid var(--line);border-radius:8px;overflow:hidden;
+    box-shadow:0 0 30px -20px var(--action)">
+    <iframe src="${m.file}" style="width:100%;height:100%;border:0;display:block"></iframe></div>`;
+
+  // No map for this title yet. Say so, and say exactly what it is waiting on --
+  // an honest gap reads better than another game's chart pretending to be this one.
+  return head + `<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px">
+    <div class="card"><h3>Not built yet</h3><p>${m.needs}</p></div>
+    <div class="card"><h3>What you'd say to it</h3><p>${m.says}</p></div>
+  </div>
+  <div class="card" style="margin-top:12px"><h3>Star Citizen's is done</h3>
+    <p>Every system, moon and landing zone at its real distance, with routes that
+    survive a logout. Same shell, same switches — this page just needs
+    ${THEMES[theme].name}'s own data behind it.</p>
+    <div style="margin-top:10px"><button class="btn small" data-theme="sc">Show me that one</button></div>
+  </div>`;
+}
+
+/* Star Citizen forgets your route the moment you log out. This does not. */
+function pageRoutes(){
+  const legs = ((DATA.route||{}).legs||[]).slice().reverse();
+  const cur = (DATA.route||{}).current;
+  return `<h1>Routes</h1><p class="lede">Every destination you have plotted by voice.
+    The game drops these when you log out; this list survives.</p>
+  <div class="card" id="gamestate">${gameStateHtml()}</div>
+  ${(GAME.plots||[]).length?`<div class="cat">Plotted in game this session</div>
+    <div class="list">${(GAME.plots||[]).slice().reverse().map(p=>`<div class="cmd">
+      <div class="top"><span class="nm">${(p.place&&p.place.name)||p.raw}</span>
+      <span class="pill mute">${(p.place&&p.place.note)||""}</span>
+      <span style="font-family:var(--mono);font-size:10.5px;color:var(--mute)">${(p.at||"").slice(11,19)}</span></div>
+      <div class="ph" style="padding-left:0;font-family:var(--mono);font-size:10.5px">${p.raw}</div>
+    </div>`).join("")}</div>`:""}
+  <div class="row" style="margin-top:14px">
+    <button class="btn small" id="recon">Check every route against the game</button>
+    <span style="font-size:11px;color:var(--mute)">Compares what you said with what
+      Star Citizen's own log says it plotted.</span></div>
+  <div id="reconout"></div>
+  <div class="cat">Plotted by voice</div>
+  ${cur?`<div class="card"><h3>${cur.destination}</h3>
+    <p>${[cur.kind,cur.in&&("in "+cur.in)].filter(Boolean).join(" · ")}</p>
+    <div style="margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--mute)">
+      heard “${cur.heard}” · ${cur.at}</div></div>`:""}
+  <div class="row" style="margin-top:14px"><button class="btn small" id="clearRoute">Clear history</button></div>
+  ${legs.length?`<div class="list">${legs.map(l=>`<div class="cmd">
+    <div class="top"><span class="nm">${l.destination}</span>
+    ${l.live===false?'<span class="pill warn">not in this build</span>':""}
+    <span class="pill mute">${l.kind||""}</span>
+    <span style="font-family:var(--mono);font-size:10.5px;color:var(--mute)">${l.at}</span></div>
+    <div class="ph" style="padding-left:0">heard “${l.heard}”${l.in?` — ${l.in}`:""}</div>
+  </div>`).join("")}</div>`
+  :`<div class="empty">Nothing plotted yet. Say “plot route to Lorville”.</div>`}`;
+}
+
+function pageMarket(){
+  const m = DATA.market || {};
+  return `<h1>Market</h1><p class="lede">Ship and commodity prices from the community trade data.</p>
+  <div class="card"><div class="row">
+    <button class="btn primary" id="refresh">Update prices</button>
+    <div style="flex:1">${(m.cached||[]).length
+      ? (m.cached||[]).map(c=>`<span class="pill ${c.fresh?"good":"warn"}" style="margin-right:6px">${c.name} · ${c.age}</span>`).join("")
+      : "<span style='color:var(--mute)'>Nothing downloaded yet.</span>"}
+      <div style="color:var(--mute);font-size:10.5px;margin-top:6px">${m.attribution||""}</div></div>
+    <span class="pill mute">game ${m.version||"?"}</span>
+  </div></div>
+  <div class="row" style="margin-top:14px"><input type="search" class="grow" placeholder="Search a ship, component or commodity — cutlass, cooler, iron…"></div>
+  <div class="empty">Search a ship, component or commodity.</div>`;
+}
+
+function pageSettings(){
+  const s = DATA.settings || {};
+  const row = (label,help,ctrl) => `<div style="display:flex;align-items:center;gap:16px;padding:9px 0;border-bottom:1px solid var(--lineSoft)">
+    <span style="flex:1"><b style="display:block;font-size:12.5px">${label}</b>
+    <span style="font-size:11px;color:var(--mute)">${help}</span></span>${ctrl}</div>`;
+  return `<h1>Settings</h1><p class="lede">Change how it listens. Everything here is also in your config file.</p>
+  <div class="row" style="margin-bottom:14px">
+    <button class="btn" aria-pressed="true">Simple</button><button class="btn">Advanced</button></div>
+  <div class="card"><h3>Listening</h3>
+  ${row("Push-to-talk key","Click, then press the key you want.",`<button class="btn small" style="font-family:var(--mono);min-width:150px">${s.ptt_key||"right ctrl"}</button>`)}
+  ${row("Recognition model","Both run on this PC — nothing is sent anywhere.",`<select><option>${s.whisper_model||"tiny.en"}</option></select>`)}
+  ${row("Way of listening","Hold a button, or leave the mic open. Both are here; neither replaces the other.",
+    `<select id="lmode"><option value="ptt"${ENG.mode==="ptt"?" selected":""}>Push to talk</option>
+     <option value="open"${ENG.mode==="open"?" selected":""}>Open mic</option></select>`)}
+  </div>
+  <div class="card" style="margin-top:12px"><h3>Your controls</h3>
+  ${row("Control scheme",
+    "Which physical keys each command sends. Your spoken phrases never change.",
+    `<select id="scheme" style="min-width:200px">${(DATA.schemes||[]).map(x=>
+      `<option value="${x.name}"${x.name===DATA.scheme?" selected":""}>${x.name} — ${x.bindings} bindings</option>`).join("")}</select>`)}
+  <div style="font-size:11px;color:var(--mute);padding:8px 0 0">${
+    ((DATA.schemes||[]).find(x=>x.name===DATA.scheme)||{}).description||""}</div>
+  ${row("Starmap search box",
+    "Star Citizen's map is mouse-driven — there is no key that puts the caret in the search field, so it has to be clicked. Point at it once and the position is remembered as a fraction of the window, so it survives a resolution change.",
+    `<button class="btn small" id="calib">Calibrate</button>`)}
+  <div id="calibnote" style="font-size:11px;color:var(--mute);padding:8px 0 0"></div>
+  ${row("Try it without speaking",
+    "Runs the plot command for real — resolve, click, paste, Enter — so you can check the click lands before trusting your voice to it.",
+    `<input type="text" id="tdest" value="Lorville" style="width:150px">
+     <button class="btn small" id="tplot">Test plot</button>`)}
+  <div id="testnote" style="font-size:11px;color:var(--mute);padding:8px 0 0"></div>
+  </div>
+  <div class="card" style="margin-top:12px"><h3>Safety</h3>
+  ${row("Only when the game is in front","Stops a command firing into Discord or a text box.",`<button class="sw" aria-pressed="${!!s.require_focused_window}"></button>`)}
+  </div>`;
+}
+
+function pageLook(){
+  return `<h1>Appearance</h1><p class="lede">Each title wears its own game's colours. Pick one and the whole app repaints.</p>
+  <div class="list">${Object.entries(THEMES).map(([k,t])=>`
+    <div class="cmd" style="cursor:pointer" data-theme="${k}">
+      <div class="top"><span style="width:14px;height:14px;border-radius:50%;background:${t.dot};box-shadow:0 0 10px -1px ${t.dot}"></span>
+      <span class="nm">${t.name}</span>${k===theme?'<span class="pill good">current</span>':""}</div>
+      <div class="ph" style="padding-left:24px">${t.tag}</div></div>`).join("")}</div>`;
+}
+
+function pageMine(){
+  const mine = DATA.commands.filter(c=>c.custom);
+  return `<h1>My Commands</h1><p class="lede">Your own commands live in your own file and survive updates.</p>
+  <button class="btn primary" id="add2">+ Add command</button>
+  ${mine.length?`<div class="list">${mine.map(c=>`<div class="cmd"><div class="top">
+    <span class="nm">${c.display_name}</span><span>${caps(c)}</span></div>
+    <div class="ph" style="padding-left:0">${(c.phrases||[]).map(p=>`“${p}”`).join("&nbsp; ")}</div></div>`).join("")}</div>`
+  :`<div class="empty">Nothing yet. Anything you add shows up here and joins the matching list straight away.</div>`}`;
+}
+
+let KEYB = null;
+
+function pageHowTo(){
+  const k = KEYB;
+  return `<h1>How To</h1>
+  <p class="lede">The short version: hold your button, say the thing. Everything below is for when that isn't enough.</p>
+
+  <div class="card"><h3>Talking to it</h3>
+    <p>Two ways, on the Listen page. <b>Push to talk</b> — hold your key, HOTAS button or gamepad button and speak.
+    <b>Open mic</b> — no button at all; set a wake word so only speech that starts with it counts.
+    Nothing fires unless Star Citizen is the window in front, so a chat in Discord can't scuttle your ship.</p></div>
+
+  <div class="card" style="margin-top:12px"><h3>Changing what a command presses</h3>
+    <p>Go to <b>Commands</b> and click the key chip on the right of any row — that's the edit button.
+    The switch on the left turns a command off entirely, and an off command is not matched at all,
+    so it cannot fire by accident. Your changes live in <span style="font-family:var(--mono)">config\my_commands.json</span>
+    and survive updates; the shipped file is never touched.</p></div>
+
+  <div class="card" style="margin-top:12px"><h3>Adding your own</h3>
+    <p><b>Commands → + Add command</b>. Give it a name, the words you'll say, and the keys to press.
+    It joins the matching list straight away — no restart.</p></div>
+
+  <div class="card" style="margin-top:12px"><h3>When a command does nothing</h3>
+    <p>Almost always this is the game's binding, not the program. Star Citizen lets you clear a
+    binding or move it to a joystick, and a cleared binding has no key for us to send.
+    Below is what your own Star Citizen profile actually says.</p>
+    <div class="row" style="margin-top:10px">
+      <button class="btn small" id="kbread">${k ? "Re-read my keybinds" : "Read my keybinds"}</button>
+      <span style="font-size:11px;color:var(--mute)">${k && k.profile ? k.profile : "Reads your actionmaps.xml. Changes nothing."}</span>
+    </div>
+    <div id="kbout" style="margin-top:10px">${keybindHtml()}</div>
+  </div>
+
+  <div class="card" style="margin-top:12px"><h3>Fitting it to your controls</h3>
+    <p><b>Settings → Control scheme</b> picks which physical keys each command sends.
+    Your spoken phrases never change — only what gets pressed.
+    If several commands are unreachable on your layout, the <b>voicecontrol</b> scheme
+    pairs with a mapping file you import into the game once, which gives those actions
+    a keyboard binding again.</p></div>`;
+}
+
+function keybindHtml(){
+  const k = KEYB;
+  if(!k) return `<span style="color:var(--mute);font-size:12px">Not read yet.</span>`;
+  if(!k.ok) return `<span style="color:var(--warn);font-size:12px">Couldn't read it: ${k.why}</span>`;
+  if(!k.rows.length) return `<span style="color:var(--good);font-size:12.5px">
+    Every command can reach a key on your layout. Nothing to fix.</span>`;
+  return `<div style="font-size:12px;color:var(--warn);margin-bottom:6px">
+      ${k.rows.length} command${k.rows.length>1?"s":""} can't reach a key on your layout:</div>`
+    + k.rows.map(r=>`<div style="display:flex;gap:10px;padding:3px 0;font-size:12px">
+        <span style="width:190px;font-family:var(--mono);font-size:11px;color:var(--action)">${r.id}</span>
+        <span style="color:var(--dim)">${r.why}</span></div>`).join("")
+    + (k.extra||[]).map(e=>`<div style="font-size:11px;color:var(--mute);margin-top:8px">${e}</div>`).join("");
+}
+
+function pageAbout(){
+  const c = DATA.credits || {};
+  const rows = Object.entries(DATA.about||{}).map(([k,v])=>
+    `<div style="display:flex;gap:14px;padding:3px 0"><span style="width:130px;color:var(--mute);font-size:11px">${k}</span>
+     <span style="font-family:var(--mono);font-size:11px">${v}</span></div>`).join("");
+
+  // Every one of these is shown only when it is actually filled in. An empty
+  // contact is better than one nobody reads, and a half-filled donation
+  // handle would send someone's money to a stranger.
+  const donate = (c.donate_label && c.donate_value)
+    ? `<div class="card" style="margin-top:12px"><h3>If you want to say thanks</h3>
+       <p>${c.thanks || "It's free either way."}</p>
+       <div class="row" style="margin-top:10px">
+         <span style="font-size:12px;color:var(--mute)">${c.donate_label}</span>
+         <span class="cap" id="donatetag" title="click to copy">${c.donate_value}</span>
+         ${c.donate_url ? `<span style="font-size:11px;color:var(--mute)">${c.donate_url}</span>` : ""}
+       </div></div>` : "";
+
+  const contact = c.contact
+    ? `<div style="font-size:12px;color:var(--mute);margin-top:10px">
+       Something odd? <b style="color:var(--dim)">${c.contact}</b></div>` : "";
+
+  return `<h1>About</h1>
+  <div class="card" style="border-color:var(--action)">
+    <div class="row">
+      <img src="${(THEMES[theme]||{}).logo||"logo-sc.png"}" alt="" style="width:56px;height:auto;flex:none">
+      <span style="flex:1">
+        <b style="display:block;font-size:15px">Made by ${c.author || "Obly"}</b>
+        <span style="font-size:12px;color:var(--mute)">${c.tagline || "Free to use, free to pass on."}</span>
+        ${contact}</span>
+    </div>
+  </div>
+  ${donate}
+  <div class="card" style="margin-top:12px">${rows}</div>`;
+}
+
+function render(){
+  buildNav();
+  const body = {listen:pageListen, cmds:pageCommands, mine:pageMine, map:pageMap,
+                routes:pageRoutes, market:pageMarket, settings:pageSettings,
+                look:pageLook, howto:pageHowTo, about:pageAbout}[page]();
+  main.innerHTML = body;
+  main.scrollTop = 0;
+
+  const q = document.getElementById("q");
+  if(q){ q.oninput = e => { window.__q = e.target.value; const p = main.scrollTop;
+    main.innerHTML = pageCommands(); main.scrollTop = p; wire(); document.getElementById("q").focus(); }; }
+  wire();
+}
+function wire(){
+  main.querySelectorAll("[data-tog]").forEach(b => b.onclick = () => {
+    const id = b.dataset.tog;
+    off.has(id) ? off.delete(id) : off.add(id);
+    if(window.pywebview) pywebview.api.set_enabled(id, !off.has(id));
+    const p = main.scrollTop; main.innerHTML = pageCommands(); main.scrollTop = p; wire();
+  });
+  const api = window.pywebview && pywebview.api;
+
+  const run = document.getElementById("run");
+  if(run) run.onclick = async () => {
+    if(!api) return setStatus("The engine only runs in the app window, not a browser tab.", "warn");
+    run.disabled = true;
+    try{
+      if(ENG.running){ await api.engine_stop(); }
+      else { setStatus("Starting the recogniser…"); await api.engine_start(ENG.mode); }
+    } finally { run.disabled = false; }
+  };
+
+  const setMode = async m => {
+    ENG.mode = m;
+    render();                                  // the page differs per mode
+    if(api) await api.engine_mode(m);          // and the engine follows, live
+  };
+  const mp = document.getElementById("mPtt"), mo = document.getElementById("mOpen");
+  if(mp) mp.onclick = () => ENG.mode!=="ptt"  && setMode("ptt");
+  if(mo) mo.onclick = () => ENG.mode!=="open" && setMode("open");
+
+  const ss = document.getElementById("setStick");
+  if(ss) ss.onclick = async () => {
+    if(!api) return setStatus("Only the app window can read your stick.", "warn");
+    ss.disabled = true; ss.textContent = "Press the button…";
+    setStatus("Press and hold the button you want on the stick. 30 seconds.", "warn");
+    try{
+      const r = await api.capture_hotas();
+      if(r.saved){
+        DATA.ptt.joystick_name = r.name; DATA.ptt.joystick_button = r.button;
+        setStatus(`Saved — ${r.name} button ${r.button} is now push-to-talk too.`, "good");
+        render();
+      } else setStatus("Nothing pressed. Your existing buttons are unchanged.");
+    } finally { ss.disabled = false; }
+  };
+  const cs2 = document.getElementById("clrStick");
+  if(cs2) cs2.onclick = async () => {
+    if(!api) return;
+    await api.clear_hotas();
+    DATA.ptt.joystick_name = null; DATA.ptt.joystick_button = null;
+    setStatus("Stick button cleared. Your key and pad still work."); render();
+  };
+
+  const sw2 = document.getElementById("saveWake");
+  if(sw2) sw2.onclick = async () => {
+    const v = document.getElementById("wake").value.trim();
+    DATA.wake_word = v;
+    if(api) await api.set_setting("open_mic_wake_word", v);
+    setStatus(v ? `Open mic will only act on speech starting with “${v}”.`
+                : "No wake word — every sentence in the room is a candidate.",
+              v ? "good" : "warn");
+  };
+
+  const lm = document.getElementById("lmode");
+  if(lm) lm.onchange = () => setMode(lm.value);
+
+  const cb = document.getElementById("calib");
+  if(cb) cb.onclick = async () => {
+    if(!api) return setStatus("Only the app window can do this.", "warn");
+    const note = document.getElementById("calibnote");
+    cb.disabled = true;
+    let n = 10;
+    const tick = setInterval(() => {
+      cb.textContent = `${n}…`;
+      note.textContent = `Alt-tab into Star Citizen, open the map, and rest the pointer on the search box. Recording in ${n}s.`;
+      n--;
+    }, 1000);
+    try{
+      const r = await api.calibrate_search_click(10);
+      clearInterval(tick);
+      if(r.saved){
+        note.innerHTML = `Saved — <b>${r.pixels}</b> of “${r.window}”, stored in <b>${r.scheme}</b> as ${r.x}, ${r.y}.`;
+        setStatus("Search box recorded. The plot command will click it first.", "good");
+      } else {
+        note.textContent = `Not saved — ${r.why}${r.window?` (window was “${r.window}”)`:""}.`;
+        setStatus("Nothing recorded; the command is unchanged.", "warn");
+      }
+    } catch(e){ clearInterval(tick); note.textContent = "Calibration failed: " + e; }
+    cb.disabled = false; cb.textContent = "Calibrate";
+  };
+
+  const tp = document.getElementById("tplot");
+  if(tp) tp.onclick = async () => {
+    if(!api) return setStatus("Only the app window can do this.", "warn");
+    const note = document.getElementById("testnote");
+    const dest = document.getElementById("tdest").value.trim() || "Lorville";
+    tp.disabled = true;
+    let n = 6;
+    const tick = setInterval(() => { tp.textContent = `${n}…`;
+      note.textContent = `Alt-tab into the game and open the map. Firing in ${n}s.`; n--; }, 1000);
+    try{
+      const r = await api.test_plot(dest, 6);
+      clearInterval(tick);
+      note.innerHTML = r.ok
+        ? `Sent <b>${r.steps}</b> into “${r.window}”. Heard “${r.heard}” → <b>${r.resolved}</b> (${r.note}).
+           ${r.calibrated ? "" : "<span style='color:var(--warn)'>The click was skipped — not calibrated yet.</span>"}`
+        : `Did not run — ${r.why}.`;
+      setStatus(r.ok ? "Test sent. Did the name land in the box?" : r.why,
+                r.ok ? "good" : "warn");
+    } catch(e){ clearInterval(tick); note.textContent = "Failed: " + e; }
+    tp.disabled = false; tp.textContent = "Test plot";
+  };
+
+  const sch = document.getElementById("scheme");
+  if(sch) sch.onchange = async () => {
+    if(api) await api.set_setting("control_scheme", sch.value);
+    setStatus(`Control scheme set to ${sch.value}. Restart to load its keys.`, "good");
+  };
+
+  if(page === "listen") paintLog();
+
+  const dt = document.getElementById("donatetag");
+  if(dt) dt.onclick = () => {
+    navigator.clipboard && navigator.clipboard.writeText(dt.textContent.trim());
+    setStatus("Copied " + dt.textContent.trim() + " to your clipboard.", "good");
+  };
+
+  const rf = document.getElementById("refresh");
+  if(rf) rf.onclick = async () => {
+    if(!api) return setStatus("Only the app window can fetch prices.", "warn");
+    rf.disabled = true; rf.textContent = "Updating\u2026";
+    setStatus("Fetching the current prices\u2026");
+    try{
+      const r = await api.refresh_data();
+      DATA.market.cached = r.cached || DATA.market.cached;
+      setStatus(r.ok ? `Updated ${r.updated} of ${r.total} feeds.`
+                     : `Some feeds did not answer: ${r.why}`,
+                r.ok ? "good" : "warn");
+      render();
+    } catch(e){ setStatus("Update failed: " + e, "warn"); }
+    rf.disabled = false; rf.textContent = "Update prices";
+  };
+
+  const kb = document.getElementById("kbread");
+  if(kb) kb.onclick = async () => {
+    if(!api) return setStatus("Only the app window can read your game files.", "warn");
+    kb.disabled = true; kb.textContent = "Reading\u2026";
+    try{
+      KEYB = await api.keybinds();
+      document.getElementById("kbout").innerHTML = keybindHtml();
+      setStatus(KEYB.ok ? (KEYB.summary || "Read your keybinds.") : KEYB.why,
+                KEYB.ok ? "good" : "warn");
+    } catch(e){ setStatus("Could not read keybinds: " + e, "warn"); }
+    kb.disabled = false; kb.textContent = "Re-read my keybinds";
+  };
+
+  const rb = document.getElementById("recon");
+  if(rb) rb.onclick = async () => {
+    if(!api) return setStatus("Only the app window can read the game log.", "warn");
+    rb.disabled = true; rb.textContent = "Checking…";
+    try{
+      const r = await api.reconcile();
+      const el = document.getElementById("reconout");
+      if(!r.ok){ el.textContent = "Could not check: " + r.why; }
+      else {
+        const t = r.tally || {};
+        const pill = (k,c) => t[k] ? `<span class="pill ${c}" style="margin-right:6px">${t[k]} ${k}</span>` : "";
+        el.innerHTML = `<div class="card" style="margin-top:10px">
+          <div class="row" style="margin-bottom:8px">
+            ${pill("confirmed","good")}${pill("mismatch","warn")}${pill("unseen","mute")}${pill("refused","mute")}
+            <span style="margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--mute)">
+              ${r.spoken} spoken · ${r.logged} logged by the game</span></div>
+          ${r.rows.slice().reverse().map(x=>{
+            const col = x.verdict==="confirmed" ? "var(--good)"
+                      : x.verdict==="mismatch" ? "var(--crit)" : "var(--mute)";
+            return `<div style="display:flex;gap:10px;padding:4px 0;border-top:1px solid var(--lineSoft);font-size:12px">
+              <span style="color:${col};width:74px;font-family:var(--mono);font-size:10.5px">${x.verdict}</span>
+              <span style="flex:1">“${x.heard}” → <b>${x.ours||"—"}</b>${
+                x.game && x.game!==x.ours ? ` <span style="color:var(--crit)">game plotted ${x.game}</span>`:""}</span>
+              <span style="color:var(--mute);font-family:var(--mono);font-size:10.5px">${x.detail||""}</span>
+            </div>`;}).join("")}</div>`;
+      }
+    } catch(e){ document.getElementById("reconout").textContent = "Failed: " + e; }
+    rb.disabled = false; rb.textContent = "Check every route against the game";
+  };
+
+  const cr = document.getElementById("clearRoute");
+  if(cr) cr.onclick = async () => {
+    if(window.pywebview){ DATA.route = await pywebview.api.clear_route(); }
+    else DATA.route = {legs:[]};
+    render();
+  };
+  main.querySelectorAll("[data-theme]").forEach(el => el.onclick = () => {
+    applyTheme(el.dataset.theme); render();
+    if(window.pywebview) pywebview.api.set_theme(el.dataset.theme);
+  });
+  main.querySelectorAll("[data-key] .cap").forEach(el => el.onclick = () =>
+    setStatus("Rebinding is wired to the desktop side — say the word and I'll connect it.", "warn"));
+}
+function setStatus(text, kind){
+  msg.textContent = text;
+  state.className = "pill " + (kind==="warn"?"warn":kind==="good"?"good":"mute");
+  state.textContent = kind==="warn"?"NOTE":"IDLE";
+}
+
+/* ------------------------------------------------------------ boot */
+// A row of one button is not a choice, so the switcher only appears when
+// there is more than one title to switch between.
+if(Object.keys(THEMES).length > 1){
+  themes.innerHTML = Object.entries(THEMES).map(([k,t])=>
+    `<button class="tsw" data-t="${k}" title="${t.name}" aria-pressed="${k===theme}">
+       <i style="background:${t.dot};color:${t.dot}"></i></button>`).join("");
+  themes.querySelectorAll(".tsw").forEach(b => b.onclick = () => {
+    applyTheme(b.dataset.t); render();
+    if(window.pywebview) pywebview.api.set_theme(b.dataset.t);
+  });
+} else {
+  themes.style.display = "none";
+}
+
+foot.innerHTML = `v${DATA.version}<br>${DATA.build}`;
+meta.textContent = `${DATA.scheme||"keyboard_default"}  |  ${DATA.commands.length} commands  |  offline`;
+applyTheme(theme);
+render();
+if(window.pywebview) startPolling();
+window.addEventListener("pywebviewready", startPolling);
+if(DATA.problem) setStatus(DATA.problem, "warn");
+requestAnimationFrame(drawAmbient);
+</script>

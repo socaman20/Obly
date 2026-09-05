@@ -1,0 +1,159 @@
+HOW TO CHANGE YOUR KEYBINDS
+============================
+
+This program was built around ONE specific person's Star Citizen
+keybindings. Yours are probably different in at least a few spots.
+Good news: you don't need to know any programming to fix that -- you
+just need Notepad and about 10 minutes.
+
+
+WHERE TO LOOK
+-------------
+Inside this folder there's a "config" folder, and inside that is a
+file called commands.json. That's the only file you need to touch.
+
+Right-click commands.json -> Open with -> Notepad.
+(Notepad++ or VS Code work too and are easier to read in, but plain
+Notepad is fine.)
+
+
+WHAT YOU'RE LOOKING AT
+-----------------------
+The file is a big list of commands. Each one looks like this:
+
+    {
+      "id": "landing_gear",
+      "phrases": ["landing gear", "toggle landing gear", "gear down", "gear up"],
+      "type": "keypress",
+      "keys": ["n"],
+      "ack": "Landing gear toggled.",
+      "verified": false,
+      "notes": "User-confirmed key: N."
+    }
+
+You only ever need to touch two parts of each one:
+
+  "phrases"  -- the different things you can SAY to trigger it.
+               Add your own by copying the pattern: put it in quotes,
+               separated by commas, inside the square brackets.
+
+  "keys"     -- the actual key(s) that get pressed in-game. THIS is
+               what you're here to fix. Change "n" to whatever your
+               real keybind is.
+
+Leave everything else ("id", "type", "ack", "verified", "notes")
+alone -- those aren't keys, they're just labels and don't need to
+match your setup.
+
+
+HOW TO CHANGE A KEY
+--------------------
+Find the command you want to fix, and look at its "keys" line.
+
+For a single key, just swap the letter/number:
+    "keys": ["n"]        ->    "keys": ["j"]
+
+For a key combo (two keys held together, like Left Alt + K), both
+keys go in the list separated by a comma:
+    "keys": ["altleft", "k"]
+
+IMPORTANT: key names have to be typed EXACTLY like this list, in
+lowercase, no spaces:
+
+    Letters:        a, b, c, ... z
+    Numbers:         0, 1, 2, ... 9
+    Function keys:  f1, f2, f3, ... f12
+    Left Alt:       altleft         (NOT "left alt" or "alt left")
+    Right Alt:      altright
+    Left Ctrl:      ctrlleft
+    Right Ctrl:     ctrlright
+    Left Shift:     shiftleft
+    Right Shift:    shiftright
+    Space bar:      space
+    Enter:          enter
+    Escape:         esc
+    Arrow keys:     up, down, left, right
+
+That "altleft" instead of "left alt" thing trips people up -- it's
+just how the underlying tool expects it, not a typo.
+
+
+CHANGING THE ACTIVATION KEY (currently Right Ctrl)
+-----------------------------------------------------
+This is the key you hold down to speak a command -- separate from
+all the in-game keys above. Right near the TOP of commands.json,
+before the big list of commands, there's a "settings" section that
+looks like this:
+
+    "settings": {
+      "target_window_title": "Star Citizen",
+      "require_focused_window": true,
+      "default_step_wait_ms": 350,
+      "ptt_key": "right ctrl",
+      ...
+
+Change the "right ctrl" on the "ptt_key" line to whatever you'd
+rather hold instead.
+
+ONE IMPORTANT DIFFERENCE: this key uses different naming than
+everything else in the file -- lowercase, but WITH a space, not the
+"altleft"-style names above. Examples: "right ctrl", "left ctrl",
+"right shift", "left alt", "caps lock", "scroll lock", "f13", "tab".
+Avoid Caps Lock or Scroll Lock specifically if you can -- they're
+"toggle" keys and don't reliably register as "held down" the way a
+normal key does.
+
+A few commands use the mouse instead of the keyboard (right now,
+only "engage quantum drive" does -- it holds Mouse Button 1). Those
+look like this instead of "keys":
+
+    "type": "mousehold",
+    "button": "left",
+    "hold_ms": 1500
+
+"button" can be "left", "right", or "middle". "hold_ms" is how many
+milliseconds to hold it down for (1000 = one second) -- change this
+if the action needs a longer or shorter hold than 1.5 seconds.
+
+Some keyboard commands also hold instead of tap (like "nav mode",
+which holds B for 2 seconds). Those say "type": "keyhold" instead of
+"keypress" and also have a "hold_ms" you can adjust the same way.
+
+
+DON'T BREAK THE FILE
+---------------------
+JSON (that's the file format) is picky about a few things:
+
+  - Every piece of text needs matching quotes: "like this"
+  - Items in a list need commas between them, but NOT after the
+    last one:
+        "phrases": ["one", "two", "three"]     <- correct
+        "phrases": ["one", "two", "three",]    <- WRONG (extra comma)
+  - Every { needs a matching }, every [ needs a matching ]
+  - Don't delete the commas between whole commands (the { ... }
+    blocks) -- every command needs a comma after its closing },
+    except the very last one in the whole file.
+
+If you're not sure, the safest edit is to ONLY change text that's
+already inside quotes, and not touch any punctuation around it.
+
+
+SAVE AND TEST
+--------------
+1. Save the file (Ctrl+S in Notepad). Don't use "Save As" or it
+   might add a .txt to the end of the filename.
+2. Run the program again.
+3. If you made a typo, it'll tell you plainly what's wrong and what
+   line to look at, instead of just crashing -- fix that spot and
+   try again.
+4. If it starts up fine, say the command out loud (hold the
+   push-to-talk key first) and watch the black console window. It
+   prints exactly what it heard and which command it matched, so
+   you can tell right away if something's off.
+
+
+THAT'S IT
+---------
+You don't need to touch main.py, the whisper_model folder, or the
+.exe itself. commands.json is the only file that needs to match your
+personal setup.

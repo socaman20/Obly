@@ -1,0 +1,425 @@
+{
+  "_what_this_is": "A control scheme: which physical input each voice command sends. Command ids and spoken phrases live in commands.json; only the bindings live here. Copy this file, edit the keys, and point settings.control_scheme at your copy to make the tool fit YOUR layout without touching a single phrase.",
+  "name": "obly_x56",
+  "description": "Generated from this player's own actionmaps.xml. 39 on stock keys, 2 retargeted, 9 unreachable without vJoy.",
+  "bindings": {
+    "open_mobiglas": {
+      "type": "keypress",
+      "keys": [
+        "f1"
+      ],
+      "key_label": "F1",
+      "verified": true
+    },
+    "close_mobiglas": {
+      "type": "keypress",
+      "keys": [
+        "f1"
+      ],
+      "key_label": "F1",
+      "verified": true
+    },
+    "confirm_route": {
+      "type": "keypress",
+      "keys": [
+        "r"
+      ],
+      "key_label": "R",
+      "verified": false
+    },
+    "open_map": {
+      "type": "keypress",
+      "keys": [
+        "f2"
+      ],
+      "key_label": "F2",
+      "verified": false
+    },
+    "nav_mode": {
+      "type": "keyhold",
+      "keys": [
+        "b"
+      ],
+      "hold_ms": 3000,
+      "key_label": "Hold B (3s)",
+      "verified": false
+    },
+    "toggle_vtol": {
+      "type": "keypress",
+      "keys": [
+        "k"
+      ],
+      "key_label": "K",
+      "verified": false
+    },
+    "cycle_flight_configuration": {
+      "type": "keypress",
+      "keys": [
+        "altleft",
+        "k"
+      ],
+      "key_label": "Left Alt + K",
+      "verified": false
+    },
+    "request_landing": {
+      "type": "keypress",
+      "keys": [
+        "altleft",
+        "n"
+      ],
+      "key_label": "Left Alt + N",
+      "verified": false
+    },
+    "toggle_power_thrusters": {
+      "type": "keypress",
+      "keys": [
+        "i"
+      ],
+      "key_label": "I",
+      "verified": false
+    },
+    "toggle_power_shields": {
+      "type": "keypress",
+      "keys": [
+        "o"
+      ],
+      "key_label": "O",
+      "verified": false
+    },
+    "toggle_power_weapons": {
+      "type": "keypress",
+      "keys": [
+        "p"
+      ],
+      "key_label": "P",
+      "verified": false
+    },
+    "full_power_weapons": {
+      "type": "keyhold",
+      "keys": [
+        "f5"
+      ],
+      "hold_ms": 3000,
+      "key_label": "Hold F5 (3s)",
+      "verified": false
+    },
+    "full_power_engines": {
+      "type": "keyhold",
+      "keys": [
+        "f6"
+      ],
+      "hold_ms": 3000,
+      "key_label": "Hold F6 (3s)",
+      "verified": false
+    },
+    "full_power_shields": {
+      "type": "keyhold",
+      "keys": [
+        "f7"
+      ],
+      "hold_ms": 3000,
+      "key_label": "Hold F7 (3s)",
+      "verified": false
+    },
+    "raise_power_weapons": {
+      "type": "keypress",
+      "keys": [
+        "f5"
+      ],
+      "key_label": "F5",
+      "verified": false
+    },
+    "lower_power_weapons": {
+      "type": "keypress",
+      "keys": [
+        "f5",
+        "altleft"
+      ],
+      "key_label": "F5 + Left Alt",
+      "verified": false
+    },
+    "raise_power_engines": {
+      "type": "keypress",
+      "keys": [
+        "f6"
+      ],
+      "key_label": "F6",
+      "verified": false
+    },
+    "lower_power_engines": {
+      "type": "keypress",
+      "keys": [
+        "f6",
+        "altleft"
+      ],
+      "key_label": "F6 + Left Alt",
+      "verified": false
+    },
+    "raise_power_shields": {
+      "type": "keypress",
+      "keys": [
+        "f7"
+      ],
+      "key_label": "F7",
+      "verified": false
+    },
+    "lower_power_shields": {
+      "type": "keypress",
+      "keys": [
+        "f7",
+        "altleft"
+      ],
+      "key_label": "F7 + Left Alt",
+      "verified": false
+    },
+    "headlights": {
+      "type": "keypress",
+      "keys": [
+        "l"
+      ],
+      "key_label": "L",
+      "verified": false
+    },
+    "toggle_flight_ready": {
+      "type": "keypress",
+      "keys": [
+        "altright",
+        "r"
+      ],
+      "key_label": "Right Alt + R",
+      "verified": false
+    },
+    "park_ship": {
+      "type": "macro",
+      "steps": [
+        {
+          "action": "keypress",
+          "keys": [
+            "i"
+          ],
+          "wait_ms": 400,
+          "note": "cut power to thrusters"
+        },
+        {
+          "action": "keypress",
+          "keys": [
+            "altright",
+            "r"
+          ],
+          "wait_ms": 200,
+          "note": "toggle flight ready off"
+        }
+      ],
+      "key_label": "I → Right Alt + R",
+      "verified": false
+    },
+    "open_close_doors": {
+      "type": "keypress",
+      "keys": [
+        "/"
+      ],
+      "key_label": "/",
+      "verified": true
+    },
+    "lock_unlock_doors": {
+      "type": "keypress",
+      "keys": [
+        "altright",
+        "/"
+      ],
+      "key_label": "ALTRIGHT+/",
+      "verified": true
+    },
+    "cut_all_power": {
+      "type": "keypress",
+      "keys": [
+        "u"
+      ],
+      "key_label": "U",
+      "verified": false
+    },
+    "toggle_helmet": {
+      "type": "keypress",
+      "keys": [
+        "altleft",
+        "h"
+      ],
+      "key_label": "Left Alt + H",
+      "verified": false
+    },
+    "present": {
+      "type": "macro",
+      "steps": [
+        {
+          "action": "keypress",
+          "keys": [
+            "altright",
+            "h"
+          ]
+        },
+        {
+          "action": "keyhold",
+          "keys": [
+            "y"
+          ],
+          "hold_ms": 6000
+        }
+      ],
+      "key_label": "Right Alt + H → Y",
+      "verified": false
+    },
+    "self_destruct": {
+      "type": "keyhold",
+      "keys": [
+        "backspace"
+      ],
+      "hold_ms": 3000,
+      "key_label": "Hold Backspace (3s)",
+      "verified": false
+    },
+    "exit_seat": {
+      "type": "keyhold",
+      "keys": [
+        "y"
+      ],
+      "hold_ms": 5000,
+      "key_label": "Hold Y (5s)",
+      "verified": false
+    },
+    "hail_target": {
+      "type": "keypress",
+      "keys": [
+        "9"
+      ],
+      "key_label": "9",
+      "verified": false
+    },
+    "emergency_exit_seat": {
+      "type": "keypress",
+      "keys": [
+        "u",
+        "shiftleft"
+      ],
+      "key_label": "U + Left Shift",
+      "verified": false
+    },
+    "eject": {
+      "type": "keypress",
+      "keys": [
+        "altright",
+        "y"
+      ],
+      "key_label": "Right Alt + Y",
+      "verified": false
+    },
+    "toggle_scanning_mode": {
+      "type": "keypress",
+      "keys": [
+        "v"
+      ],
+      "key_label": "V",
+      "verified": false
+    },
+    "toggle_mining_mode": {
+      "type": "keypress",
+      "keys": [
+        "m"
+      ],
+      "key_label": "M",
+      "verified": false
+    },
+    "toggle_salvage_mode": {
+      "type": "keypress",
+      "keys": [
+        "m"
+      ],
+      "key_label": "M",
+      "verified": false
+    },
+    "request_cargo_loading": {
+      "type": "keypress",
+      "keys": [
+        "altright",
+        "n"
+      ],
+      "key_label": "Right Alt + N",
+      "verified": false
+    },
+    "interact": {
+      "type": "keypress",
+      "keys": [
+        "f"
+      ],
+      "key_label": "F",
+      "verified": false
+    },
+    "toggle_port_locks": {
+      "type": "keypress",
+      "keys": [
+        "altright",
+        "k"
+      ],
+      "key_label": "Right Alt + K",
+      "verified": true
+    },
+    "visor_wipe": {
+      "type": "keypress",
+      "keys": [
+        "altleft",
+        "x"
+      ],
+      "key_label": "Left Alt + X",
+      "verified": true
+    },
+    "activate_jump_point": {
+      "type": "mousehold",
+      "hold_ms": 5000,
+      "button": "left",
+      "key_label": "Hold Mouse 1 (5s)",
+      "verified": true,
+      "note": "Left mouse held, not right. Corrected in game on 2026-09-04 -- the shipped value was wrong."
+    },
+    "plot_route_to": {
+      "type": "macro",
+      "verified": false,
+      "key_label": "Click, paste, Enter, click off",
+      "steps": [
+        {
+          "action": "click",
+          "x": 0.2005,
+          "y": 0.1227,
+          "wait_ms": 250,
+          "note": "Click the map's SEARCH LOCATIONS field. Measured from a 1920x1080 capture: the field runs x 197-573, y 115-150, centre 385,132. Stored as a fraction so it holds at any resolution or on the other monitor."
+        },
+        {
+          "action": "paste",
+          "source": "destination",
+          "wait_ms": 500,
+          "note": "paste the corrected destination into the search box -- the clipboard, because games drop synthetic keystrokes in menus"
+        },
+        {
+          "action": "keypress",
+          "keys": [
+            "enter"
+          ],
+          "wait_ms": 300,
+          "note": "select the first result and STOP. You look at what it found and commit it yourself with 'set route'"
+        },
+        {
+          "action": "click",
+          "x": 0.1823,
+          "y": 0.7222,
+          "wait_ms": 200,
+          "note": "click empty space to drop focus out of the search field. While the caret is in that box the game treats every key as typing, so 'set route' would put the letter R in the box instead of firing the hotkey. This is the step he was doing by hand."
+        }
+      ]
+    },
+    "look_up": {
+      "type": "lookup",
+      "keys": [],
+      "key_label": "reads it back",
+      "verified": true,
+      "note": "Presses nothing. It answers out loud and in the transcript."
+    }
+  }
+}
