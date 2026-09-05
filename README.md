@@ -21,13 +21,27 @@ see [Why Windows only](#why-windows-only) below.
 2. Open the folder
 3. Double-click **START HERE**
 
-That is the whole install: nothing goes into Program Files, nothing touches the
-Windows registry. To uninstall, delete the folder.
+It installs like any other program: copies itself to
+
+    C:\Users\<you>\AppData\Local\Programs\Star Citizen Voice Control
+
+makes a desktop icon and a Start menu entry, and registers in **Settings →
+Apps**, so Windows lists it with a working **Uninstall** button. No
+administrator prompt -- writing to Program Files needs elevation, and a free
+tool has no business demanding it.
+
+Your own files -- the commands you write, the routes you plot -- live
+separately in `%LOCALAPPDATA%\Star Citizen Voice Control`, which an update
+never touches. Copy that folder to move yourself to another PC.
 
 It checks for Microsoft's WebView2 runtime -- part of Windows 11, often absent
 on Windows 10 -- and installs it for you if it is missing. Microsoft's own
-installer ships inside the download, so it works even if that download would
-have been blocked on your network.
+installer ships inside the download, so it works even where that download would
+have been blocked.
+
+Then it runs the program's own self-check before launching. If something is
+wrong it says so straight away and writes `selftest-result.txt` naming the
+missing piece, instead of opening a window that does not work.
 
 **"There is no .exe in here."** There is. Windows hides file extensions by
 default, so the program shows up as `StarCitizenVoiceControl` with a ship icon
