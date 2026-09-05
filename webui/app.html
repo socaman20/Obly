@@ -611,8 +611,34 @@ function pageMarket(){
       <div style="color:var(--mute);font-size:10.5px;margin-top:6px">${m.attribution||""}</div></div>
     <span class="pill mute">game ${m.version||"?"}</span>
   </div></div>
-  <div class="row" style="margin-top:14px"><input type="search" class="grow" placeholder="Search a ship, component or commodity — cutlass, cooler, iron…"></div>
-  <div class="empty">Search a ship, component or commodity.</div>`;
+  <div class="row" style="margin-top:14px">
+    <input type="search" id="mq" class="grow" value="${MQ||""}"
+      placeholder="Search a ship, place or commodity — cutlass, iron, Lorville…">
+    <div style="display:flex;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden">
+      ${["all","ship","commodity","place","shop"].map((k,i)=>
+        `<button class="btn small" style="border:0;border-radius:0;${i?"border-left:1px solid var(--line)":""}"
+          data-kind="${k}" aria-pressed="${(MK||"all")===k}">${k==="all"?"Everything":k}</button>`).join("")}
+    </div></div>
+  <div id="mres">${marketResults()}</div>`;
+}
+
+let MQ = "", MK = "all", MHITS = null;
+
+function marketResults(){
+  if(MHITS === null) return `<div class="empty">Type a name. It searches every
+    ship, place, commodity and shop the program knows — 2,227 of them — and it
+    forgives spelling, because the recogniser has to.</div>`;
+  if(!MHITS.length) return `<div class="empty">Nothing called “${MQ}”.</div>`;
+  const tone = {ship:"var(--action)", commodity:"var(--good)",
+                place:"var(--warn)", shop:"var(--dim)"};
+  return `<div class="list">${MHITS.map(h=>`<div class="cmd">
+    <div class="top">
+      <span class="nm">${h.n}</span>
+      <span class="pill mute" style="color:${tone[h.kind]||"var(--mute)"}">${h.kind}</span>
+      ${h.live===false?'<span class="pill warn">not in this build</span>':""}
+      <span style="flex:1"></span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--dim)">${h.detail||""}</span>
+    </div></div>`).join("")}</div>`;
 }
 
 function pageSettings(){
@@ -790,9 +816,39 @@ function wire(){
     run.disabled = true;
     try{
       if(ENG.running){ await api.engine_stop(); }
-      else { setStatus("Starting the recogniser…"); await api.engine_start(ENG.mode); }
+      else {
+        setStatus("Starting the recogniser…");
+        const r = await api.engine_start(ENG.mode);
+        // A failure used to come back as a rejected promise nobody caught,
+        // so the button popped back up and the app said nothing at all.
+        if(r && r.error){
+          setStatus("Could not start: " + r.error, "warn");
+          const log = document.getElementById("log");
+          if(log) log.innerHTML = `<span style="color:var(--crit)">Could not start listening.</span><br>`
+            + `<span style="color:var(--mute)">${r.error}</span><br><br>`
+            + `<span style="color:var(--mute)">Written to voice-control.log next to the program. `
+            + `Press the button below and it will say which part is missing.</span>`
+            + `<div style="margin-top:12px"><button class="btn small" id="diag">Run a check</button></div>`;
+        }
+      }
+    } catch(e){
+      setStatus("Could not start: " + e, "warn");
     } finally { run.disabled = false; }
   };
+
+  main.addEventListener("click", async ev => {
+    if(!ev.target || ev.target.id !== "diag") return;
+    if(!api) return;
+    ev.target.disabled = true; ev.target.textContent = "Checking…";
+    const d = await api.diagnose();
+    document.getElementById("log").innerHTML =
+      d.checks.map(c => `<span style="color:${c.ok?"var(--good)":"var(--crit)"}">`
+        + `${c.ok?"ok  ":"FAIL"}</span> <b>${c.name}</b> `
+        + `<span style="color:var(--mute)">${c.why}</span>`).join("<br>")
+      + `<br><br><span style="color:var(--mute)">microphones: `
+      + `${(d.microphones||[]).join(" · ") || "none found"}</span>`
+      + `<br><span style="color:var(--mute)">looking in: ${d.base}</span>`;
+  });
 
   const setMode = async m => {
     ENG.mode = m;
@@ -898,6 +954,28 @@ function wire(){
     navigator.clipboard && navigator.clipboard.writeText(dt.textContent.trim());
     setStatus("Copied " + dt.textContent.trim() + " to your clipboard.", "good");
   };
+
+  const mq = document.getElementById("mq");
+  if(mq){
+    let t = null;
+    const go = async () => {
+      MQ = mq.value.trim();
+      if(!MQ){ MHITS = null; document.getElementById("mres").innerHTML = marketResults(); return; }
+      if(!api){ setStatus("Search only works in the app window.", "warn"); return; }
+      const r = await api.market_search(MQ, MK === "all" ? "" : MK);
+      MHITS = r.hits || [];
+      document.getElementById("mres").innerHTML = marketResults();
+    };
+    mq.oninput = () => { clearTimeout(t); t = setTimeout(go, 220); };
+    mq.onkeydown = e => { if(e.key === "Enter"){ clearTimeout(t); go(); } };
+    if(MQ) mq.focus();
+  }
+  main.querySelectorAll("[data-kind]").forEach(b => b.onclick = () => {
+    MK = b.dataset.kind;
+    render();
+    const box = document.getElementById("mq");
+    if(box && MQ){ box.dispatchEvent(new Event("input")); }
+  });
 
   const rf = document.getElementById("refresh");
   if(rf) rf.onclick = async () => {

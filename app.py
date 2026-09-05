@@ -23,6 +23,7 @@ import os
 import sys
 import collections
 import tempfile
+import traceback
 import threading
 import time
 from pathlib import Path
@@ -49,6 +50,23 @@ PLACES_PATH = BASE_DIR / "config" / "places.json"
 ROUTE_PATH = BASE_DIR / "config" / "current_route.json"
 CACHE_DIR = BASE_DIR / "config" / "datacache"
 WEBUI = BASE_DIR / "webui"
+
+
+LOG_PATH = None
+
+
+def _log(message):
+    """Append to a log beside the program. Never raises."""
+    global LOG_PATH
+    try:
+        if LOG_PATH is None:
+            here = Path(sys.executable).parent if getattr(sys, "frozen", False) \
+                else BASE_DIR
+            LOG_PATH = here / "voice-control.log"
+        with io.open(LOG_PATH, "a", encoding="utf-8") as f:
+            f.write("%s  %s\n" % (time.strftime("%Y-%m-%d %H:%M:%S"), message))
+    except Exception:
+        pass
 
 
 def _read_json(path, default=None):
@@ -276,9 +294,52 @@ class Api:
         return self._engine
 
     def engine_start(self, mode="ptt"):
-        e = self._eng()
-        e.start(mode)
-        return {"running": True, "mode": mode, "triggers": e.triggers()}
+        """Start listening, and never fail quietly.
+
+        A packaged build has no console, so an exception here used to vanish:
+        the button came back up and nothing else happened, which looks exactly
+        like a program that ignored you. Anything that goes wrong now lands on
+        screen and in a log beside the exe.
+        """
+        try:
+            e = self._eng()
+            e.start(mode)
+            return {"running": True, "mode": mode, "triggers": e.triggers()}
+        except Exception as exc:
+            detail = traceback.format_exc()
+            _log("engine_start failed\n" + detail)
+            return {"running": False, "error": "%s: %s"
+                    % (type(exc).__name__, exc), "trace": detail}
+
+    def diagnose(self):
+        """Import everything the engine needs and report what breaks.
+
+        Written for exactly the situation it was written in: the packaged copy
+        would not listen and there was no way to see why.
+        """
+        out = []
+        for name in ("numpy", "sounddevice", "faster_whisper", "keyboard",
+                     "pydirectinput", "rapidfuzz", "joystick_ptt", "phonetic",
+                     "gamedex", "main", "engine"):
+            try:
+                __import__(name)
+                out.append({"name": name, "ok": True, "why": ""})
+            except Exception as exc:
+                out.append({"name": name, "ok": False,
+                            "why": "%s: %s" % (type(exc).__name__, exc)})
+        try:
+            import sounddevice as sd
+            devs = [d["name"] for d in sd.query_devices()
+                    if d["max_input_channels"] > 0]
+        except Exception as exc:
+            devs = ["could not list microphones: %s" % exc]
+        model = BASE_DIR / "whisper_model"
+        out.append({"name": "whisper_model folder", "ok": model.is_dir(),
+                    "why": ", ".join(sorted(p.name for p in model.glob("*")))
+                           if model.is_dir() else "not found at %s" % model})
+        _log("diagnose: " + "; ".join(
+            "%s=%s" % (r["name"], "ok" if r["ok"] else r["why"]) for r in out))
+        return {"checks": out, "microphones": devs, "base": str(BASE_DIR)}
 
     def engine_stop(self):
         if self._engine:
@@ -493,6 +554,20 @@ class Api:
         except Exception as exc:
             return {"ok": False, "updated": 0, "total": 0, "why": str(exc),
                     "cached": _cached_rows()}
+
+    def market_search(self, term, kind=""):
+        """Everything in the game that matches `term`.
+
+        Same index and the same matcher the voice command uses, so what you
+        can say you can type, and both spell it wrong the same way.
+        """
+        try:
+            import gamedex
+            kinds = [kind] if kind else None
+            return {"ok": True, "term": term,
+                    "hits": gamedex.look_up(term, kinds=kinds, limit=25)}
+        except Exception as exc:
+            return {"ok": False, "term": term, "hits": [], "why": str(exc)}
 
     # ------------------------------------------------------------ settings
     def set_setting(self, key, value):

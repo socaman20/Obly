@@ -14,19 +14,36 @@ off.
 
 INSTALL
 -------
-Extract the whole folder somewhere -- your Desktop is fine -- then run
+1. Right-click the zip and choose "Extract All". Your Desktop is fine.
+2. Open the folder that appears.
+3. Double-click     START HERE
 
-    INSTALL.bat
+That is the entire install: nothing goes into Program Files, nothing is
+written to the Windows registry. To uninstall, delete the folder.
 
-It makes a desktop shortcut and starts the program. That is the entire
-install: nothing goes into Program Files, nothing is written to the Windows
-registry. To uninstall, delete the folder.
 
-If you would rather skip that, double-click StarCitizenVoiceControl.exe.
+"THERE IS NO .EXE IN HERE"
+--------------------------
+There is -- Windows is hiding it from you. Windows hides file extensions by
+default, so the program shows up as
 
-One thing that catches people: if you run INSTALL.bat straight out of the zip
-without extracting, Windows is showing you a preview and the program is not
-really there. Extract first.
+    StarCitizenVoiceControl        (with a ship icon)
+
+and not "StarCitizenVoiceControl.exe". Same file. Double-click it and it runs.
+
+If there is genuinely no such file, one of two things happened:
+
+  YOU RAN IT FROM INSIDE THE ZIP. Windows shows the inside of a zip as if it
+  were a folder, but the files are not on your disk yet. Extract first.
+
+  YOUR ANTIVIRUS DELETED IT. This program is not code-signed -- a certificate
+  costs a few hundred a year and this is free -- and it types on your keyboard
+  for you, which is precisely the behaviour antivirus software looks for.
+  Some remove it without asking. Check your quarantine, restore it, and allow
+  the folder.
+
+The first time you run it, Windows may say "Windows protected your PC". That
+appears for every unsigned program. Click "More info", then "Run anyway".
 
 
 FIRST FIVE MINUTES

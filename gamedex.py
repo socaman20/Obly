@@ -82,6 +82,38 @@ def build():
                     "detail": ", ".join(bits) or "commodity",
                     "live": bool(c.get("is_available", 1))})
 
+    # Ship components. The price feed lists the same item at every terminal
+    # that stocks it -- 23,930 rows for a few thousand parts -- so they
+    # collapse to one entry each, keeping the cheapest place to buy.
+    cats = {c.get("id"): c for c in
+            ((_read(CACHE / "categories.json") or {}).get("rows") or [])}
+    items = {}
+    for row in ((_read(CACHE / "items_prices_all.json") or {}).get("rows") or []):
+        name = (row.get("item_name") or "").strip()
+        if not name:
+            continue
+        buy = row.get("price_buy") or 0
+        cur = items.get(name.lower())
+        if cur and (cur["buy"] <= buy or not buy):
+            continue
+        cat = cats.get(row.get("id_category")) or {}
+        items[name.lower()] = {
+            "n": name, "buy": buy,
+            "cat": (cat.get("name") or "").strip(),
+            "section": (cat.get("section") or "").strip(),
+            "where": (row.get("terminal_name") or "").strip(),
+        }
+    for it in items.values():
+        # The category goes in the NAME the matcher sees, not just the
+        # description -- that is what makes "cooler" find Cryo-Star XL.
+        kind_words = " ".join(w for w in (it["cat"], it["section"]) if w)
+        bits = [b for b in (it["cat"] or "component",
+                            "buy %s aUEC" % round(it["buy"]) if it["buy"] else None,
+                            "at %s" % it["where"] if it["where"] else None) if b]
+        out.append({"n": it["n"], "kind": "component", "k": it["cat"] or "component",
+                    "detail": ", ".join(bits), "live": True,
+                    "also": kind_words})
+
     terms = (_read(CACHE / "terminals.json") or {}).get("rows") or []
     seen = set()
     for t in terms:
@@ -131,6 +163,21 @@ def look_up(spoken, kinds=None, limit=5):
     scored = []
     for r in rows:
         best, score, _ = main._score_places(spoken, [r])
+        # A part is also findable by what it is. "cooler" scores nothing
+        # against "Cryo-Star XL" and everything against its category, so the
+        # category is scored too -- slightly below the name, so an exact part
+        # name still wins.
+        if r.get("also"):
+            _, alt, _ = main._score_places(spoken, [{"n": r["also"]}])
+            # Containment matters more than similarity here. "shield" against
+            # "Shield generators" scores badly on edit distance and perfectly
+            # on meaning -- a short query naming a category should return that
+            # category, which is the whole point of asking for one.
+            low = r["also"].lower()
+            want = spoken.lower().strip()
+            if want and all(w in low for w in want.split()):
+                alt = max(alt, 90)
+            score = max(score, alt * 0.97)
         if score >= 62:
             scored.append((score, r))
     scored.sort(key=lambda x: (-x[0], not x[1]["live"], len(x[1]["n"])))
