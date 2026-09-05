@@ -2,6 +2,15 @@ STAR CITIZEN VOICE CONTROL
 Made by Obly.  Free to use, free to pass on.
 
 
+WINDOWS 10 OR 11 ONLY
+---------------------
+Not Mac, not Linux. Star Citizen is a Windows game -- there is no Mac version
+at all -- and this program sends keystrokes into it, reads your HOTAS, and
+reads your keybinds out of the game's own files. All of that is Windows.
+
+The file in this folder is a Windows program. On a Mac it will not open.
+
+
 WHAT IT IS
 ----------
 You hold a button, say what you want, and it presses the key for you.
@@ -20,6 +29,12 @@ INSTALL
 
 That is the entire install: nothing goes into Program Files, nothing is
 written to the Windows registry. To uninstall, delete the folder.
+
+It checks for one Microsoft component called WebView2 -- the thing that draws
+this program's window. Windows 11 has it built in; Windows 10 often does not.
+If it is missing you get one question, it installs itself, and carries on.
+Microsoft's installer is in this folder, so it works even on a machine where
+that download would have been blocked.
 
 
 "THERE IS NO .EXE IN HERE"
