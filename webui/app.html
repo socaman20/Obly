@@ -730,6 +730,22 @@ function pageHowTo(){
     <div id="kbout" style="margin-top:10px">${keybindHtml()}</div>
   </div>
 
+  <div class="card" style="margin-top:12px"><h3>Where your files are</h3>
+    <p>Nothing is installed — this runs from the folder you extracted, and a new
+    version replaces that whole folder. So anything of yours lives somewhere
+    else, and updating never touches it:</p>
+    <div style="font-family:var(--mono);font-size:11.5px;color:var(--action);margin-top:8px">
+      %LOCALAPPDATA%\Star Citizen Voice Control</div>
+    <p style="margin-top:8px"><b>my_commands.json</b> — commands you wrote and
+    switches you flicked. <b>my_routes.json</b> — every destination you plotted.
+    <b>prices</b> — cached market data. Copy that folder to carry yourself to
+    another PC; delete it to start fresh.</p>
+    <div class="row" style="margin-top:10px">
+      <button class="btn small" id="openmine">Open my folder</button>
+      <span style="font-size:11px;color:var(--mute)">AppData is hidden, so this opens it for you.</span>
+    </div>
+  </div>
+
   <div class="card" style="margin-top:12px"><h3>Fitting it to your controls</h3>
     <p><b>Settings → Control scheme</b> picks which physical keys each command sends.
     Your spoken phrases never change — only what gets pressed.
@@ -991,6 +1007,12 @@ function wire(){
       render();
     } catch(e){ setStatus("Update failed: " + e, "warn"); }
     rf.disabled = false; rf.textContent = "Update prices";
+  };
+
+  const om = document.getElementById("openmine");
+  if(om) om.onclick = () => {
+    if(!api) return setStatus("Only the app window can open folders.", "warn");
+    api.open_user_folder();
   };
 
   const kb = document.getElementById("kbread");

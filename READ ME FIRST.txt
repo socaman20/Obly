@@ -119,6 +119,43 @@ prices" fetches the latest. If a service is down it falls back to the last
 good copy rather than showing you nothing.
 
 
+WHERE EVERYTHING GOES
+---------------------
+Nothing is installed. The program runs from the folder you extracted, puts
+nothing in Program Files and nothing in the Windows registry. Move that folder
+wherever you like -- Desktop, a games drive, a USB stick -- and it still works.
+To uninstall, delete the folder.
+
+Two places, and it matters which is which:
+
+  THE FOLDER YOU EXTRACTED
+      The program and everything it ships with. A new version replaces this
+      whole folder, so keep nothing of your own in here.
+
+  YOUR OWN FILES
+      C:\Users\<you>\AppData\Local\Star Citizen Voice Control
+
+      my_commands.json    commands you wrote, and any you switched off
+      my_routes.json      every destination you plotted
+      prices\             cached ship and commodity prices
+      window\             the window's own cache
+
+      A new version never touches this folder, so your commands and your route
+      history survive an update. Copy this folder to carry yourself to another
+      PC. Delete it to start completely fresh.
+
+AppData is hidden by default, so you cannot browse to it -- paste that path
+into the address bar of any Explorer window. Or open the program and use
+HOW TO -> "Open my folder", which does it for you.
+
+Two files appear next to the program when something goes wrong:
+
+  voice-control.log      what happened
+  selftest-result.txt    what is missing (run START HERE to produce it)
+
+If you report a problem, those two are what to send.
+
+
 WHAT IS IN THE SIDEBAR
 ----------------------
 Listen        the microphone, the transcript, and what was sent to the game

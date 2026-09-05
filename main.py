@@ -46,7 +46,26 @@ import phrase_grammar
 # temp extraction folder, not next to the exe -- config/, whisper_model/,
 # and voice_acks/ need to be found next to the actual exe on disk so
 # they stay visible and editable, not buried in a temp dir.
-BASE_DIR = Path(sys.executable).parent if getattr(sys, "frozen", False) else Path(__file__).parent
+def _data_root():
+    """The folder that holds config/, webui/ and whisper_model/.
+
+    Running from source these are all the same folder. In a packaged build
+    they are not: the code is unpacked into _internal and that is where the
+    bundled data goes, while the .exe sits one level up. Getting this wrong is
+    silent -- the program starts, and one feature quietly has no data.
+
+    A config folder beside the .exe wins, so anyone can edit their commands
+    without opening _internal.
+    """
+    here = Path(__file__).resolve().parent
+    if getattr(sys, "frozen", False):
+        beside = Path(sys.executable).resolve().parent
+        if (beside / "config").is_dir():
+            return beside
+    return here
+
+
+BASE_DIR = _data_root()
 CONFIG_PATH = BASE_DIR / "config" / "commands.json"
 WHISPER_MODEL_ROOT = BASE_DIR / "whisper_model"
 VOICE_ACKS_DIR = BASE_DIR / "voice_acks"
@@ -332,7 +351,15 @@ def _clipboard_set(text, verify=True):
 # plot is written here with the jump path, so the leg is still readable on our
 # side even when the game has forgotten it.
 def record_route(spoken, resolved, note):
-    path = BASE_DIR / "config" / "current_route.json"
+    # Same folder app.py uses, for the same reason: an update replaces the
+    # program folder, and a route history is the player's, not ours.
+    root = os.environ.get("LOCALAPPDATA")
+    path = ((Path(root) / "Star Citizen Voice Control" / "my_routes.json")
+            if root else BASE_DIR / "config" / "current_route.json")
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+    except OSError:
+        path = BASE_DIR / "config" / "current_route.json"
     try:
         with open(path, "r", encoding="utf-8") as f:
             doc = json.load(f)

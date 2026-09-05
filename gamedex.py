@@ -24,7 +24,28 @@ import io
 import json
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent
+import sys
+
+def _data_root():
+    """The folder that holds config/, webui/ and whisper_model/.
+
+    Running from source these are all the same folder. In a packaged build
+    they are not: the code is unpacked into _internal and that is where the
+    bundled data goes, while the .exe sits one level up. Getting this wrong is
+    silent -- the program starts, and one feature quietly has no data.
+
+    A config folder beside the .exe wins, so anyone can edit their commands
+    without opening _internal.
+    """
+    here = Path(__file__).resolve().parent
+    if getattr(sys, "frozen", False):
+        beside = Path(sys.executable).resolve().parent
+        if (beside / "config").is_dir():
+            return beside
+    return here
+
+
+BASE_DIR = _data_root()
 CACHE = BASE_DIR / "config" / "datacache"
 
 _INDEX = None

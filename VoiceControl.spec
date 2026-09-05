@@ -53,6 +53,10 @@ datas += [
     ('whisper_model/tiny.en', 'whisper_model/tiny.en'),
     ('voice_acks', 'voice_acks'),
     ('app_icon.ico', '.'),
+    # Microsoft's WebView2 installer, 1.7 MB, shipped in the folder. A tester
+    # was told to go and find this himself; a machine missing the runtime is
+    # often a machine where that download is blocked, so it travels with us.
+    ('redist/MicrosoftEdgeWebview2Setup.exe', '.'),
     # Shipped so the reference card is in the folder people receive, not
     # somewhere they have to be sent separately.
     ('Voice Command Reference.jpg', '.'),
@@ -69,11 +73,16 @@ a = Analysis(
     hooksconfig={},
     runtime_hooks=[],
     excludes=['tkinter', 'matplotlib', 'PyQt5', 'PySide2', 'PySide6',
-              # Nothing in the running program imports these. PIL was pulled
-              # in by a build script, cryptography by the licence code that
-              # is gone, hf_xet by a model downloader we never call because
-              # the model ships inside.
-              'PIL', 'cryptography', 'hf_xet', 'huggingface_hub'],
+              # PIL was pulled in by a build script; cryptography by the
+              # licence code that is gone. Both are genuinely unused.
+              #
+              # huggingface_hub and hf_xet are NOT excluded, and that was a
+              # 10 MB saving that cost the whole program: faster_whisper
+              # imports huggingface_hub at module level -- not when it
+              # downloads something, but always -- so the packaged copy died
+              # the moment anyone pressed Start Listening. Nothing here is
+              # worth trimming that is on an import path.
+              'PIL', 'cryptography'],
     noarchive=False,
     optimize=1,
 )
