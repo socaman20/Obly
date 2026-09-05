@@ -14,12 +14,30 @@ Free. Made by **Obly**.
 
 **[Get the latest release &rarr;](../../releases/latest)**
 
-Extract the folder anywhere and run `INSTALL.bat`. That is the whole install:
-nothing goes into Program Files, nothing touches the Windows registry. To
-uninstall, delete the folder.
+**Windows 10 or 11 only.** Not Mac, not Linux, and that is not an oversight --
+see [Why Windows only](#why-windows-only) below.
 
-*If you run `INSTALL.bat` from inside the zip without extracting, Windows is
-showing you a preview and the program isn't really there. Extract first.*
+1. Right-click the zip, choose **Extract All**
+2. Open the folder
+3. Double-click **START HERE**
+
+That is the whole install: nothing goes into Program Files, nothing touches the
+Windows registry. To uninstall, delete the folder.
+
+It checks for Microsoft's WebView2 runtime -- part of Windows 11, often absent
+on Windows 10 -- and installs it for you if it is missing. Microsoft's own
+installer ships inside the download, so it works even if that download would
+have been blocked on your network.
+
+**"There is no .exe in here."** There is. Windows hides file extensions by
+default, so the program shows up as `StarCitizenVoiceControl` with a ship icon
+rather than `StarCitizenVoiceControl.exe`. If there is genuinely no such file,
+either you ran it from inside the zip without extracting, or your antivirus
+removed it -- this is unsigned and it types on your keyboard for you, which is
+exactly what antivirus software watches for. Check your quarantine.
+
+Windows may say **"Windows protected your PC"** the first time. That appears
+for every unsigned program. More info &rarr; Run anyway.
 
 ---
 
@@ -80,6 +98,26 @@ commands can't work on your layout and why. It only looks; it changes nothing.
 | **My Commands** | your own, kept safe from updates |
 
 ---
+
+## Why Windows only
+
+Star Citizen is a Windows game. There is no Mac version, so a Mac build would
+be a voice controller for a game that cannot be on the machine.
+
+Beyond that, this program is Windows-bound by what it does, not by how it was
+written:
+
+- it **sends keystrokes into a running game**, through a Windows input layer
+- it **reads your HOTAS** through Windows' own joystick APIs
+- it **draws its window** with WebView2, a Microsoft component
+- it **reads your keybinds** out of Star Citizen's own `actionmaps.xml`
+
+The download is a Windows executable. On a Mac it will not open at all.
+
+**Linux is the arguable one**, because plenty of people run Star Citizen
+through Proton. That is a real port -- a different input layer, a different
+window toolkit, a different joystick API -- and it would be a separate build
+rather than a setting. If enough people want it, say so in an issue.
 
 ## Building it yourself
 
